@@ -1,0 +1,37 @@
+// //Font
+$mainFontSize: 12px;
+$modalTitleFontSize: 30px;
+$mainFont: 'Roboto', sans-serif;
+
+//COLORS
+//Main Colors
+$textBlackColor: #000000;
+$textWhiteColor: #ffffff;
+$textFooterColor: #545454;
+$textRedColor: #ff001b;
+$whiteColor: #ffffff;
+$blackColor: #000000;
+
+//Background Colors
+$bgMainColor: #ffffff;
+$bgSecondaryColor: #f7f7f7;
+$bgHeaderColor: rgba(0, 0, 0, 0.56);
+
+//Modal Colors
+$modalSubtitleColor: #8c8c8c;
+
+//Icon
+$icon-color: #818181;
+
+//Accent colors
+$accentColor: #ff6b08;
+$btnHoverColor: rgba(255, 107, 1, 0.6);
+
+// // Animation
+
+$animationProps: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// // Breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
