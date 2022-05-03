@@ -1,0 +1,185 @@
+.header-list {
+    display: flex;
+}
+
+.header {
+    @include for-size(tablet-up) {
+            padding-top: 40px;
+            padding-bottom: 92px;
+    }
+
+        @include for-size(tablet) {
+            padding-top: 36px;
+            padding-bottom: 84px;
+        }
+
+    max-width: 100%;
+    max-height: 320px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include for-size(mobile) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url(../images/Mobile/home-mob-background.jpg);
+    
+        @media screen and (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                url(../images/Mobile/home-mob-background-x2.jpg);
+        }
+    
+        @media screen and (min-device-pixel-ratio: 3),
+        (min-resolution: 288dpi),
+        (min-resolution: 3dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                url(../images/Mobile/home-mob-background-x3.jpg);
+        }
+    }
+
+    @include for-size(tablet) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url(../images/Tablet/home-tablet-background.jpg);
+    
+        @media screen and (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                url(../images/Tablet/home-tablet-background-x2.jpg);
+        }
+    
+        @media screen and (min-device-pixel-ratio: 3),
+        (min-resolution: 288dpi),
+        (min-resolution: 3dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                url(../images/Tablet/home-tablet-background-x3.jpg);
+        }
+    }
+
+    @include for-size(desktop) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url(../images/Desctop/home-background.jpg);
+    
+        @media screen and (min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                url(../images/Desctop/home-background-x2.jpg);
+        }
+    
+        @media screen and (min-device-pixel-ratio: 3),
+        (min-resolution: 288dpi),
+        (min-resolution: 3dppx) {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                url(../images/Desctop/home-background-x3.jpg);
+        }
+    }
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+    @include for-size(tablet-up) {
+justify-content: space-between;
+    }
+
+        @include for-size(tablet-up) {
+            justify-content: space-between;
+            margin-bottom: 54px;
+        }
+
+        @include for-size(tablet) {
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+      
+}
+
+.film-icon {
+    @include for-size(tablet) {
+        margin-right: 8px;
+    }
+
+    @include for-size(desktop) {
+        margin-right: 10px;
+    }
+}
+
+.header-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+    color: #fff;
+    @include for-size(mobile) {
+        display: none;
+    }
+    @include for-size(tablet) {
+        display: block;
+    }
+}
+
+.header-list {
+    @include for-size(tablet) {
+       margin-left: auto;
+    }
+}
+
+.header-list__item {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+
+    &:not(:last-child) {
+        margin-right: 40px;
+    }
+}
+
+.header-list__link {
+    color: #fff;
+}
+
+.header-label {
+    // padding-bottom: 92px;
+    // position: absolute;
+        @include for-size(tablet) {
+            display: flex;
+            justify-content: center;
+        }
+    
+    
+}
+
+.header-input {
+    @include for-size(tablet-up) {
+        width: 100%;
+    }
+
+    @include for-size(tablet) {
+        width: 336px;
+    }
+
+    cursor: pointer;
+    border-color: transparent;
+    border-bottom: 0.5px solid #fff;
+background-color: transparent;
+
+&::placeholder {
+padding-bottom: 4px;
+font-weight: 400;
+font-size: 14px;
+line-height: 1.14;
+color: #fff;
+}
+}
+
+.link-box {
+    // display: flex;
+}
+
+// .label-div {
+//     position: absolute;
+//     width: 12px;
+//     height: 12px;
+//     background-color: aqua;
+// }
