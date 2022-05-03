@@ -9,7 +9,22 @@
   text-align: center;
   background-color: $bgMainColor;
 }
+
 .footer__link {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer_img {
+  animation: heartAnimation 600ms ease infinite;
+}
+
+@keyframes heartAnimation {
+  from {
+    transform: scale(1);
   }
+
+  to {
+    transform: scale(1.3);
+  }
+}
