@@ -1,3 +1,14 @@
+.footer {
+  margin-top: auto;
+  font-family: $mainFont;
+  font-style: 400;
+  font-size: 16px;
+  line-height: 1.18;
+  color: $textFooterColor;
+  height: 77px;
+  text-align: center;
+  background-color: $bgMainColor;
+}
 .footer__link {
     cursor: pointer;
     text-decoration: underline;
