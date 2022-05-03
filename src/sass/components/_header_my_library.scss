@@ -1,0 +1,117 @@
+.header-library {
+background: #0000008F;
+padding-top: 40px;
+padding-bottom: 60px;
+padding-left: 71px;
+padding-right: 71px;
+
+background-repeat: no-repeat;
+
+background-size: cover;
+background-position: center;
+
+background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+url(../images/Mobile/watched-mob-background.jpg);
+
+@media screen and (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/Mobile/watched-mob-background-x2.jpg);
+}
+
+@media screen and (min-device-pixel-ratio: 3),
+(min-resolution: 288dpi),
+(min-resolution: 3dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/Mobile/watched-mob-background-x3.jpg);
+}
+
+@include for-size(tablet) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/Tablet/watched-tablet-background.jpg);
+
+@media screen and (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/Tablet/watched-tablet-background-x2.jpg);
+}
+
+@media screen and (min-device-pixel-ratio: 3),
+(min-resolution: 288dpi),
+(min-resolution: 3dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/Tablet/watched-tablet-background-x3.jpg);
+}
+}
+
+@include for-size(desktop) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/Desctop/watched-background.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/Desctop/watched-background-x2.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/Desctop/watched-background-x3.jpg);
+    }
+
+    
+}
+
+
+}
+
+.header-library__container {
+
+}
+
+.library-navigation__svg {
+
+}
+
+.library-navigation__logo {
+
+}
+
+
+.library-logo__svg {
+
+}
+
+.library-navigation__text {
+
+}
+
+.library-navigation__list {
+
+}
+
+.library-navigation__item {
+
+}
+
+.header-library__button-container {
+
+}
+
+.header-library__button-list {
+
+}
+
+.header-library__button-item {
+
+}
+
+.header-library__button {
+
+}
+
