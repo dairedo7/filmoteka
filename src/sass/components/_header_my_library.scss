@@ -1,9 +1,7 @@
 .header-library {
 background: #0000008F;
 padding-top: 40px;
-padding-bottom: 60px;
-padding-left: 71px;
-padding-right: 71px;
+padding-bottom: 62px;
 
 background-repeat: no-repeat;
 
@@ -71,7 +69,14 @@ url(../images/Mobile/watched-mob-background.jpg);
 }
 
 .header-library__container {
+}
 
+.library-navigation {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+margin-bottom: 60px;
 }
 
 .library-navigation__svg {
@@ -79,7 +84,8 @@ url(../images/Mobile/watched-mob-background.jpg);
 }
 
 .library-navigation__logo {
-
+display: flex;
+align-items: center;
 }
 
 
@@ -88,30 +94,103 @@ url(../images/Mobile/watched-mob-background.jpg);
 }
 
 .library-navigation__text {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
+    color: #fff;
+    margin-right: 10px;
+    
+    @include for-size(tablet-up) {
+        display: none;
+    }
+    
+    @include for-size(tablet) {
+        display: block;
+    }
 
 }
 
 .library-navigation__list {
+display: flex;
+
+
 
 }
 
 .library-navigation__item {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
+        position: relative;
+&:not(:last-child) {
+    margin-right: 40px;
+}
+}
 
+.library-navigation__link {
+    color: #FFFFFF;
+    text-transform: uppercase;
 }
 
 .header-library__button-container {
-
 }
 
 .header-library__button-list {
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+@include for-size(tablet) {
+justify-content: center;
+}
 
 }
 
 .header-library__button-item {
+@include for-size(tablet) {
+&:not(:last-child) {
+    margin-right: 32px;
+}}
+
 
 }
 
 .header-library__button {
+display: flex;
+justify-content: center;
+align-items: center;
+background: transparent;
+border: 1px solid #FFFFFF;
+color: #FFFFFF;
+padding-top: 14px;
+padding-bottom: 14px;
+width: 129px;
 
+@include for-size(tablet) {
+padding-top: 13px;
+padding-bottom: 13px;
+width: 152px;
 }
 
+@include for-size(desktop) {
+width: 148px;
+}
+
+&:hover, &:focus {
+    background-color: #FF6B01;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    border: 1px solid transparent;
+}
+}
+
+.current::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    left: 0;
+    bottom: -5px;
+    height: 4px;
+    background: #FF6B08;
+    border-radius: 2px;
+}
