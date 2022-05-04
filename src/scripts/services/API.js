@@ -1,102 +1,48 @@
+import axios from 'axios';
+
 const BASE_URL = `https://api.themoviedb.org/3`;
-const KEY = `76293c6bcb8bbcc89a96d2b767d5c3a3`;
+const API_KEY = `76293c6bcb8bbcc89a96d2b767d5c3a3`;
 
-export default class NewApiService {
-  constructor() {
-    this.page = 1;
-    this.searchQuery = '';
-    this.movieId = '123';
-    this.language = 'en-US';
-    this.results = null;
-    this.searchType = '';
+axios.defaults.baseURL = BASE_URL;
+
+export const fetchPopularMovies = async page => {
+  const response = await axios.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
+  const popularMoviesData = await response.data;
+  return popularMoviesData;
+};
+
+export const fetchMoviesSearchQuery = async (searchQuery, page) => {
+  const response = await axios.get(
+    `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query='${searchQuery}'`,
+  );
+  const popularMoviesData = await response.data;
+  if (popularMoviesData.results.length === 0) {
+    throw new Error(`Not found ${searchQuery}`);
   }
+  return popularMoviesData;
+};
 
-  async fetchPopular() {
-    const searchParams = new URLSearchParams({
-      api_key: KEY,
-      language: this.language,
-      page: this.page,
+export const fetchMovieDetails = async id => {
+  const response = await axios.get(`movie/${id}?api_key=${API_KEY}&language=en-US`);
+  const movieDetails = await response.data;
+  return movieDetails;
+};
+
+export const fetchMoviePoster = async id => {
+  const response = await axios.get(`movie/${id}/images?api_key=${API_KEY}&language=en-US`);
+  const moviePoster = await response.data;
+  return moviePoster;
+};
+
+export const fetchGenres = async () => {
+  try {
+    const response = await axios.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    const genres = {};
+    response.data.genres.forEach(({ id, name }) => {
+      genres[id] = name;
     });
-
-    const url = `${BASE_URL}/trending/movie/day?${searchParams}`;
-    const response = await fetch(url);
-    const data = await response.json();
-
-    this.results = data.total_results;
-    this.pages = data.total_pages;
-    this.searchType = 'byDefault';
-
-    return data.results;
+    return genres;
+  } catch (error) {
+    console.error(error);
   }
-
-  async fetchByKeyWord() {
-    const searchParams = new URLSearchParams({
-      api_key: KEY,
-      language: this.language,
-      query: this.searchQuery,
-      page: this.page,
-      include_adult: false,
-    });
-
-    const url = `${BASE_URL}/search/movie?${searchParams}`;
-    const response = await fetch(url);
-    const data = await response.json();
-
-    this.results = data.total_results;
-    this.pages = data.total_pages;
-
-    this.searchType = 'byName';
-
-    return data.results;
-  }
-
-  async fetchFullInfo() {
-    const searchParams = new URLSearchParams({
-      api_key: KEY,
-      language: this.language,
-    });
-
-    const url = `${BASE_URL}/movie/${this.movieId}?${searchParams}`;
-
-    const dataImages = await fetch(url);
-    const parseData = await dataImages.json();
-
-    return await parseData.results;
-  }
-
-  async fetchGenres() {
-    const searchParams = new URLSearchParams({
-      api_key: KEY,
-    });
-
-    const url = `${BASE_URL}/genre/movie/list?${searchParams}`;
-    const response = await fetch(url);
-    const data = await response.json();
-
-    return data.genres;
-  }
-
-  incrementPage() {
-    this.page += 1;
-  }
-
-  resetPage() {
-    this.page = 1;
-  }
-
-  get query() {
-    return this.searchQuery;
-  }
-
-  set query(newQuery) {
-    this.searchQuery = newQuery;
-  }
-
-  get filmId() {
-    return this.movieId;
-  }
-
-  set filmId(newFilm) {
-    this.movieId = newFilm;
-  }
-}
+};
