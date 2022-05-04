@@ -1,13 +1,15 @@
-<div class="header">
+<header class="header">
   <div class="container">
     <div class="header-box">
-      <svg class="film-icon" width="24" height="24">
-        <use href="/images/svg/icons.svg#film"></use>
-      </svg>
-      <h1 class="header-title">Filmoteka</h1>
+      <a class="header-box__link" href="/index.html">
+        <svg class="header-box__icon" width="24" height="24">
+          <use href="/images/svg/icons.svg#film"></use>
+        </svg>
+        <h1 class="header-box__title">Filmoteka</h1>
+      </a>
       <ul class="header-list">
         <li class="header-list__item">
-          <a class="header-list__link" href="/index.html">HOME</a>
+          <a class="header-list__link header-list__link--current" href="/index.html">HOME</a>
         </li>
         <li class="header-list__item"><a class="header-list__link" href="#">MY LIBRARY</a></li>
       </ul>
@@ -21,7 +23,12 @@
           name="header-input"
           autofocus
         />
+        <button class="header-form__btn" type="submit">
+          <svg class="header-form__icon" width="12" height="12">
+            <use href="/images/svg/icons.svg#search"></use>
+          </svg>
+        </button>
       </label>
     </form>
   </div>
-</div>
+</header>
