@@ -18,10 +18,11 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
-    @include for-size(mobile) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url(../images/Mobile/home-mob-background.jpg);
+background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+url(../images/Mobile/home-mob-background.jpg);
+    // @include for-size(mobile) {
+    //     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    //         url(../images/Mobile/home-mob-background.jpg);
     
         @media screen and (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
@@ -36,7 +37,7 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
                 url(../images/Mobile/home-mob-background-x3.jpg);
         }
-    }
+    // }
 
     @include for-size(tablet) {
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -139,7 +140,7 @@ justify-content: space-between;
     color: #fff;
 }
 
-.header-label {
+.header-form__label {
     // padding-bottom: 92px;
     // position: absolute;
         @include for-size(tablet) {
@@ -150,7 +151,7 @@ justify-content: space-between;
     
 }
 
-.header-input {
+.header-form__input {
     @include for-size(tablet-up) {
         width: 100%;
     }
@@ -158,11 +159,11 @@ justify-content: space-between;
     @include for-size(tablet) {
         width: 336px;
     }
-
-    cursor: pointer;
+ cursor: pointer;
     border-color: transparent;
     border-bottom: 0.5px solid #fff;
 background-color: transparent;
+color: #fff;
 
 &::placeholder {
 padding-bottom: 4px;
@@ -171,6 +172,10 @@ font-size: 14px;
 line-height: 1.14;
 color: #fff;
 }
+
+// &:hover, &:focus {
+//     background-color: grey;
+// }
 }
 
 .link-box {
