@@ -2,7 +2,7 @@ const collectionEl = document.querySelector('.collection');
 export function renderMarkup(res, genres) {
   console.log(res);
   const response = res
-    .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
+    .map(({ id, poster_path, backdrop_path, title, genre_ids, release_date, vote_average }) => {
       if (genre_ids.length > 3) {
         const other = 'Other';
         genre_ids[2] = other;
@@ -16,7 +16,7 @@ export function renderMarkup(res, genres) {
             <img
               class='item__img'
               id='${id}'
-              src='https://image.tmdb.org/t/p/w500${poster_path}'
+              src='https://image.tmdb.org/t/p/w500${poster_path || backdrop_path}'
               alt='${title}'
             />
           </div>
