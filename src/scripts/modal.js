@@ -16,7 +16,7 @@ import { removeQueueMovie } from './localStorage';
 
 const backdropEl = document.querySelector('.backdrop');
 
-function onMovieCardClick(id) {
+export function onMovieCardClick(id) {
   backdropEl.classList.remove('is-hidden');
 
   if (id) {

@@ -1,5 +1,12 @@
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
+import { onMovieCardClick } from './modal.js';
+
+const collectionEl = document.querySelector('.collection');
+
+collectionEl.addEventListener('click', evt => {
+  onMovieCardClick(evt.target.id);
+});
 
 let page;
 
