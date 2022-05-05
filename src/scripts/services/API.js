@@ -41,6 +41,8 @@ export const fetchGenres = async () => {
     response.data.genres.forEach(({ id, name }) => {
       genres[id] = name;
     });
+
+    console.log(response.data);
     return genres;
   } catch (error) {
     console.error(error);

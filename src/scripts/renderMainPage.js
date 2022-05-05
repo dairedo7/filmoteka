@@ -1,19 +1,19 @@
-import markup from '../templates/cardTemplate.hbs';
-import { fetchPopularMovies } from '../scripts/services/API';
-
-const collectionEl = document.querySelector('.collection');
+import { renderMarkup } from '../templates/cardTemplate.js';
+import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
 
 let page;
+
 async function getMovies() {
   page = 1;
   const response = await fetchPopularMovies(page);
-  console.log(response);
-  return renderMarkup(response);
+  const loadGenres = await fetchGenres();
+  console.log(loadGenres);
+
+  return renderMarkup(response.results, loadGenres);
 }
 
-function renderMarkup(res) {
-  return collectionEl.insertAdjacentHTML('beforeend', markup(res));
-}
+// function renderMarkup(res) {
+//   return collectionEl.insertAdjacentHTML('beforeend', markup(res));
+// }
 
 getMovies();
-console.log(getMovies(page));
