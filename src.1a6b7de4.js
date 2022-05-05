@@ -87,7 +87,9 @@ module.exports=require("./lib/axios");
 "use strict";var e=require("../templates/cardTemplate.js"),r=require("../scripts/services/API");let s;async function t(){s=1;const t=await(0,r.fetchPopularMovies)(s),a=await(0,r.fetchGenres)();return console.log(a),(0,e.renderMarkup)(t.results,a)}t();
 },{"../templates/cardTemplate.js":"iwKe","../scripts/services/API":"XqD0"}],"Hibt":[function(require,module,exports) {
 "use strict";function o(){const o=document.querySelector(".scroll-top");window.onscroll=(()=>{window.scrollY>450?(o.removeAttribute("disabled",""),o.classList.remove("scroll-top_hide")):window.scrollY<450&&(o.setAttribute("disabled",""),o.classList.add("scroll-top_hide"))}),o.addEventListener("click",()=>{window.scrollTo(0,0)})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.scrollToTop=o,o();
+},{}],"BSv9":[function(require,module,exports) {
+
 },{}],"Focm":[function(require,module,exports) {
-"use strict";require("./sass/main.scss");var r=i(require("./scripts/services/API")),e=i(require("./scripts/renderMainPage")),s=require("./scripts/scroll-to-top");function i(r){return r&&r.__esModule?r:{default:r}}
-},{"./sass/main.scss":"clu1","./scripts/services/API":"XqD0","./scripts/renderMainPage":"q8Z5","./scripts/scroll-to-top":"Hibt"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.816849f7.js.map
+"use strict";require("./sass/main.scss");var r=t(require("./scripts/services/API")),e=t(require("./scripts/renderMainPage")),s=require("./scripts/scroll-to-top"),i=t(require("./scripts/header"));function t(r){return r&&r.__esModule?r:{default:r}}
+},{"./sass/main.scss":"clu1","./scripts/services/API":"XqD0","./scripts/renderMainPage":"q8Z5","./scripts/scroll-to-top":"Hibt","./scripts/header":"BSv9"}]},{},["Focm"], null)
+//# sourceMappingURL=/filmoteka/src.1a6b7de4.js.map
