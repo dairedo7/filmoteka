@@ -7,13 +7,13 @@ let page;
 async function getMovies() {
   page = 1;
   const response = await fetchPopularMovies(page);
-  console.log(response);
+  // console.log(response);
   return renderMarkup(response);
 }
 
-function renderMarkup(res) {
+export function renderMarkup(res) {
   return collectionEl.insertAdjacentHTML('beforeend', markup(res));
 }
 
 getMovies();
-console.log(getMovies(page));
+// console.log(getMovies(page));

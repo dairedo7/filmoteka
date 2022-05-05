@@ -16,9 +16,9 @@ export const fetchMoviesSearchQuery = async (searchQuery, page) => {
     `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query='${searchQuery}'`,
   );
   const popularMoviesData = await response.data;
-  if (popularMoviesData.results.length === 0) {
-    throw new Error(`Not found ${searchQuery}`);
-  }
+  // if (popularMoviesData.results.length === 0) {
+  //   throw new Error(`Not found ${searchQuery}`);
+  // }
   return popularMoviesData;
 };
 
