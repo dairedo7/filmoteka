@@ -7,7 +7,7 @@ axios.defaults.baseURL = BASE_URL;
 
 export const fetchPopularMovies = async page => {
   const response = await axios.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
-  const popularMoviesData = await response.data;
+  const popularMoviesData = response.data;
   return popularMoviesData;
 };
 

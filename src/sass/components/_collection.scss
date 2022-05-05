@@ -1,0 +1,14 @@
+.films-collection {
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+.collection {
+  @include for-size(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-right: -30px;
+    margin-bottom: -30px;
+  }
+}
