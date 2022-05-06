@@ -5,7 +5,10 @@ import { onMovieCardClick } from './modal.js';
 const collectionEl = document.querySelector('.collection');
 
 collectionEl.addEventListener('click', evt => {
-  onMovieCardClick(evt.target.id);
+  if (evt.target === evt.currentTarget) {
+    return;
+  }
+  return onMovieCardClick(evt.target.id);
 });
 
 let page;
