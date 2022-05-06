@@ -14,7 +14,7 @@ async function getMovies() {
   page = 1;
   const response = await fetchPopularMovies(page);
   const loadGenres = await fetchGenres();
-  console.log(loadGenres);
+  // console.log(loadGenres);
 
   return renderMarkup(response.results, loadGenres);
 }
