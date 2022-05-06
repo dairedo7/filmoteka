@@ -19,7 +19,7 @@
 
   background-color: rgba(0, 0, 0, 0.2);
   &.is-hidden {
-    /* visibility: hidden; */
+    // visibility: hidden; 
     opacity: 0;
     pointer-events: none;
   }
@@ -40,6 +40,7 @@
   padding-right: 20px;
   padding-bottom: 40px;
   padding-left: 20px;
+  border-radius: 5px;
 
   background-color: $bgMainColor;
 
@@ -103,6 +104,7 @@
 .modal-img {
   width: 240px;
   height: 357px;
+  border-radius: 5px;
 
   @include for-size(tablet) {
     width: 264px;

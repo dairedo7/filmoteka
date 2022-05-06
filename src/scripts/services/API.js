@@ -12,6 +12,12 @@ export const fetchPopularMovies = async page => {
   return popularMoviesData;
 };
 
+export const fetchTrendingMovies = async time => {
+  const response = await axios.get(`/trending/movie/${time}?api_key=${API_KEY}`);
+  const trandingMoviesData = await response.data;
+  return trandingMoviesData;
+};
+
 export const fetchMoviesSearchQuery = async (searchQuery, page) => {
   const response = await axios.get(
     `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query=${searchQuery}`,
@@ -44,8 +50,17 @@ export const fetchGenres = async () => {
     response.data.genres.forEach(({ id, name }) => {
       genres[id] = name;
     });
+
+    console.log(response.data);
     return genres;
   } catch (error) {
     console.error(error);
   }
+};
+
+export const fetchTrailerMovie = async id => {
+  const response = await axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
+  const data = await response.data;
+  const sourseId = data.results[0].key;
+  return sourseId;
 };
