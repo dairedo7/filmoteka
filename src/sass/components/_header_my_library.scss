@@ -108,7 +108,9 @@ align-items: center;
     @include for-size(tablet) {
         display: block;
     }
-
+ @include for-size(desktop) {
+    margin-left: 10px;
+ }
 }
 
 .library-navigation__list {
