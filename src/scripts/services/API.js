@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { failure } from '../notification';
 
 const BASE_URL = `https://api.themoviedb.org/3`;
 const API_KEY = `76293c6bcb8bbcc89a96d2b767d5c3a3`;
@@ -13,12 +14,14 @@ export const fetchPopularMovies = async page => {
 
 export const fetchMoviesSearchQuery = async (searchQuery, page) => {
   const response = await axios.get(
-    `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query='${searchQuery}'`,
+    `/search/movie?api_key=${API_KEY}&page=${page}&language=en&query=${searchQuery}`,
   );
   const popularMoviesData = await response.data;
-  // if (popularMoviesData.results.length === 0) {
-  //   throw new Error(`Not found ${searchQuery}`);
-  // }
+  if (popularMoviesData.results.length === 0) {
+    throw new Error(failure());
+    // throw new Error(`Not found ${searchQuery}`);
+    
+  }
   return popularMoviesData;
 };
 

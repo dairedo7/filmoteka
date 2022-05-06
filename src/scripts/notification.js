@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 // Функции уведомлений (просто импортируем туда где хотим использовать и вызываем)
 
 export function success(title) {
-  Notiflix.Notify.success(`${title} titles found`);
+  Notiflix.Notify.success(`${title} movies found`);
 }
 
 export function failure() {
