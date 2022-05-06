@@ -5,4 +5,3 @@ import { scrollToTop } from './scripts/scroll-to-top';
 import header from './scripts/header';
 import spinner from './scripts/spinner';
 import './scripts/searchMovie';
-
