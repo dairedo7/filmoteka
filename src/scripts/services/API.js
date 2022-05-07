@@ -26,7 +26,6 @@ export const fetchMoviesSearchQuery = async (searchQuery, page) => {
   if (popularMoviesData.results.length === 0) {
     throw new Error(failure());
     // throw new Error(`Not found ${searchQuery}`);
-    
   }
   return popularMoviesData;
 };
@@ -51,7 +50,6 @@ export const fetchGenres = async () => {
       genres[id] = name;
     });
 
-    console.log(response.data);
     return genres;
   } catch (error) {
     console.error(error);
