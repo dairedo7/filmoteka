@@ -66,21 +66,19 @@ const closeBtnEl = document.querySelector('.modal-close-btn');
 closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');
-    window.removeEventListener('keydown', onEscPress);
-
+  window.removeEventListener('keydown', onEscPress);
 }
 
 backdropEl.addEventListener('click', onBackdropClick);
 
 function onBackdropClick(event) {
-if (event.currentTarget === event.target) {
-  onCloseBtnClick()
+  if (event.currentTarget === event.target) {
+    onCloseBtnClick();
+  }
 }
-};
-
 
 function onEscPress(event) {
   if (event.code === 'Escape') {
-onCloseBtnClick()
+    onCloseBtnClick();
   }
 }
