@@ -6,4 +6,4 @@ import header from './scripts/header';
 import spinner from './scripts/spinner';
 import './scripts/searchMovie';
 import modalStudents from './scripts/modalStudents';
-
+import darkTheme from './scripts/dark-theme';

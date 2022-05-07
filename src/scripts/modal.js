@@ -25,7 +25,7 @@ export function onMovieCardClick(id) {
       .then(details => {
         getData();
         getDataQ();
-
+        console.log(details);
         renderMovieDetails(details);
 
         const modalButtonsEl = document.querySelector('.modal-buttons');
