@@ -18,6 +18,7 @@ const backdropEl = document.querySelector('.backdrop');
 
 export function onMovieCardClick(id) {
   backdropEl.classList.remove('is-hidden');
+  window.addEventListener('keydown', onEscPress);
 
   if (id) {
     fetchMovieDetails(id)
@@ -65,4 +66,19 @@ const closeBtnEl = document.querySelector('.modal-close-btn');
 closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');
+  window.removeEventListener('keydown', onEscPress);
+}
+
+backdropEl.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+  if (event.currentTarget === event.target) {
+    onCloseBtnClick();
+  }
+}
+
+function onEscPress(event) {
+  if (event.code === 'Escape') {
+    onCloseBtnClick();
+  }
 }
