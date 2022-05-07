@@ -1,215 +1,228 @@
 .header {
-    padding-top: 40px;
-    @include for-size(tablet-up) {
+  padding-top: 40px;
 
-            padding-bottom: 92px;
+  @include for-size(tablet-up) {
+
+    padding-bottom: 92px;
+  }
+
+  @include for-size(tablet) {
+    padding-bottom: 80px;
+  }
+
+  max-width: 100%;
+  max-height: 320px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+  url(../images/Mobile/home-mob-background.jpg);
+  // @include for-size(mobile) {
+  //     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+  //         url(../images/Mobile/home-mob-background.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/Mobile/home-mob-background-x2.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/Mobile/home-mob-background-x3.jpg);
+  }
+
+  // }
+
+  @include for-size(tablet) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/Tablet/home-tablet-background.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/Tablet/home-tablet-background-x2.jpg);
     }
 
-        @include for-size(tablet) {
-            padding-bottom: 80px;
-        }
+    @media screen and (min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/Tablet/home-tablet-background-x3.jpg);
+    }
+  }
 
-    max-width: 100%;
-    max-height: 320px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-url(../images/Mobile/home-mob-background.jpg);
-    // @include for-size(mobile) {
-    //     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    //         url(../images/Mobile/home-mob-background.jpg);
-    
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url(../images/Mobile/home-mob-background-x2.jpg);
-        }
-    
-        @media screen and (min-device-pixel-ratio: 3),
-        (min-resolution: 288dpi),
-        (min-resolution: 3dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url(../images/Mobile/home-mob-background-x3.jpg);
-        }
-    // }
+  @include for-size(desktop) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/Desctop/home-background.jpg);
 
-    @include for-size(tablet) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url(../images/Tablet/home-tablet-background.jpg);
-    
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url(../images/Tablet/home-tablet-background-x2.jpg);
-        }
-    
-        @media screen and (min-device-pixel-ratio: 3),
-        (min-resolution: 288dpi),
-        (min-resolution: 3dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url(../images/Tablet/home-tablet-background-x3.jpg);
-        }
+    @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/Desctop/home-background-x2.jpg);
     }
 
-    @include for-size(desktop) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url(../images/Desctop/home-background.jpg);
-    
-        @media screen and (min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi),
-        (min-resolution: 2dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url(../images/Desctop/home-background-x2.jpg);
-        }
-    
-        @media screen and (min-device-pixel-ratio: 3),
-        (min-resolution: 288dpi),
-        (min-resolution: 3dppx) {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-                url(../images/Desctop/home-background-x3.jpg);
-        }
+    @media screen and (min-device-pixel-ratio: 3),
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url(../images/Desctop/home-background-x3.jpg);
     }
+  }
 }
 
 .header-box {
-    display: flex;
-    align-items: center;
-    @include for-size(tablet-up) {
-justify-content: space-between;
-    }
+  display: flex;
+  align-items: center;
 
-        @include for-size(tablet-up) {
-            justify-content: space-between;
-            margin-bottom: 54px;
-        }
+  @include for-size(tablet-up) {
+    justify-content: space-between;
+  }
 
-        @include for-size(tablet) {
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-      
+  @include for-size(tablet-up) {
+    justify-content: space-between;
+    margin-bottom: 54px;
+  }
+
+  @include for-size(tablet) {
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
 }
 
 .header-box__link {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-box__icon {
-    @include for-size(tablet) {
-        margin-right: 8px;
-    }
+  @include for-size(tablet) {
+    margin-right: 8px;
+  }
 
-    @include for-size(desktop) {
-        margin-right: 10px;
-    }
+  @include for-size(desktop) {
+    margin-right: 10px;
+  }
 }
 
 .header-box__title {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 1.16;
-    color: #fff;
-    @include for-size(mobile) {
-        display: none;
-    }
-    @include for-size(tablet) {
-        display: block;
-    }
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.16;
+  color: #fff;
+
+  @include for-size(mobile) {
+    display: none;
+  }
+
+  @include for-size(tablet) {
+    display: block;
+  }
 }
 
 .header-list {
-    display: flex;
-    @include for-size(tablet) {
-       margin-left: auto;
-    }
+  display: flex;
+
+  @include for-size(tablet) {
+    margin-left: auto;
+  }
 }
 
 .header-list__item {
-    position: relative;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.16;
+  position: relative;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
 
-    &:not(:last-child) {
-        margin-right: 40px;
-    }
+  &:not(:last-child) {
+    margin-right: 40px;
+  }
 }
 
 .header-list__link {
-    color: $textWhiteColor;
+  color: $textWhiteColor;
 
-    &--current::after {
-        position: absolute;
-        bottom: -2px;
-        content: '';
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: $accentColor;
+  &--current::after {
+    position: absolute;
+    bottom: -2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: $accentColor;
 
-    }
+  }
 }
 
 .header-form__label {
-   
-    position: relative;
-        @include for-size(tablet) {
-            display: flex;
-            justify-content: center;
-        }  
+
+  position: relative;
+
+  @include for-size(tablet) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .header-form__input {
-    @include for-size(tablet-up) {
-        width: 100%;
-    }
+  @include for-size(tablet-up) {
+    width: 100%;
+  }
 
-    @include for-size(tablet) {
-        width: 336px;
-    }
-    
- cursor: pointer;
-    border-color: transparent;
-    border-bottom: 0.5px solid #fff;
-background-color: transparent;
-color: $textWhiteColor;
+  @include for-size(tablet) {
+    width: 336px;
+  }
 
-&::placeholder {
-padding-bottom: 4px;
-font-weight: 400;
-font-size: 14px;
-line-height: 1.14;
-color: $textWhiteColor;
-}
+  padding-bottom: 5px;
+  cursor: pointer;
+  outline: none;
+  border-color: transparent;
+  border-bottom: 0.5px solid #fff;
+  background-color: transparent;
+  color: $textWhiteColor;
+  transition: border-color 250ms linear;
 
+
+  &::placeholder {
+    padding-bottom: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    color: $textWhiteColor;
+  }
+
+  &:focus {
+    border-bottom-color: $accentColor;
+  }
 }
 
 .header-form__btn {
-    position: absolute;
-    
-    background-color: transparent;
-    border-color: transparent;
-    width: 20px;
-    height: 20px;
-    right: 2px;
-        @include for-size(tablet) {
-            right: 187px;
-        }
+  position: absolute;
 
-        @include for-size(desktop) {
-            right: 315px;
-        }
+  background-color: transparent;
+  border-color: transparent;
+  width: 20px;
+  height: 20px;
+  right: 2px;
+
+  @include for-size(tablet) {
+    right: 187px;
+  }
+
+  @include for-size(desktop) {
+    right: 315px;
+  }
 
 }
 
 .header-form__icon {
-    position: absolute;
-    top: 4px;
-    right: 2px;
-    }
-    
-
+  position: absolute;
+  top: 4px;
+  right: 2px;
+}
