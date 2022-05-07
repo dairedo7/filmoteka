@@ -16,8 +16,18 @@ export function renderMovieDetails(movieDetails) {
     vote_average,
     vote_count,
   } = movieDetails;
-  const twoGenres = genres.map(({ name }) => `${name}`).slice(0, 2);
-  twoGenres.splice(2, 0, 'other');
+
+  console.log(genres);
+  let genre;
+  if (genres.length === 1) {
+    genre = genres.map(({ name }) => `${name}`);
+  } else if (genres.length > 2) {
+    const twoGenres = genres.map(({ name }) => `${name}`).slice(0, 2);
+    twoGenres.splice(2, 0, 'other');
+    genre = twoGenres.join(', ');
+  } else {
+    genre = genres.map(({ name }) => `${name}`).join(', ');
+  }
 
   const movieDetailsEl = `<img src="https://image.tmdb.org/t/p/original${poster_path}" alt="постер" class="modal-img" />
       <div class="modal-description">
@@ -40,7 +50,7 @@ export function renderMovieDetails(movieDetails) {
           </li>
           <li class="modal-item">
             <p class="modal-key">Genre</p>
-            <p class="modal-values">${twoGenres.join(', ')}</p>
+            <p class="modal-values">${genre}</p>
           </li>
         </ul>
         <div class="modal-overview">

@@ -19,6 +19,7 @@ const backdropEl = document.querySelector('.backdrop');
 export function onMovieCardClick(id) {
   backdropEl.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscPress);
+  document.body.style.overflow = 'hidden'; //todo
 
   if (id) {
     fetchMovieDetails(id)
@@ -67,6 +68,7 @@ closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');
   window.removeEventListener('keydown', onEscPress);
+  document.body.style.overflow = ''; //todo
 }
 
 backdropEl.addEventListener('click', onBackdropClick);

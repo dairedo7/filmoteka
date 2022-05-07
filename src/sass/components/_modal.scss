@@ -35,6 +35,9 @@
   transform: translate(-50%, -50%) scale(1);
   transition: transform $animationProps;
 
+  
+  // filter: drop-shadow(0 8px 7px black);
+
   width: 280px;
   // height: 940px;
   padding-top: 48px;
@@ -44,11 +47,15 @@
   border-radius: 5px;
 
   background-color: $bgMainColor;
+  @include for-size(tablet-up) {
+    max-height: 95%; //todo
+    overflow-y: auto;
+  }
 
   @include for-size(tablet) {
     width: 704px;
-    //?
-    height: 552px;
+    
+    height: 505px; //?
 
     padding-top: 40px;
     padding-right: 72px;
@@ -58,8 +65,8 @@
 
   @include for-size(desktop) {
     width: 814px;
-    //?
-    height: 558px;
+    
+    height: 558px; //?
 
     padding-top: 40px;
     padding-right: 16px;
@@ -178,11 +185,18 @@
 .modal-values {
   display: flex;
   align-items: center;
+  width: 107px;
 
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
   color: $textBlackColor;
+  @include for-size(tablet) {
+    width: 160px;
+  }
+  @include for-size(desktop) {
+    width: 190px;
+  }
 }
 
 .modal-vote {
@@ -236,6 +250,8 @@
   color: $textBlackColor;
 
   margin-top: 8px;
+  max-height: 236px;
+  overflow-y: auto;
 }
 
 .modal-buttons {
@@ -251,11 +267,14 @@
   font-size: 12px;
   line-height: 1.33;
 
+
   width: 110px;
   height: 44px;
   text-transform: uppercase;
   color: $textBlackColor;
   background: transparent;
+
+  padding: 0 7px;
 
 
   display: flex;
@@ -276,7 +295,7 @@
 
   &:hover,
   &:focus {
-    border: none;
+    border: transparent; //none
     background-color: $accentColor;
 
     color: $textWhiteColor;
