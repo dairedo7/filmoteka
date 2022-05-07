@@ -53,20 +53,20 @@
 
   @include for-size(desktop) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-      url(../images/desktop/home-background.jpg);
+      url(../images/Desktop/home-background.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/desktop/home-background-x2.jpg);
+        url(../images/Desktop/home-background-x2.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
       (min-resolution: 288dpi),
       (min-resolution: 3dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/desktop/home-background-x3.jpg);
+        url(../images/Desktop/home-background-x3.jpg);
     }
   }
 }
