@@ -1,6 +1,7 @@
 import { fetchMovieDetails } from './services/API';
 import { renderMovieDetails } from './render-movie-details';
 import { renderWatchedQueueButtons } from './render-watched-queue-btn';
+import { startSpin, stopSpin } from './spinner';
 
 let watchedMovies = {};
 import { getData } from './localStorage';
@@ -19,16 +20,16 @@ const backdropEl = document.querySelector('.backdrop');
 export function onMovieCardClick(id) {
   backdropEl.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscPress);
-  document.body.style.overflow = 'hidden'; //todo
 
   if (id) {
     fetchMovieDetails(id)
       .then(details => {
+        startSpin();
         getData();
         getDataQ();
-        console.log(details);
-        renderMovieDetails(details);
 
+        renderMovieDetails(details);
+        stopSpin();
         const modalButtonsEl = document.querySelector('.modal-buttons');
         renderWatchedQueueButtons(details, modalButtonsEl);
 
@@ -68,7 +69,6 @@ closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');
   window.removeEventListener('keydown', onEscPress);
-  document.body.style.overflow = ''; //todo
 }
 
 backdropEl.addEventListener('click', onBackdropClick);

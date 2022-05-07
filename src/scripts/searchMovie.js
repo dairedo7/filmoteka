@@ -5,6 +5,8 @@ import { failure } from './notification';
 import { warning } from './notification';
 import { success } from './notification';
 import { renderMarkup } from '../templates/cardTemplate';
+import { startSpin, stopSpin } from './spinner';
+
 const collectionEl = document.querySelector('.collection');
 
 let formData = {};
@@ -46,12 +48,13 @@ function clearPage() {
 async function searchMovie() {
   const inputValue = refs.search.headerInput.value;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
-
+  startSpin();
   if (inputValue === '') {
     return failure();
   } else {
     clearPage();
     const loadGenres = await fetchGenres();
+    stopSpin();
     console.log(moviesByKeyWord);
     renderMarkup(moviesByKeyWord.results, loadGenres);
     success(moviesByKeyWord.total_results);
