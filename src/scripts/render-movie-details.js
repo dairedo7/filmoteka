@@ -50,7 +50,6 @@ export function renderMovieDetails(movieDetails) {
           </p>
         </div>
         <div class="modal-buttons">
-         
         </div>
       </div>`;
 

@@ -18,8 +18,9 @@
   height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.2);
+
   &.is-hidden {
-    // visibility: hidden; 
+    // visibility: hidden;
     opacity: 0;
     pointer-events: none;
   }
@@ -31,8 +32,8 @@
   top: 50%;
   left: 50%;
 
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform $animationProps;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform $animationProps;
 
   width: 280px;
   // height: 940px;
@@ -78,7 +79,7 @@
   width: 30px;
   height: 30px;
 
-  background-color: $bgMainColor;
+  background: transparent;
   color: $blackColor;
 
   transition: color $animationProps, transform $animationProps;
@@ -110,6 +111,7 @@
     width: 264px;
     height: 373px;
   }
+
   @include for-size(desktop) {
     width: 375px;
     height: 478px;
@@ -118,12 +120,15 @@
 
 .modal-description {
   width: 240px;
+
   @include for-size(tablet-up) {
     margin-top: 20px;
   }
+
   @include for-size(tablet) {
     width: 264px;
   }
+
   @include for-size(desktop) {
     width: 391px;
   }
@@ -250,6 +255,8 @@
   height: 44px;
   text-transform: uppercase;
   color: $textBlackColor;
+  background: transparent;
+
 
   display: flex;
   align-items: center;

@@ -1,10 +1,8 @@
 .scroll-top {
   position: fixed;
   z-index: 999;
-
   cursor: pointer;
   border: none;
-  color: $textBlackColor;
   background-color: transparent;
 
   transition: opacity 500ms linear, color 150ms linear;
