@@ -66,3 +66,19 @@ closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');
 }
+
+backdropEl.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(event) {
+if (event.currentTarget === event.target) {
+onCloseBtnClick()  }
+};
+
+  window.addEventListener('keydown', onEscPress);
+
+  function onEscPress(event) {
+
+  if (event.code === 'Escape') {
+onCloseBtnClick()
+  }
+}
