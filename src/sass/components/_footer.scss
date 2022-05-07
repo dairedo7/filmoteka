@@ -1,13 +1,18 @@
 .footer {
   margin-top: auto;
   font-family: $mainFont;
-  font-style: 400;
   font-size: 16px;
   line-height: 1.18;
   color: $textFooterColor;
-  height: 77px;
+  padding: 34px 0;
   text-align: center;
-  background-color: $bgMainColor;
+  background-color: $bgSecondaryColor;
+}
+
+.footer_icon {
+  fill: #ff6b08;
+  margin: 0 10px;
+  animation: heartAnimation 1s ease infinite;
 }
 
 .footer__link {
@@ -15,13 +20,9 @@
   text-decoration: underline;
 }
 
-.footer_img {
-  animation: heartAnimation 1s ease infinite;
-}
-
 @keyframes heartAnimation {
   from {
-    transform: scale(1.3);
+    transform: scale(1.5);
   }
 
   to {

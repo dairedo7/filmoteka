@@ -1,0 +1,46 @@
+.header-theme {
+  color: #fff;
+  background: transparent;
+  border: none;
+}
+
+.dark .header-theme {
+  color: #ff6b08;
+  background: transparent;
+}
+
+.header-theme__icon {
+  font-size: 30px;
+}
+
+.dark {
+  background: $DarkThemeBackgroundColor  !important;
+  color: $DarkThemeColor  !important;
+}
+
+.dark-footer {
+  background: #1c1c1c !important;
+  color: $DarkThemeColor  !important;
+}
+
+.dark-scroll-top {
+  background: transparent !important;
+  color: $DarkThemeColor  !important;
+
+  &:hover {
+    color: $accentColor  !important;
+  }
+}
+
+.dark-modal {
+  background: $DarkThemeModalBackground  !important;
+  color: $DarkThemeColor  !important;
+}
+
+.dark-modalCloseBtn {
+  color: $DarkThemeColor  !important;
+
+  &:hover {
+    color: $accentColor  !important;
+  }
+}

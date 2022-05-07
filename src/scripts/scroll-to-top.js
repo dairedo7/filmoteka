@@ -2,10 +2,10 @@ export function scrollToTop() {
   const scrollUpBtn = document.querySelector('.scroll-top');
 
   window.onscroll = () => {
-    if (window.scrollY > 450) {
+    if (window.scrollY > 250) {
       scrollUpBtn.removeAttribute('disabled', '');
       scrollUpBtn.classList.remove('scroll-top_hide');
-    } else if (window.scrollY < 450) {
+    } else if (window.scrollY < 250) {
       scrollUpBtn.setAttribute('disabled', '');
       scrollUpBtn.classList.add('scroll-top_hide');
     }
