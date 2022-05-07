@@ -15,23 +15,23 @@
 
 .dark {
   background: $DarkThemeBackgroundColor  !important;
-  color: $DarkThemeColor  !important;
+  color: $DarkThemeColorWhite  !important;
 }
 
 .dark-header {
-  box-shadow: 0px 0px 1px 0px $accentColor;
+  box-shadow: 0px 0px 1px 0px #ffffff;
 }
 
 .dark-footer {
   background: #1c1c1c !important;
-  color: $DarkThemeColor  !important;
-  box-shadow: 0px 0px 1px 0px $accentColor;
+  color: $DarkThemeColorWhite  !important;
+  box-shadow: 0px 0px 1px 0px #ffffff;
 
 }
 
 .dark-scroll-top {
   background: transparent !important;
-  color: $DarkThemeColor  !important;
+  color: $DarkThemeColorWhite  !important;
 
   &:hover {
     color: $accentColor  !important;
@@ -40,12 +40,11 @@
 
 .dark-modal {
   background: $DarkThemeModalBackground  !important;
-  color: $DarkThemeColor  !important;
-  box-shadow: 0px 0px 1px 0px $accentColor;
+  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
 }
 
 .dark-modalCloseBtn {
-  color: $DarkThemeColor  !important;
+  color: $DarkThemeColorWhite  !important;
 
   &:hover {
     color: $accentColor  !important;
@@ -53,5 +52,50 @@
 }
 
 .dark-modalBackdrop {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba($color: #ffffff, $alpha: 0.1) !important;
+}
+
+
+// Modal inner style
+body.dark .modal {
+  .modal-title {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-img {
+    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+  }
+
+  .modal-values {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-votes {
+    color: $DarkThemeColorBlack;
+  }
+
+  .modal-overview {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-text {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-btn__watched {
+    border-color: $DarkThemeColorWhite;
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-btn__queue {
+    border-color: $DarkThemeColorWhite;
+    color: $DarkThemeColorWhite;
+  }
+}
+
+// Films collection style
+body.dark .films-collection {
+  .item__img {
+    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+  }
 }

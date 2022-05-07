@@ -107,6 +107,8 @@
   height: 357px;
   border-radius: 5px;
 
+  border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+
   @include for-size(tablet) {
     width: 264px;
     height: 373px;

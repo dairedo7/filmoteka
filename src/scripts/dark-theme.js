@@ -8,8 +8,6 @@ const backDropModalEl = document.querySelector('.backdrop');
 const modalTitle = document.querySelector('.modal-title');
 const container = document.querySelector('.modal-container');
 
-console.log(container.childNodes);
-console.log(modalTitle);
 if (localStorage.getItem('style') == 'dark') {
   document.body.classList.toggle('dark');
   headerEl.classList.toggle('dark-header');
@@ -40,3 +38,5 @@ function toggleClass() {
   modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
   backDropModalEl.classList.toggle('dark-modalBackdrop');
 }
+
+const item = document.querySelector('.item__img');
