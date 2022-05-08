@@ -1,5 +1,6 @@
 .header {
   padding-top: 40px;
+  box-shadow: 0px 0px 1px 0px #000000;
 
   @include for-size(tablet-up) {
     padding-bottom: 92px;
@@ -15,17 +16,21 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/Mobile/home-mob-background.jpg);
+  url(../images/Mobile/home-mob-background.jpg);
   // @include for-size(mobile) {
   //     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
   //         url(../images/Mobile/home-mob-background.jpg);
 
-  @media screen and (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/Mobile/home-mob-background-x2.jpg);
   }
 
-  @media screen and (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+  @media screen and (min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/Mobile/home-mob-background-x3.jpg);
   }
@@ -37,15 +42,15 @@
       url(../images/Tablet/home-tablet-background.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Tablet/home-tablet-background-x2.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
-      (min-resolution: 288dpi),
-      (min-resolution: 3dppx) {
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Tablet/home-tablet-background-x3.jpg);
     }
@@ -56,15 +61,15 @@
       url(../images/Desktop/home-background.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Desktop/home-background-x2.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
-      (min-resolution: 288dpi),
-      (min-resolution: 3dppx) {
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Desktop/home-background-x3.jpg);
     }
@@ -153,16 +158,23 @@
   }
 }
 
+.header-form {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .header-form__label {
+
   position: relative;
 
   @include for-size(tablet) {
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
+    justify-content: space-between;
   }
 }
 
 .header-form__input {
+
   @include for-size(tablet-up) {
     width: 100%;
   }
@@ -195,20 +207,12 @@
 
 .header-form__btn {
   position: absolute;
-
   background-color: transparent;
   border-color: transparent;
   width: 20px;
   height: 20px;
   right: 2px;
 
-  @include for-size(tablet) {
-    right: 187px;
-  }
-
-  @include for-size(desktop) {
-    right: 315px;
-  }
 }
 
 .header-form__icon {

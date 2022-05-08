@@ -1,7 +1,12 @@
 .films-collection {
   padding-top: 60px;
   padding-bottom: 50px;
+
+  .item__img {
+    border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+  }
 }
+
 .collection {
   @include for-size(tablet) {
     display: flex;

@@ -7,9 +7,6 @@
         </svg>
         <h1 class="header-box__title">Filmoteka</h1>
       </a>
-      <button class="header-theme">
-        <i class="fa-solid fa-moon header-theme__icon"></i>
-      </button>
       <ul class="header-list">
         <li class="header-list__item">
           <a class="header-list__link header-list__link--current" href="/index.html">HOME</a>
@@ -21,15 +18,7 @@
     </div>
     <form class="header-form">
       <label class="header-form__label">
-
-        <input
-          class="header-form__input"
-          type="text"
-          placeholder="Поиск фильмов"
-          name="headerInput"
-          autofocus
-        />
-
+        <input class="header-form__input" type="text" placeholder="Search movie" name="headerInput" />
         <button class="header-form__btn" type="submit">
           <svg class="header-form__icon" width="12" height="12">
             <use href="/images/svg/icons.svg#search"></use>
@@ -37,5 +26,9 @@
         </button>
       </label>
     </form>
+    <label class="switch">
+      <input type="checkbox" class="switch-checkbox">
+      <span class="slider round"></span>
+    </label>
   </div>
 </header>

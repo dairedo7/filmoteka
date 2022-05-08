@@ -1,31 +1,16 @@
 .scroll-top {
   position: fixed;
   z-index: 999;
+  bottom: 100px;
+  right: 25px;
+  font-size: 30px;
   cursor: pointer;
   border: none;
   background-color: transparent;
 
   transition: opacity 500ms linear, color 150ms linear;
 
-  opacity: 0.7;
-
-  @include for-size(mobile) {
-    font-size: 30px;
-    bottom: 20px;
-    right: 20px;
-  }
-
-  @include for-size(tablet) {
-    font-size: 30px;
-    bottom: 30px;
-    right: 30px;
-  }
-
-  @include for-size(desktop) {
-    font-size: 50px;
-    bottom: 50px;
-    right: 50px;
-  }
+  opacity: 0.4;
 
   &:hover {
     color: $accentColor;
