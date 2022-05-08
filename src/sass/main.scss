@@ -14,6 +14,7 @@
 @import './layout/container';
 
 //Components
+@import './components/dark-theme';
 @import './components/buttons';
 @import './components/home';
 @import './components/my_library';
@@ -25,3 +26,5 @@
 @import './components/pagination';
 @import './components/scroll-to-top';
 @import './components/footer';
+@import './components/spinner';
+@import './components/modalStudents';

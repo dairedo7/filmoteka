@@ -1,14 +1,10 @@
 const collectionEl = document.querySelector('.collection');
-export function renderMarkup(res, genres) {
+export function renderWatched(res, genres) {
   console.log(res);
   const response = res
-    .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
-      if (genre_ids.length > 3) {
-        const other = 'Other';
-        genre_ids[2] = other;
-
-        genre_ids.length = 3;
-      }
+    .map(({ id, poster_path, title, genres, release_date, vote_average }) => {
+      const getGenres = genres.map(({ name }) => name).slice(0, 2);
+      getGenres.splice(2, 0, 'Other');
 
       return `
         <li class='item'>
@@ -25,12 +21,9 @@ export function renderMarkup(res, genres) {
 
           <div class='wrapper'>
             <ul class='genres'>
-              ${genre_ids
-                .map(item => {
-                  return `
-              <li class='genres__item'>${genres[item] || genre_ids[2]}</li> `;
-                })
-                .join('')}
+
+              <li class='genres__item'>${getGenres.join(', ')}</li> 
+
             </ul>
             <span class='item__year'>${release_date}</span>
             <span class='item__rating'>${vote_average}</span>
