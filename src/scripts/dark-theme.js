@@ -8,8 +8,6 @@ const backDropModalEl = document.querySelector('.backdrop');
 const modalTitle = document.querySelector('.modal-title');
 const container = document.querySelector('.modal-container');
 
-console.log('themeCheckboxEl :>> ', themeCheckboxEl);
-
 if (localStorage.getItem('style') == 'dark') {
   document.body.classList.toggle('dark');
   headerEl.classList.toggle('dark-header');
