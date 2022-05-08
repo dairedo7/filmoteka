@@ -112,6 +112,7 @@
 .modal-img {
   width: 240px;
   height: 357px;
+  object-fit: cover;
   border-radius: 5px;
 
   @include for-size(tablet) {
