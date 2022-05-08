@@ -125,7 +125,7 @@ body.dark .films-collection {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(60, 60, 60);
+  background-color: #ffffff;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -151,7 +151,7 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
-  content: 'on';
+  content: '🌚';
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -163,11 +163,10 @@ input:checked+.slider:before {
 }
 
 .slider.round:before {
-  background-image: url();
   display: flex;
   align-items: center;
   justify-content: center;
-  content: "off";
-  font-size: 10px;
+  content: "🌝";
+  font-size: 29px;
   border-radius: 50%;
 }
