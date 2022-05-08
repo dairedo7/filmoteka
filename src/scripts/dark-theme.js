@@ -1,4 +1,4 @@
-const themeBtnEl = document.querySelector('.header-theme');
+const themeCheckboxEl = document.querySelector('.switch-checkbox');
 const scrollTopBtnEl = document.querySelector('.scroll-top');
 const headerEl = document.querySelector('.header');
 const footerEl = document.querySelector('.footer');
@@ -7,6 +7,8 @@ const modalCloseBtnEl = document.querySelector('.modal-close-btn');
 const backDropModalEl = document.querySelector('.backdrop');
 const modalTitle = document.querySelector('.modal-title');
 const container = document.querySelector('.modal-container');
+
+console.log('themeCheckboxEl :>> ', themeCheckboxEl);
 
 if (localStorage.getItem('style') == 'dark') {
   document.body.classList.toggle('dark');
@@ -18,7 +20,7 @@ if (localStorage.getItem('style') == 'dark') {
   backDropModalEl.classList.toggle('dark-modalBackdrop');
 }
 
-themeBtnEl.addEventListener('click', changeTheme);
+themeCheckboxEl.addEventListener('change', changeTheme);
 
 function changeTheme() {
   document.body.classList.toggle('dark');
@@ -38,5 +40,3 @@ function toggleClass() {
   modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
   backDropModalEl.classList.toggle('dark-modalBackdrop');
 }
-
-const item = document.querySelector('.item__img');
