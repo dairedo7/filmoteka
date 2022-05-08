@@ -1,0 +1,36 @@
+[
+    {
+        "name": "Vladyslav Svitana",
+        "teamRole": "Team leader"
+    },
+      {
+        "name": "Anna Kulibabina",
+        "teamRole": "Scrum-master"
+    },
+      {
+        "name": "Lenka Lukashevych",
+        "teamRole": "Frontend Developer"
+    },
+      {
+        "name": "Aleksandr Trenohin",
+        "teamRole": "Frontend Developer"
+    },
+      {
+        "name": "Valentina Unzhakova",
+        "teamRole": "Frontend Developer"
+    },
+      {
+        "name": "Viktoria Melnik",
+        "teamRole": "Frontend Developer"
+    },
+
+      {
+        "name": "Vladimir Plastun",
+        "teamRole": "Frontend Developer"
+    },
+      {
+        "name": "Igor Panama",
+        "teamRole": "Team-lead"
+    }
+
+]
