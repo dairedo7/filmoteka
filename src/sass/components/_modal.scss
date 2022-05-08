@@ -45,6 +45,8 @@
 
   background-color: $bgMainColor;
 
+  border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+
   @include for-size(tablet) {
     width: 704px;
     //?
