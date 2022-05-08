@@ -59,7 +59,6 @@ modalEl.addEventListener('click', evt => {
 
 // watched btn
 function onWatchedBtnClick() {
-  console.log(details);
   const { title, id } = details;
   if (checkedWatchedMovie(title)) {
     removeWatchedMovie(title);
