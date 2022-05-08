@@ -111,6 +111,7 @@ body.dark .films-collection {
   height: 34px;
 }
 
+
 /* Hide default HTML checkbox */
 .switch input {
   display: none;
@@ -136,7 +137,7 @@ body.dark .films-collection {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #ffffff;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -150,6 +151,7 @@ input:focus+.slider {
 }
 
 input:checked+.slider:before {
+  content: 'on';
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -161,5 +163,11 @@ input:checked+.slider:before {
 }
 
 .slider.round:before {
+  background-image: url();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "off";
+  font-size: 10px;
   border-radius: 50%;
 }
