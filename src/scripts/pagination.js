@@ -5,8 +5,6 @@ import Pagination from 'tui-pagination';
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
 
-
-
 const container = document.getElementById('pagination');
 // const search_form = document.querySelector('.header-form__label');
 // search_form.addEventListener('submit', handlerKeyWord);
@@ -54,17 +52,17 @@ let page = pagination.getCurrentPage();
 //   }
 // });
 
-pagination.on('afterMove',  loadMovies )
+pagination.on('afterMove', loadMovies);
 // let page
-async function loadMovies(event) { 
-    // page = 1
-    const response = await fetchPopularMovies(event.page);
-    console.log(response.results)
-    const loadGenres = await fetchGenres();
-    // console.log(page)
-    // options.page +=1
-return renderMarkup(response.results, loadGenres)
-    }
+async function loadMovies(event) {
+  // page = 1
+  const response = await fetchPopularMovies(event.page);
+  console.log(response.results);
+  const loadGenres = await fetchGenres();
+  // console.log(page)
+  // options.page +=1
+  return renderMarkup(response.results, loadGenres);
+}
 
 // loadMovies()
 // function setPagination(value) {

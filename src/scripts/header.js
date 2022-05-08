@@ -8,8 +8,9 @@ const refs = {
   headerNavigation: document.querySelector('.header-box'),
   collectionEl: document.querySelector('.collection'),
   headerTitle: document.querySelector('.header-box__title'),
+  backgroundImg: document.querySelector('.collection__item'),
 };
-
+console.log(refs.backgroundImg);
 refs.libraryNavigation.addEventListener('click', onLibraryClick);
 refs.headerNavigation.addEventListener('click', onHeaderClick);
 refs.libraryLogo.addEventListener('click', onLogoClick);
@@ -39,6 +40,8 @@ function onHeaderClick(evt) {
     refs.headerLibrary.classList.remove('visually-hidden');
     refs.header.classList.add('visually-hidden');
     refs.collectionEl.innerHTML = '';
+    refs.backgroundImg.classList.remove('visually-hidden');
+    refs.collectionEl.append(refs.backgroundImg);
   }
 }
 
