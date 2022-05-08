@@ -29,7 +29,8 @@ export function renderMovieDetails(movieDetails) {
     genre = genres.map(({ name }) => `${name}`).join(', ');
   }
 
-  const movieDetailsEl = `<img src="https://image.tmdb.org/t/p/original${poster_path}" alt="постер" class="modal-img" />
+  // src = 'https://image.tmdb.org/t/p/original${poster_path}';
+  const movieDetailsEl = `<img src="https://image.tmdb.org/t/p/w780${poster_path}" alt="постер" class="modal-img" />
       <div class="modal-description">
         <h2 class="modal-title">${title}</h2>
         <ul class="modal-list">
