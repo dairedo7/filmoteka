@@ -105,7 +105,8 @@ body.dark .films-collection {
 /* The switch - the box around the slider */
 .switch {
   position: relative;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
   width: 60px;
   height: 34px;
 }
@@ -123,7 +124,7 @@ body.dark .films-collection {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(122, 119, 119);
+  background-color: rgb(60, 60, 60);
   -webkit-transition: .4s;
   transition: .4s;
 }

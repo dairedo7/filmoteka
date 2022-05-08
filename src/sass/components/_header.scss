@@ -158,17 +158,23 @@
   }
 }
 
+.header-form {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .header-form__label {
 
   position: relative;
 
   @include for-size(tablet) {
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
+    justify-content: space-between;
   }
 }
 
 .header-form__input {
+
   @include for-size(tablet-up) {
     width: 100%;
   }
@@ -201,20 +207,12 @@
 
 .header-form__btn {
   position: absolute;
-
   background-color: transparent;
   border-color: transparent;
   width: 20px;
   height: 20px;
   right: 2px;
 
-  @include for-size(tablet) {
-    right: 187px;
-  }
-
-  @include for-size(desktop) {
-    right: 315px;
-  }
 }
 
 .header-form__icon {
