@@ -65,7 +65,7 @@ export async function searchMovie(evt) {
   //    }
 }
 let page;
-async function getTrends() {
+export async function getTrends() {
   page = 1;
   const response = await fetchPopularMovies(page);
   const theGenres = await fetchGenres();
@@ -83,8 +83,12 @@ function onInputSaveData(evt) {
 function userData() {
   const savedUserData = localStorage.getItem(STORAGE_KEY);
   const parsedUserData = JSON.parse(savedUserData);
+  if (!savedUserData) {
+    return;
+  }
   if (savedUserData) {
     Object.entries(parsedUserData).forEach(([name, value]) => {
+      if (!refs.search.elements[name]) return;
       formData[name] = value;
       refs.search.elements[name].value = value;
     });

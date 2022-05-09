@@ -21,6 +21,7 @@ refs.watchedBtn.addEventListener('click', getMovieDets);
 refs.queuedBtn.addEventListener('click', getMovieQueue);
 
 let dets;
+let queue;
 
 refs.backgroundImg.onclick = evt => {
   console.log(evt.target);
@@ -52,7 +53,7 @@ async function getMovieDets(id) {
       stopSpin();
     }
   }
-
+  console.log(movieDetailsArr);
   //Inserting the movie collection to render in the markup
   return renderWatched(movieDetailsArr);
 }
@@ -73,12 +74,12 @@ async function getMovieQueue(id) {
       '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>';
   }
   //Enumerating through id's of locally saved movies to insert them into the array of objects
-  let dets;
+
   movieQueueArr = [];
   for (const item of id) {
     if (item) {
-      dets = await fetchMovieDetails(item);
-      movieQueueArr.push(dets);
+      queue = await fetchMovieDetails(item);
+      movieQueueArr.push(queue);
 
       stopSpin();
     }
@@ -112,34 +113,36 @@ async function fetchMovieDets(id) {
 const modalEl = document.querySelector('.modal-container');
 
 modalEl.addEventListener('click', evt => {
-  console.log(movieDetailsArr);
+  const backdropEl = document.querySelector('.backdrop');
 
   const watchedBtnEl = document.querySelector('.modal-btn__watched');
   const queueBtnEl = document.querySelector('.modal-btn__queue');
-  console.log(watchedBtnEl.textContent);
-  console.log(evt.target.textContent);
-  console.log(evt.target.id);
+
   if (watchedBtnEl.textContent === 'add to Watched') {
     let newArr = [];
-    for (const item of movieDetailsArr) {
-      console.log(dets.id);
-      console.log(item.id);
-      if (item.id === dets.id) {
-      }
-    }
-    // movieDetailsArr.map((item) => {
-    //   // const itemIndex = movieDetailsArr.indexOf(item.id);
-    //   // console.log(itemIndex);
-    //   console.log(dets);
-    //   console.log(dets.id);
-    //   console.log(item.id);
-    //   console.log(movieDetailsArr.item);
-    //   return item.id === dets.id ? movieDetailsArr.pop() : item;
 
-    //   // console.log(result);
-    //   // return result;
-    // });
-    // console.log(dets);
+    for (const item of movieDetailsArr) {
+      const itemIndex = movieDetailsArr.indexOf(item.id);
+      if (item.id === dets.id) {
+        movieDetailsArr.splice(itemIndex, 1);
+      }
+      return getMovieDets(item);
+    }
+  }
+
+  if (queueBtnEl.textContent === 'add to queue') {
+    let newArr = [];
+
+    for (const item of movieQueueArr) {
+      const itemIndex = movieQueueArr.indexOf(item.id);
+      console.log(queue.id);
+      console.log(item.id);
+
+      if (item.id === queue.id) {
+        movieQueueArr.splice(itemIndex, 1);
+      }
+      return getMovieDets(item);
+    }
   }
 });
 
