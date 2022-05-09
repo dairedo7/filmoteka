@@ -1,4 +1,4 @@
-const themeCheckboxEl = document.querySelector('.switch-checkbox');
+const themeCheckboxEl = document.querySelector('.header-form__checkbox');
 const scrollTopBtnEl = document.querySelector('.scroll-top');
 const headerEl = document.querySelector('.header');
 const footerEl = document.querySelector('.footer');
