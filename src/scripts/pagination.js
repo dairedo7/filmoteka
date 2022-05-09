@@ -5,7 +5,7 @@ import debounce from 'lodash.debounce';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
-import { searchMovie } from './searchMovie.js';
+import { getTrends } from './searchMovie.js';
 
 const DEBOUNCE_DELAY = 300;
 const search = document.querySelector('.header-form');
@@ -59,6 +59,12 @@ async function loadMovies(event) {
 
 async function onFormChange(evt) {
   evt.preventDefault();
+  if (evt.target.value === '') {
+    collectionEl.textContent = '';
+
+    return getTrends();
+  }
+
   const inputValue = search.headerInput.value;
   console.log(inputValue);
 
