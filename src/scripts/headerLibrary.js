@@ -102,28 +102,15 @@ export async function getMovies() {
   return renderMarkup(response.results, loadGenres);
 }
 
-// export default localStorageCollections;
-
-//Removing movies from watched on modal button clicks
-
-async function fetchMovieDets(id) {
-  if (id) {
-    details = await fetchMovieDetails(id);
-  }
-}
-
-// modal events
+// Add or remove movie-item from library
 const modalEl = document.querySelector('.modal-container');
 
 modalEl.addEventListener('click', evt => {
-  const backdropEl = document.querySelector('.backdrop');
-
+  console.log(evt.target.textContent);
   const watchedBtnEl = document.querySelector('.modal-btn__watched');
   const queueBtnEl = document.querySelector('.modal-btn__queue');
 
   if (watchedBtnEl.textContent === 'add to Watched') {
-    let newArr = [];
-
     for (const item of movieDetailsArr) {
       const itemIndex = movieDetailsArr.indexOf(item.id);
       if (item.id === dets.id) {
@@ -132,10 +119,16 @@ modalEl.addEventListener('click', evt => {
       return getMovieDets(item);
     }
   }
+  if (watchedBtnEl.textContent === 'remove from Watched') {
+    for (const item of movieDetailsArr) {
+      if (item.id === dets.id) {
+        movieDetailsArr.push(item.id, 1);
+      }
+      return getMovieDets(item);
+    }
+  }
 
   if (queueBtnEl.textContent === 'add to queue') {
-    let newArr = [];
-
     for (const item of movieQueueArr) {
       const itemIndex = movieQueueArr.indexOf(item.id);
       console.log(queue.id);
@@ -147,10 +140,12 @@ modalEl.addEventListener('click', evt => {
       return getMovieDets(item);
     }
   }
+  if (queueBtnEl.textContent === 'remove from queue') {
+    for (const item of movieDetailsArr) {
+      if (item.id === queue.id) {
+        movieDetailsArr.push(item.id, 1);
+      }
+      return getMovieDets(item);
+    }
+  }
 });
-
-// function onWatchedBtnClick() {
-//   console.log(dets.id);
-// }
-
-// function onQueueBtnClick() {}
