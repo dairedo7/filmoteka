@@ -8,13 +8,9 @@
   border: none;
   background-color: transparent;
 
-  transition: opacity 500ms linear, color 150ms linear;
+  transition: opacity .3s linear;
 
   opacity: 0.4;
-
-  &:hover {
-    color: $accentColor;
-  }
 
   &_hide {
     opacity: 0;

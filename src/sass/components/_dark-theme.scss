@@ -1,3 +1,4 @@
+// Dark style for document elements
 .header-theme {
   color: #fff;
   background: transparent;
@@ -32,10 +33,6 @@
 .dark-scroll-top {
   background: transparent !important;
   color: $DarkThemeColorWhite  !important;
-
-  &:hover {
-    color: $accentColor  !important;
-  }
 }
 
 .dark-modal {
@@ -54,9 +51,9 @@
 .dark-modalBackdrop {
   background-color: rgba($color: #ffffff, $alpha: 0.1) !important;
 }
+// End dark style for document elements
 
-
-// Modal inner style
+// Dark style for modal elements
 body.dark .modal {
   .modal-title {
     color: $DarkThemeColorWhite;
@@ -92,6 +89,7 @@ body.dark .modal {
     color: $DarkThemeColorWhite;
   }
 }
+// End dark style for modal elements
 
 // Films collection style
 body.dark .films-collection {
@@ -100,10 +98,9 @@ body.dark .films-collection {
   }
 }
 
-// Custom checkbox
 
-/* The switch - the box around the slider */
-.switch {
+// Custom checkbox for switch dark style
+.header-form__switch {
   position: relative;
   display: block;
   margin: 0 auto;
@@ -111,56 +108,62 @@ body.dark .films-collection {
   height: 34px;
 }
 
-
-/* Hide default HTML checkbox */
-.switch input {
+.header-form__switch input {
   display: none;
 }
 
-/* The slider */
-.slider {
+.header-form__slider {
   position: absolute;
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #393939;
+  background-color: #ffffff;
   -webkit-transition: .4s;
   transition: .4s;
+  opacity: 0.85;
 }
 
-.slider:before {
+.header-form__slider:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   position: absolute;
-  content: "";
+
+  content: '☀️';
   height: 26px;
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: #ffffff;
+  background-color: #393939;
   -webkit-transition: .4s;
-  transition: .4s;
+  transition: .3s;
 }
 
-input:checked+.slider {
-  background-color: $accentColor;
+input:checked+.header-form__slider {
+  background-color: #393939;
 }
 
-input:focus+.slider {
+input:focus+.header-form__slider{
   box-shadow: 0 0 1px $accentColor;
+  background-color: #ffffff;
 }
 
-input:checked+.slider:before {
+input:checked+.header-form__slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+  background-color: #ffffff;
+  content: '🌙';
 }
 
-/* Rounded sliders */
-.slider.round {
+.header-form__slider.header-form__slider--round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.header-form__slider.header-form__slider--round:before {
   border-radius: 50%;
 }
+// End custom checkbox for switch dark style
