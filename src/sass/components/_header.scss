@@ -7,7 +7,7 @@
   }
 
   @include for-size(tablet) {
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
 
   max-width: 100%;
@@ -160,7 +160,6 @@
 
 .header-form {
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .header-form__label {
@@ -182,7 +181,7 @@
   @include for-size(tablet) {
     width: 336px;
   }
-
+  margin-bottom: 30px;
   padding-bottom: 5px;
   cursor: pointer;
   outline: none;

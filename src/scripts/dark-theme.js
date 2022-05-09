@@ -8,23 +8,35 @@ const backDropModalEl = document.querySelector('.backdrop');
 const modalTitle = document.querySelector('.modal-title');
 const container = document.querySelector('.modal-container');
 
-if (localStorage.getItem('style') == 'dark') {
-  document.body.classList.toggle('dark');
-  headerEl.classList.toggle('dark-header');
-  footerEl.classList.toggle('dark-footer');
-  scrollTopBtnEl.classList.toggle('dark-scroll-top');
-  modalEl.classList.toggle('dark-modal');
-  modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
-  backDropModalEl.classList.toggle('dark-modalBackdrop');
+function onChangeCheckbox() {
+  if (localStorage.getItem('onChange') == 'true') {
+    themeCheckboxEl.checked = true;
+  }
 }
+onChangeCheckbox();
+
+function getItems() {
+  if (localStorage.getItem('style') == 'dark') {
+    document.body.classList.toggle('dark');
+    headerEl.classList.toggle('dark-header');
+    footerEl.classList.toggle('dark-footer');
+    scrollTopBtnEl.classList.toggle('dark-scroll-top');
+    modalEl.classList.toggle('dark-modal');
+    modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
+    backDropModalEl.classList.toggle('dark-modalBackdrop');
+  }
+}
+getItems();
 
 themeCheckboxEl.addEventListener('change', changeTheme);
 
 function changeTheme() {
   document.body.classList.toggle('dark');
   if (document.body.getAttribute('class') == 'dark') {
+    localStorage.setItem('onChange', 'true');
     localStorage.setItem('style', 'dark');
   } else {
+    localStorage.setItem('onChange', '');
     localStorage.setItem('style', '');
   }
   toggleClass();
