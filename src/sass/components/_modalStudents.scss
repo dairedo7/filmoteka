@@ -2,6 +2,7 @@ body.show-modal .backdrop-team {
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
+        position: fixed;
 }
 
 body.show-modal .modal-team {
@@ -24,12 +25,14 @@ body.show-modal .modal-team {
     opacity: 0;
     visibility: hidden;
     transition: opacity $animationProps, visibility $animationProps;
+
+  
 }
 
 .modal-team {
-    padding: 24px;
+    padding: 40px;
     border-radius: 4px;
-    max-width: 640px;
+    max-width: 1000px;
     width: 100%;
     min-height: 320px;
     background-color: #fff;
@@ -70,3 +73,39 @@ width: 40px;
     color: $accentColor;
 
 }
+
+.list-team {
+    display: flex;
+        flex-wrap: wrap;
+        margin-top: calc(-1 * 30px);
+        margin-left: calc(-1 * 30px);
+}
+
+.team-item {
+margin-top: 30px;
+margin-left: 30px;
+height: auto;
+flex-basis: calc(100% / 4 - 30px);
+}
+
+.team-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin: 100px auto 0;
+    color: black;
+    transition: transform $animationProps;
+    float: left;
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+        }
+}
+
+.avatar {
+width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
