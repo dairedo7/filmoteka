@@ -30,20 +30,20 @@ refs.backgroundImg.onclick = evt => {
 //Collection of localStorage watched movies
 async function getMovieDets(id) {
   //   console.log(getWatchedMovies());
-  refs.collectionEl.textContent = '';
+  const emptyLibraryNotification = (refs.collectionEl.innerHTML =
+    '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>');
+
   //Adding the orange color & shadow to the active class
   refs.watchedBtn.classList.add('is_active');
   refs.queuedBtn.classList.remove('is_active');
   id = getWatchedMovies();
-  startSpin();
 
   //Enumerating through id's of locally saved movies to insert them into the array of objects
-
+  emptyLibraryNotification;
   movieDetailsArr = [];
-  if (id.length === 0) {
-    stopSpin();
-    refs.collectionEl.innerHTML =
-      '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>';
+  if (id.length > 0) {
+    startSpin();
+    refs.collectionEl.textContent = '';
   }
 
   for (const item of id) {
@@ -61,21 +61,24 @@ async function getMovieDets(id) {
 //Collection of localStorage queued movies
 async function getMovieQueue(id) {
   // console.log(getQueueMovies());
-  refs.collectionEl.textContent = '';
+  const emptyLibraryNotification = (refs.collectionEl.innerHTML =
+    '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>');
+
   //Adding the orange color & shadow to the active class
   refs.queuedBtn.classList.add('is_active');
   refs.watchedBtn.classList.remove('is_active');
 
-  startSpin();
   id = getQueueMovies();
-  if (id.length === 0) {
-    stopSpin();
-    refs.collectionEl.innerHTML =
-      '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>';
+
+  emptyLibraryNotification;
+  movieQueueArr = [];
+
+  if (id.length > 0) {
+    startSpin();
+    refs.collectionEl.textContent = '';
   }
   //Enumerating through id's of locally saved movies to insert them into the array of objects
 
-  movieQueueArr = [];
   for (const item of id) {
     if (item) {
       queue = await fetchMovieDetails(item);
