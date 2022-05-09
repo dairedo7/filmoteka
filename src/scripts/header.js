@@ -9,6 +9,7 @@ const refs = {
   collectionEl: document.querySelector('.collection'),
   headerTitle: document.querySelector('.header-box__title'),
   backgroundImg: document.querySelector('.collection__item'),
+  pagination: document.getElementById('pagination'),
 };
 console.log(refs.backgroundImg);
 refs.libraryNavigation.addEventListener('click', onLibraryClick);
@@ -26,6 +27,7 @@ function onLibraryClick(evt) {
     getMovies();
     refs.headerLibrary.classList.add('visually-hidden');
     refs.header.classList.remove('visually-hidden');
+    refs.pagination.classList.remove('visually-hidden');
   }
 }
 
@@ -42,6 +44,7 @@ function onHeaderClick(evt) {
     refs.collectionEl.innerHTML = '';
     refs.backgroundImg.classList.remove('visually-hidden');
     refs.collectionEl.append(refs.backgroundImg);
+    refs.pagination.classList.add('visually-hidden');
   }
 }
 
@@ -51,6 +54,7 @@ function onLogoClick(evt) {
 
   refs.headerLibrary.classList.add('visually-hidden');
   refs.header.classList.remove('visually-hidden');
+  refs.pagination.classList.remove('visually-hidden');
   refs.collectionEl.textContent = '';
   getMovies();
 }

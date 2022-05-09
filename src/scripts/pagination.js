@@ -1,11 +1,19 @@
 //Ссылка на доки библиотеки  https://github.com/nhn/tui.pagination/blob/production/docs/getting-started.md
 import axios from 'axios';
 import Pagination from 'tui-pagination';
+import debounce from 'lodash.debounce';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { renderMarkup } from '../templates/cardTemplate.js';
-import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
+import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
+import { searchMovie } from './searchMovie.js';
 
+const DEBOUNCE_DELAY = 300;
+const search = document.querySelector('.header-form');
+const collectionEl = document.querySelector('.collection');
+const form = document.querySelector('.header-form__input');
+form.addEventListener('input', debounce(onFormChange, DEBOUNCE_DELAY));
 const container = document.getElementById('pagination');
+
 // const search_form = document.querySelector('.header-form__label');
 // search_form.addEventListener('submit', handlerKeyWord);
 
@@ -37,33 +45,41 @@ const options = {
 };
 const pagination = new Pagination(container, options);
 let page = pagination.getCurrentPage();
-// const errorText = document.querySelector('.header-search__error');
-
-// pagination.on('afterMove', getMovies());
-// console.dir(pagination);
-// pagination.on('beforeMove', evt => {
-//   const { page } = evt;
-//   const result = ajax.call({page});
-
-//   if(result) {
-//     pagination.movePageTo(page);
-//   } else {
-//     return false;
-//   }
-// });
 
 pagination.on('afterMove', loadMovies);
 // let page
 async function loadMovies(event) {
-  // page = 1
+  collectionEl.textContent = '';
   const response = await fetchPopularMovies(event.page);
   console.log(response.results);
   const loadGenres = await fetchGenres();
-  // console.log(page)
-  // options.page +=1
+
   return renderMarkup(response.results, loadGenres);
 }
 
+async function onFormChange(evt) {
+  evt.preventDefault();
+  const inputValue = search.headerInput.value;
+  console.log(inputValue);
+
+  collectionEl.textContent = '';
+
+  pagination.off('afterMove', loadMovies);
+
+  const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
+
+  const loadGenres = await fetchGenres();
+
+  console.log(moviesByKeyWord);
+  renderMarkup(moviesByKeyWord.results, loadGenres);
+  // success(moviesByKeyWord.total_results);
+  pagination.reset(moviesByKeyWord.total_results);
+  pagination.on('afterMove', loadMovies);
+
+  loadMovies();
+}
+
+// pagination.reset(loadMovies);
 // loadMovies()
 // function setPagination(value) {
 //   pagination.on('afterMove', ({ page }) => {
@@ -74,19 +90,3 @@ async function loadMovies(event) {
 // }
 
 // console.log(page)
-
-// async function fetchMoviePagination(value, page) {
-//   try {
-//     const response = await axios.get(
-//       `https://api.themoviedb.org/3/search/movie?${API_KEY}&language=en-US&query=${value}&page=${page}&per_page=${PER_PAGE}&include_adult=false`,
-//     );
-//     errorText.classList.add('header-search__error-hidden');
-//     if (response.data.total_results !== 0) {
-//       return response.data;
-//     } else {
-//       errorText.classList.remove('header-search__error-hidden');
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }

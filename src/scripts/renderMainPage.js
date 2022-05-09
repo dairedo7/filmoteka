@@ -16,9 +16,10 @@ collectionEl.addEventListener('click', evt => {
 
 let page;
 
-async function getMovies(page) {
+export async function getMovies(page) {
   page = 1;
   const response = await fetchPopularMovies(page);
+  console.log(response);
   const loadGenres = await fetchGenres();
   // console.log(loadGenres);
 

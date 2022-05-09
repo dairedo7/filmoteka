@@ -45,7 +45,7 @@ function clearPage() {
   refs.gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
-async function searchMovie() {
+export async function searchMovie(evt) {
   const inputValue = refs.search.headerInput.value;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
   startSpin();
