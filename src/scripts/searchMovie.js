@@ -6,6 +6,10 @@ import { renderMarkup } from '../templates/cardTemplate';
 import { startSpin, stopSpin } from './spinner';
 
 
+const collectionEl = document.querySelector('.collection');
+const inputField = document.querySelector('.header-form__input');
+
+
 let formData = {};
 const DEBOUNCE_DELAY = 500;
 const STORAGE_KEY = 'search-form-state';
@@ -37,6 +41,7 @@ async function onGenresSelectClick(evt) {
 function onKeyWordSearch(evt) {
   evt.preventDefault();
   if (evt.target.value === '') {
+
     refs.gallery.textContent = '';
     return getTrends();
   }
@@ -46,9 +51,9 @@ function onKeyWordSearch(evt) {
 // Поиск по сабмиту формы
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
+
   if (refs.search.headerInput.value === '') {
     return warning();
-  }
   searchMovie();
   evt.currentTarget.reset();
   formData = {};
@@ -59,8 +64,10 @@ function clearPage() {
   refs.gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
+
 async function searchMovie() {
   const inputValue = refs.search.headerInput.value.trim();
+
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
   startSpin();
 
@@ -75,7 +82,7 @@ async function searchMovie() {
   //    }
 }
 let page;
-async function getTrends() {
+export async function getTrends() {
   page = 1;
   const response = await fetchPopularMovies(page);
   const theGenres = await fetchGenres();
@@ -91,8 +98,12 @@ function onInputSaveData(evt) {
 function userData() {
   const savedUserData = localStorage.getItem(STORAGE_KEY);
   const parsedUserData = JSON.parse(savedUserData);
+  if (!savedUserData) {
+    return;
+  }
   if (savedUserData) {
     Object.entries(parsedUserData).forEach(([name, value]) => {
+      if (!refs.search.elements[name]) return;
       formData[name] = value;
       refs.search.elements[name].value = value;
     });

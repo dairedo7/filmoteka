@@ -8,14 +8,18 @@ collectionEl.addEventListener('click', evt => {
   if (evt.target === evt.currentTarget) {
     return;
   }
+  if (!evt.target.id) {
+    return;
+  }
   return onMovieCardClick(evt.target.id);
 });
 
 let page;
 
-async function getMovies() {
+export async function getMovies(page) {
   page = 1;
   const response = await fetchPopularMovies(page);
+  console.log(response);
   const loadGenres = await fetchGenres();
   // console.log(loadGenres);
 

@@ -1,3 +1,4 @@
+// Dark style for document elements
 .header-theme {
   color: #fff;
   background: transparent;
@@ -15,37 +16,32 @@
 
 .dark {
   background: $DarkThemeBackgroundColor  !important;
-  color: $DarkThemeColor  !important;
+  color: $DarkThemeColorWhite  !important;
 }
 
 .dark-header {
-  box-shadow: 0px 0px 1px 0px $accentColor;
+  box-shadow: 0px 0px 1px 0px #ffffff !important;
 }
 
 .dark-footer {
   background: #1c1c1c !important;
-  color: $DarkThemeColor  !important;
-  box-shadow: 0px 0px 1px 0px $accentColor;
+  color: $DarkThemeColorWhite  !important;
+  box-shadow: 0px 0px 1px 0px #ffffff !important;
 
 }
 
 .dark-scroll-top {
   background: transparent !important;
-  color: $DarkThemeColor  !important;
-
-  &:hover {
-    color: $accentColor  !important;
-  }
+  color: $DarkThemeColorWhite  !important;
 }
 
 .dark-modal {
   background: $DarkThemeModalBackground  !important;
-  color: $DarkThemeColor  !important;
-  box-shadow: 0px 0px 1px 0px $accentColor;
+  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
 }
 
 .dark-modalCloseBtn {
-  color: $DarkThemeColor  !important;
+  color: $DarkThemeColorWhite  !important;
 
   &:hover {
     color: $accentColor  !important;
@@ -53,5 +49,121 @@
 }
 
 .dark-modalBackdrop {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba($color: #ffffff, $alpha: 0.1) !important;
 }
+// End dark style for document elements
+
+// Dark style for modal elements
+body.dark .modal {
+  .modal-title {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-img {
+    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+  }
+
+  .modal-values {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-votes {
+    color: $DarkThemeColorBlack;
+  }
+
+  .modal-overview {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-text {
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-btn__watched {
+    border-color: $DarkThemeColorWhite;
+    color: $DarkThemeColorWhite;
+  }
+
+  .modal-btn__queue {
+    border-color: $DarkThemeColorWhite;
+    color: $DarkThemeColorWhite;
+  }
+}
+// End dark style for modal elements
+
+// Films collection style
+body.dark .films-collection {
+  .item__img {
+    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+  }
+}
+
+
+// Custom checkbox for switch dark style
+.header-form__switch {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 34px;
+}
+
+.header-form__switch input {
+  display: none;
+}
+
+.header-form__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  opacity: 0.85;
+}
+
+.header-form__slider:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+
+  content: '☀️';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #393939;
+  -webkit-transition: .4s;
+  transition: .3s;
+}
+
+input:checked+.header-form__slider {
+  background-color: #393939;
+}
+
+input:focus+.header-form__slider{
+  box-shadow: 0 0 1px $accentColor;
+  background-color: #ffffff;
+}
+
+input:checked+.header-form__slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #ffffff;
+  content: '🌙';
+}
+
+.header-form__slider.header-form__slider--round {
+  border-radius: 34px;
+}
+
+.header-form__slider.header-form__slider--round:before {
+  border-radius: 50%;
+}
+// End custom checkbox for switch dark style

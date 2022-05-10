@@ -1,36 +1,76 @@
 [
     {
         "name": "Vladyslav Svitana",
-        "teamRole": "Team leader"
+        "teamRole": "Team leader",
+        "avatar": "https://i.ibb.co/HryY8vF/Vlad2.jpg",
+        "gitHub": "https://github.com/dairedo7",
+        "text": "Буду через 10 минут, начинайте без меня"
     },
       {
         "name": "Anna Kulibabina",
-        "teamRole": "Scrum-master"
+        "teamRole": "Scrum-master",
+        "avatar": "https://i.ibb.co/pdkKpDq/Anya.jpg",
+        "gitHub": "https://github.com/AnnaKulib",
+        "text": "Я пока баги поищу"
+
+
     },
       {
         "name": "Lenka Lukashevych",
-        "teamRole": "Frontend Developer"
+        "teamRole": "Frontend Developer",
+        "avatar": "https://i.ibb.co/94LLTKR/Lenka.jpg",
+        "gitHub": "https://github.com/ElenaLukashevych",
+        "text": "Я все забыла, но думаю, нам нужны гоблины и усы"
+
     },
       {
         "name": "Aleksandr Trenohin",
-        "teamRole": "Frontend Developer"
+        "teamRole": "Frontend Developer",
+        "avatar": "https://i.ibb.co/Z1cMkDv/All-190-m.jpg",
+        "gitHub": "https://github.com/Aleksandr-Trenohin",
+        "text": "Без лишних слов, делаю всё быстро и качественно"
+
     },
       {
         "name": "Valentina Unzhakova",
-        "teamRole": "Frontend Developer"
+        "teamRole": "Frontend Developer",
+        "avatar": "https://i.ibb.co/d2gbzZk/Valentina2.jpg",
+        "gitHub": "https://github.com/VUnzhakova",
+        "text": "Видишь пагинацию? Листай пагинацию"
+
     },
       {
         "name": "Viktoria Melnik",
-        "teamRole": "Frontend Developer"
+        "teamRole": "Frontend Developer",
+        "avatar": "https://i.ibb.co/XW1T5kc/Viktoria.jpg",
+        "gitHub": "https://github.com/Viktoriia1005",
+        "text": "Да лучше потом удалим, если что. Еще 800 запросов нам не помешают"
+
     },
 
       {
         "name": "Vladimir Plastun",
-        "teamRole": "Frontend Developer"
+        "teamRole": "Frontend Developer",
+        "avatar": "https://i.ibb.co/ryrNtqz/Vladimir.jpg",
+        "gitHub": "https://github.com/VolodymyrPlastun",
+        "text": "Всё супер, давайте заканчивать"
+
     },
       {
         "name": "Igor Panama",
-        "teamRole": "Team-lead"
+        "teamRole": "Frontend Developer",
+        "avatar": "https://i.ibb.co/fX3LvFq/Igor2.jpg",
+        "gitHub": "https://github.com/iPanamas",
+        "text": "Ща сделаю правки во всех файлах и закончим"
+
     }
 
 ]
+
+
+
+
+
+
+
+

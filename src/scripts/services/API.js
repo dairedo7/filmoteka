@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { failure } from '../notification';
-
+import { renderMovieDetails } from '../render-movie-details';
 const BASE_URL = `https://api.themoviedb.org/3`;
 const API_KEY = `76293c6bcb8bbcc89a96d2b767d5c3a3`;
 
 axios.defaults.baseURL = BASE_URL;
 
 export const fetchPopularMovies = async page => {
-  const response = await axios.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
+  const response = await axios.get(
+    `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}&per_page=5`,
+  );
   const popularMoviesData = response.data;
   return popularMoviesData;
 };
