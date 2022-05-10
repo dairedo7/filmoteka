@@ -1,6 +1,6 @@
 .item {
   height: 462px;
-  margin-bottom: 25px;
+  margin-bottom: 55px;
   cursor: pointer;
   transition: $animationProps;
 
@@ -9,7 +9,7 @@
   }
   @include for-size(tablet) {
     width: 336px;
-    margin: 0 30px 30px 0;
+    margin: 0 30px 130px 0;
     &:nth-child(2n) {
       margin-right: 0px;
     }
@@ -19,6 +19,7 @@
   }
   @include for-size(desktop) {
     width: 309px;
+    margin-bottom: 95px;
     &:nth-child(2n) {
       margin-right: 30px;
     }
@@ -40,8 +41,16 @@
 }
 
 .item__box {
-  height: 398px;
+  height: 419px;
   overflow: hidden;
+
+  @include for-size(tablet) {
+    height: 500px;
+  }
+
+  @include for-size(desktop) {
+    height: 462px;
+  }
 }
 
 .item__img {
@@ -54,7 +63,7 @@
     width: 309px;
   }
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 5px;
 }
 

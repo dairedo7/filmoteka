@@ -26,18 +26,23 @@ refs.search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DE
 // Поиск по ключевому слову
 function onKeyWordSearch(evt) {
   evt.preventDefault();
-  if (inputField === evt.target.value) {
-    searchMovie();
-  }
   if (evt.target.value === '') {
     collectionEl.textContent = '';
-    return getTrends();
+    getTrends();
   }
+  searchMovie();
 }
 
 // Поиск по сабмиту формы
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
+  if (inputField === evt.target.value) {
+    searchMovie();
+  }
+  if (evt.target.value === '') {
+    collectionEl.textContent = '';
+    getTrends();
+  }
   searchMovie();
   evt.currentTarget.reset();
   formData = {};
