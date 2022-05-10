@@ -7,11 +7,11 @@ export function renderWatchedQueueButtons(usedDetails, modalButtonsEl) {
   const isMovieWatched = checkedWatchedMovie(title);
   const isMovieQueue = checkedQueueMovie(title);
 
-  const watchedQueueBtnEl = `<button class="modal-btn__watched modal-btn btn">${
-    isMovieWatched ? `remove from` : `add to`
+  const watchedQueueBtnEl = `<button class="modal-btn__watched modal-btn btn ${
+    isMovieWatched ? `modal-btn__added">remove from` : `">add to`
   } Watched</button>
-          <button class="modal-btn__queue modal-btn btn">${
-            isMovieQueue ? `remove from` : `add to`
+          <button class="modal-btn__queue modal-btn btn ${
+            isMovieQueue ? `modal-btn__added">remove from` : `">add to`
           } queue</button>`;
 
   modalButtonsEl.innerHTML = watchedQueueBtnEl;

@@ -46,7 +46,7 @@ export function renderMovieDetails(movieDetails) {
           </li>
           <li class="modal-item">
             <p class="modal-key">Popularity</p>
-            <p class="modal-values">${popularity}</p>
+            <p class="modal-values">${parseInt(popularity)}</p>
           </li>
           <li class="modal-item">
             <p class="modal-key">Original Title</p>
@@ -55,6 +55,10 @@ export function renderMovieDetails(movieDetails) {
           <li class="modal-item">
             <p class="modal-key">Genre</p>
             <p class="modal-values">${genre}</p>
+          </li>
+          <li class="modal-item">
+            <p class="modal-key">Trailer</p>
+            <p class="modal-values"><button type="button" class="btn modal-play-btn">Play</button></p>
           </li>
         </ul>
         <div class="modal-overview">
