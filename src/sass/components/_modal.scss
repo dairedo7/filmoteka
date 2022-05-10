@@ -35,7 +35,7 @@
   transform: translate(-50%, -50%) scale(1);
   transition: transform $animationProps;
 
-  
+
   // filter: drop-shadow(0 8px 7px black);
 
   width: 280px;
@@ -56,7 +56,7 @@
 
   @include for-size(tablet) {
     width: 704px;
-    
+
     height: 505px; //?
 
     padding-top: 40px;
@@ -67,7 +67,7 @@
 
   @include for-size(desktop) {
     width: 814px;
-    
+
     height: 558px; //?
 
     padding-top: 40px;
@@ -76,6 +76,8 @@
     padding-left: 16px;
   }
 }
+
+
 
 .modal-close-btn {
   position: absolute;
@@ -288,7 +290,7 @@
 
   border: 1px solid $textBlackColor;
 
-  transition: color $animationProps, background-color $animationProps;
+  transition: 300ms ease-in-out 0s;
 
   @include for-size(tablet) {
     width: 125px;
@@ -300,9 +302,8 @@
 
   &:hover,
   &:focus {
-    border: transparent; //none
+    border: 1px solid transparent;
     background-color: $accentColor;
-
     color: $textWhiteColor;
   }
 

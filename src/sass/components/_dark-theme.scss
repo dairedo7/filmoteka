@@ -1,25 +1,14 @@
 // Dark style for document elements
-.header-theme {
-  color: #fff;
-  background: transparent;
-  border: none;
-}
-
-.dark .header-theme {
-  color: #ff6b08;
-  background: transparent;
-}
-
-.header-theme__icon {
-  font-size: 30px;
-}
-
 .dark {
   background: $DarkThemeBackgroundColor  !important;
   color: $DarkThemeColorWhite  !important;
 }
 
 .dark-header {
+  box-shadow: 0px 0px 1px 0px #ffffff !important;
+}
+
+.dark-headerMyLib {
   box-shadow: 0px 0px 1px 0px #ffffff !important;
 }
 
@@ -49,7 +38,7 @@
 }
 
 .dark-modalBackdrop {
-  background-color: rgba($color: #ffffff, $alpha: 0.1) !important;
+  background-color: rgba(100, 100, 100, 0.1) !important;
 }
 // End dark style for document elements
 
@@ -82,11 +71,18 @@ body.dark .modal {
   .modal-btn__watched {
     border-color: $DarkThemeColorWhite;
     color: $DarkThemeColorWhite;
+    &:hover {
+      border: 1px solid transparent;
+    }
   }
 
   .modal-btn__queue {
     border-color: $DarkThemeColorWhite;
     color: $DarkThemeColorWhite;
+
+        &:hover {
+      border: 1px solid transparent;
+    }
   }
 }
 // End dark style for modal elements
@@ -97,73 +93,3 @@ body.dark .films-collection {
     border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
   }
 }
-
-
-// Custom checkbox for switch dark style
-.header-form__switch {
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  width: 60px;
-  height: 34px;
-}
-
-.header-form__switch input {
-  display: none;
-}
-
-.header-form__slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ffffff;
-  -webkit-transition: .4s;
-  transition: .4s;
-  opacity: 0.85;
-}
-
-.header-form__slider:before {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: absolute;
-
-  content: '☀️';
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #393939;
-  -webkit-transition: .4s;
-  transition: .3s;
-}
-
-input:checked+.header-form__slider {
-  background-color: #393939;
-}
-
-input:focus+.header-form__slider{
-  box-shadow: 0 0 1px $accentColor;
-  background-color: #ffffff;
-}
-
-input:checked+.header-form__slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-  background-color: #ffffff;
-  content: '🌙';
-}
-
-.header-form__slider.header-form__slider--round {
-  border-radius: 34px;
-}
-
-.header-form__slider.header-form__slider--round:before {
-  border-radius: 50%;
-}
-// End custom checkbox for switch dark style

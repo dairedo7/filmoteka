@@ -1,6 +1,7 @@
 const themeCheckboxEl = document.querySelector('.header-form__checkbox');
 const scrollTopBtnEl = document.querySelector('.scroll-top');
 const headerEl = document.querySelector('.header');
+const headerMylibEl = document.querySelector('.header-library');
 const footerEl = document.querySelector('.footer');
 const modalEl = document.querySelector('.modal');
 const modalCloseBtnEl = document.querySelector('.modal-close-btn');
@@ -19,6 +20,7 @@ function getItems() {
   if (localStorage.getItem('style') == 'dark') {
     document.body.classList.toggle('dark');
     headerEl.classList.toggle('dark-header');
+    headerMylibEl.classList.toggle('dark-headerMyLib');
     footerEl.classList.toggle('dark-footer');
     scrollTopBtnEl.classList.toggle('dark-scroll-top');
     modalEl.classList.toggle('dark-modal');
@@ -46,6 +48,7 @@ function toggleClass() {
   footerEl.classList.toggle('dark-footer');
   scrollTopBtnEl.classList.toggle('dark-scroll-top');
   headerEl.classList.toggle('dark-header');
+  headerMylibEl.classList.toggle('dark-headerMyLib');
   modalEl.classList.toggle('dark-modal');
   modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
   backDropModalEl.classList.toggle('dark-modalBackdrop');

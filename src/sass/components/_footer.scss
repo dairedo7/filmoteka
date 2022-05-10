@@ -10,6 +10,13 @@
   background-color: $bgSecondaryColor;
 }
 
+@include for-size(tablet-up) {
+.footer__text-span {
+  display: block;
+  margin-bottom: 13px;
+}
+}
+
 .footer_icon {
   fill: #ff6b08;
   margin: 0 10px;

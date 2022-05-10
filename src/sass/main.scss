@@ -14,11 +14,13 @@
 @import './layout/container';
 
 //Components
+@import './components/change-theme-checkbox';
 @import './components/dark-theme';
 @import './components/scrollbar';
 @import './components/buttons';
 @import './components/home';
 @import './components/my_library';
+@import './components/autocomplete';
 @import './components/header';
 @import './components/header_my_library';
 @import './components/collection';
