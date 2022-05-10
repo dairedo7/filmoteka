@@ -2,11 +2,11 @@
   padding-top: 40px;
 
   @include for-size(tablet-up) {
-    padding-bottom: 92px;
+    padding-bottom: 77px;
   }
 
   @include for-size(tablet) {
-    padding-bottom: 80px;
+    padding-bottom: 65px;
   }
 
   max-width: 100%;
@@ -109,7 +109,7 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 1.16;
-  color: #fff;
+  color: $textWhiteColor;
 
   @include for-size(mobile) {
     display: none;
@@ -151,6 +151,10 @@
     height: 3px;
     background-color: $accentColor;
   }
+}
+
+.header-form {
+  margin-bottom: 15px;
 }
 
 .header-form__label {
@@ -215,4 +219,24 @@
   position: absolute;
   top: 4px;
   right: 2px;
+}
+
+.genres-form {
+  display: flex;
+  justify-content: center;
+}
+
+.genres-form__select {
+  cursor: pointer;
+  width: 170px;
+    border-radius: 4px;
+    color: darkmagenta;
+   background-color: transparent;
+   border-color: transparent;
+    border-bottom: 0.5px solid #fff;
+    transition: border-color 250ms linear;
+
+      &:focus {
+          border-bottom-color: $accentColor;
+        }
 }
