@@ -8,6 +8,7 @@ import { renderMarkup } from '../templates/cardTemplate';
 import { startSpin, stopSpin } from './spinner';
 
 const collectionEl = document.querySelector('.collection');
+const inputField = document.querySelector('.header-form__input');
 
 let formData = {};
 const DEBOUNCE_DELAY = 300;
@@ -25,11 +26,13 @@ refs.search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DE
 // Поиск по ключевому слову
 function onKeyWordSearch(evt) {
   evt.preventDefault();
+  if (inputField === evt.target.value) {
+    searchMovie();
+  }
   if (evt.target.value === '') {
     collectionEl.textContent = '';
     return getTrends();
   }
-  searchMovie();
 }
 
 // Поиск по сабмиту формы
