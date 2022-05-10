@@ -1,6 +1,12 @@
 .films-collection {
   padding-top: 60px;
-  padding-bottom: 50px;
+  margin-bottom: 60px;
+  @include for-size(tablet) {
+    margin-bottom: 170px;
+  }
+  @include for-size(desktop) {
+    margin-bottom: 150px;
+  }
 }
 
 .collection {

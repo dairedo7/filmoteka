@@ -41,7 +41,7 @@ async function onFormChange(evt) {
   if (evt.target.value === '') {
     collectionEl.textContent = '';
 
-    return getTrends();
+    getTrends();
   }
 
   const inputValue = search.headerInput.value;
