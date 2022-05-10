@@ -136,15 +136,15 @@ modalEl.addEventListener('click', evt => {
       if (item.id === queue.id) {
         movieQueueArr.splice(itemIndex, 1);
       }
-      return getMovieDets(item);
+      return getMovieQueue(item);
     }
   }
   if (queueBtnEl.textContent === 'remove from queue') {
-    for (const item of movieDetailsArr) {
+    for (const item of movieQueueArr) {
       if (item.id === queue.id) {
-        movieDetailsArr.push(item.id, 1);
+        movieQueueArr.push(item.id, 1);
       }
-      return getMovieDets(item);
+      return getMovieQueue(item);
     }
   }
 });
