@@ -1,3 +1,8 @@
+.header-container {
+  position: relative;
+
+}
+
 .header {
   padding-top: 40px;
   box-shadow: 0px 0px 1px 0px #000000;
@@ -116,7 +121,7 @@
   line-height: 1.16;
   color: #fff;
 
-  @include for-size(mobile) {
+  @include for-size(tablet-up) {
     display: none;
   }
 
@@ -203,6 +208,8 @@
     border-bottom-color: $accentColor;
   }
 }
+
+
 
 .header-form__btn {
   position: absolute;
