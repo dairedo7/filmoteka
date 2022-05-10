@@ -10,7 +10,7 @@ export function failure() {
 }
 
 export function warning() {
-  Notiflix.Notify.warning("Please, enter your reques");
+  Notiflix.Notify.warning("You've reached the last page of your inquiry!");
 }
 
 // Объект визуальных настроек

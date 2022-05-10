@@ -3,11 +3,11 @@
   box-shadow: 0px 0px 1px 0px #000000;
 
   @include for-size(tablet-up) {
-    padding-bottom: 77px;
+    padding-bottom: 92px;
   }
 
   @include for-size(tablet) {
-    padding-bottom: 65px;
+    padding-bottom: 50px;
   }
 
   max-width: 100%;
@@ -114,7 +114,7 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 1.16;
-  color: $textWhiteColor;
+  color: #fff;
 
   @include for-size(mobile) {
     display: none;
@@ -159,7 +159,6 @@
 }
 
 .header-form {
-  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -219,26 +218,4 @@
   position: absolute;
   top: 4px;
   right: 2px;
-
-}
-
-.genres-form {
-  display: flex;
-  justify-content: center;
-}
-
-.genres-form__select {
-  cursor: pointer;
-  width: 170px;
-    border-radius: 4px;
-    color: darkmagenta;
-   background-color: transparent;
-   border-color: transparent;
-    border-bottom: 0.5px solid #fff;
-    transition: border-color 250ms linear;
-
-      &:focus {
-          border-bottom-color: $accentColor;
-        }
-
 }
