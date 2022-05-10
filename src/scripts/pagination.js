@@ -57,11 +57,9 @@ async function onFormChange(evt) {
 
   console.log(moviesByKeyWord);
   renderMarkup(moviesByKeyWord.results, loadGenres);
- 
+
   pagination.reset(moviesByKeyWord.total_results);
   pagination.on('afterMove', loadMovies);
 
   loadMovies();
 }
-
-

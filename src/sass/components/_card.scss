@@ -1,24 +1,41 @@
 .item {
   height: 462px;
   margin-bottom: 25px;
-
   cursor: pointer;
   transition: $animationProps;
 
+  &:nth-last-child(-n + 1) {
+    margin-bottom: 0px;
+  }
   @include for-size(tablet) {
     width: 336px;
-    margin: 0 17px 30px 0;
+    margin: 0 30px 30px 0;
+    &:nth-child(2n) {
+      margin-right: 0px;
+    }
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0px;
+    }
   }
   @include for-size(desktop) {
     width: 309px;
-  }
-
-  &:hover,
-  &:focus {
-    transform: scale(1.03);
-    .item__title {
-      color: $accentColor;
+    &:nth-child(2n) {
+      margin-right: 30px;
     }
+    &:nth-child(3n) {
+      margin-right: 0px;
+    }
+    &:nth-last-child(-n + 3) {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.item:hover,
+.item:focus {
+  transform: scale(1.03);
+  .item__title {
+    color: $accentColor;
   }
 }
 

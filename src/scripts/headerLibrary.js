@@ -23,10 +23,6 @@ refs.queuedBtn.addEventListener('click', getMovieQueue);
 let dets;
 let queue;
 
-refs.backgroundImg.onclick = evt => {
-  console.log(evt.target);
-  getMovieDets();
-};
 //Collection of localStorage watched movies
 async function getMovieDets(id) {
   //   console.log(getWatchedMovies());
@@ -36,6 +32,8 @@ async function getMovieDets(id) {
   //Adding the orange color & shadow to the active class
   refs.watchedBtn.classList.add('is_active');
   refs.queuedBtn.classList.remove('is_active');
+  refs.collectionEl.classList.remove('collection__background');
+
   id = getWatchedMovies();
 
   //Enumerating through id's of locally saved movies to insert them into the array of objects
@@ -67,6 +65,7 @@ async function getMovieQueue(id) {
   //Adding the orange color & shadow to the active class
   refs.queuedBtn.classList.add('is_active');
   refs.watchedBtn.classList.remove('is_active');
+  refs.collectionEl.classList.remove('collection__background');
 
   id = getQueueMovies();
 
