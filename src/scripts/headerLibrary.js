@@ -31,6 +31,7 @@ async function getMovieDets(id) {
 
   //Adding the orange color & shadow to the active class
   refs.watchedBtn.classList.add('is_active');
+  refs.collectionEl.classList.add('library__collection');
   refs.queuedBtn.classList.remove('is_active');
   refs.collectionEl.classList.remove('collection__background');
 
@@ -64,6 +65,7 @@ async function getMovieQueue(id) {
 
   //Adding the orange color & shadow to the active class
   refs.queuedBtn.classList.add('is_active');
+  refs.collectionEl.classList.add('library__collection');
   refs.watchedBtn.classList.remove('is_active');
   refs.collectionEl.classList.remove('collection__background');
 

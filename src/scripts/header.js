@@ -1,5 +1,6 @@
 // import localStorageCollections from './headerLibrary';
 import { getTrends } from './searchMovie';
+import { getMovies } from './headerLibrary';
 import { emptyLibrary } from './emptyLibrary';
 const refs = {
   header: document.querySelector('.header'),
@@ -30,6 +31,7 @@ function onLibraryClick(evt) {
     refs.header.classList.remove('visually-hidden');
     refs.pagination.classList.remove('visually-hidden');
     refs.collectionEl.classList.remove('collection__background');
+    refs.collectionEl.classList.remove('library__collection');
   }
 }
 
@@ -57,6 +59,7 @@ function onLogoClick(evt) {
   refs.header.classList.remove('visually-hidden');
   refs.pagination.classList.remove('visually-hidden');
   refs.collectionEl.classList.remove('collection__background');
+  refs.collectionEl.classList.remove('library__collection');
   refs.collectionEl.textContent = '';
-  getTrends();
+  getMovies();
 }
