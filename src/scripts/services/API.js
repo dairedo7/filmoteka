@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { failure } from '../notification';
-
+import { renderMovieDetails } from '../render-movie-details';
 const BASE_URL = `https://api.themoviedb.org/3`;
 const API_KEY = `76293c6bcb8bbcc89a96d2b767d5c3a3`;
 

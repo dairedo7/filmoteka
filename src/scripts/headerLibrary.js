@@ -23,27 +23,25 @@ refs.queuedBtn.addEventListener('click', getMovieQueue);
 let dets;
 let queue;
 
-refs.backgroundImg.onclick = evt => {
-  console.log(evt.target);
-  getMovieDets();
-};
 //Collection of localStorage watched movies
 async function getMovieDets(id) {
   //   console.log(getWatchedMovies());
-  refs.collectionEl.textContent = '';
+  const emptyLibraryNotification = (refs.collectionEl.innerHTML =
+    '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>');
+
   //Adding the orange color & shadow to the active class
   refs.watchedBtn.classList.add('is_active');
   refs.queuedBtn.classList.remove('is_active');
+  refs.collectionEl.classList.remove('collection__background');
+
   id = getWatchedMovies();
-  startSpin();
 
   //Enumerating through id's of locally saved movies to insert them into the array of objects
-
+  emptyLibraryNotification;
   movieDetailsArr = [];
-  if (id.length === 0) {
-    stopSpin();
-    refs.collectionEl.innerHTML =
-      '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>';
+  if (id.length > 0) {
+    startSpin();
+    refs.collectionEl.textContent = '';
   }
 
   for (const item of id) {
@@ -53,7 +51,7 @@ async function getMovieDets(id) {
       stopSpin();
     }
   }
-  console.log(movieDetailsArr);
+
   //Inserting the movie collection to render in the markup
   return renderWatched(movieDetailsArr);
 }
@@ -61,21 +59,25 @@ async function getMovieDets(id) {
 //Collection of localStorage queued movies
 async function getMovieQueue(id) {
   // console.log(getQueueMovies());
-  refs.collectionEl.textContent = '';
+  const emptyLibraryNotification = (refs.collectionEl.innerHTML =
+    '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>');
+
   //Adding the orange color & shadow to the active class
   refs.queuedBtn.classList.add('is_active');
   refs.watchedBtn.classList.remove('is_active');
+  refs.collectionEl.classList.remove('collection__background');
 
-  startSpin();
   id = getQueueMovies();
-  if (id.length === 0) {
-    stopSpin();
-    refs.collectionEl.innerHTML =
-      '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>';
+
+  emptyLibraryNotification;
+  movieQueueArr = [];
+
+  if (id.length > 0) {
+    startSpin();
+    refs.collectionEl.textContent = '';
   }
   //Enumerating through id's of locally saved movies to insert them into the array of objects
 
-  movieQueueArr = [];
   for (const item of id) {
     if (item) {
       queue = await fetchMovieDetails(item);
@@ -99,28 +101,15 @@ export async function getMovies() {
   return renderMarkup(response.results, loadGenres);
 }
 
-// export default localStorageCollections;
-
-//Removing movies from watched on modal button clicks
-
-async function fetchMovieDets(id) {
-  if (id) {
-    details = await fetchMovieDetails(id);
-  }
-}
-
-// modal events
+// Add or remove movie-item from library
 const modalEl = document.querySelector('.modal-container');
 
 modalEl.addEventListener('click', evt => {
-  const backdropEl = document.querySelector('.backdrop');
-
+  console.log(evt.target.textContent);
   const watchedBtnEl = document.querySelector('.modal-btn__watched');
   const queueBtnEl = document.querySelector('.modal-btn__queue');
 
   if (watchedBtnEl.textContent === 'add to Watched') {
-    let newArr = [];
-
     for (const item of movieDetailsArr) {
       const itemIndex = movieDetailsArr.indexOf(item.id);
       if (item.id === dets.id) {
@@ -129,14 +118,18 @@ modalEl.addEventListener('click', evt => {
       return getMovieDets(item);
     }
   }
+  if (watchedBtnEl.textContent === 'remove from Watched') {
+    for (const item of movieDetailsArr) {
+      if (item.id === dets.id) {
+        movieDetailsArr.push(item.id, 1);
+      }
+      return getMovieDets(item);
+    }
+  }
 
   if (queueBtnEl.textContent === 'add to queue') {
-    let newArr = [];
-
     for (const item of movieQueueArr) {
       const itemIndex = movieQueueArr.indexOf(item.id);
-      console.log(queue.id);
-      console.log(item.id);
 
       if (item.id === queue.id) {
         movieQueueArr.splice(itemIndex, 1);
@@ -144,10 +137,12 @@ modalEl.addEventListener('click', evt => {
       return getMovieDets(item);
     }
   }
+  if (queueBtnEl.textContent === 'remove from queue') {
+    for (const item of movieDetailsArr) {
+      if (item.id === queue.id) {
+        movieDetailsArr.push(item.id, 1);
+      }
+      return getMovieDets(item);
+    }
+  }
 });
-
-// function onWatchedBtnClick() {
-//   console.log(dets.id);
-// }
-
-// function onQueueBtnClick() {}

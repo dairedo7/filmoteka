@@ -4,14 +4,14 @@
         "teamRole": "Team leader",
         "avatar": "https://i.ibb.co/HryY8vF/Vlad2.jpg",
         "gitHub": "https://github.com/dairedo7",
-        "text": "Я все исправлю"
+        "text": "Буду через 10 минут, начинайте без меня"
     },
       {
         "name": "Anna Kulibabina",
         "teamRole": "Scrum-master",
         "avatar": "https://i.ibb.co/pdkKpDq/Anya.jpg",
         "gitHub": "https://github.com/AnnaKulib",
-        "text": "Найду все ваши баги"
+        "text": "Я пока баги поищу"
 
 
     },
@@ -20,7 +20,7 @@
         "teamRole": "Frontend Developer",
         "avatar": "https://i.ibb.co/94LLTKR/Lenka.jpg",
         "gitHub": "https://github.com/ElenaLukashevych",
-        "text": "Я все забыла"
+        "text": "Я все забыла, но думаю, нам нужны гоблины и усы"
 
     },
       {
@@ -28,7 +28,7 @@
         "teamRole": "Frontend Developer",
         "avatar": "https://i.ibb.co/Z1cMkDv/All-190-m.jpg",
         "gitHub": "https://github.com/Aleksandr-Trenohin",
-        "text": "Молча сделаю все"
+        "text": "Без лишних слов, делаю всё быстро и качественно"
 
     },
       {
@@ -36,7 +36,7 @@
         "teamRole": "Frontend Developer",
         "avatar": "https://i.ibb.co/d2gbzZk/Valentina2.jpg",
         "gitHub": "https://github.com/VUnzhakova",
-        "text": "Видишь пагинацию? Листай, сучка"
+        "text": "Видишь пагинацию? Листай пагинацию"
 
     },
       {
@@ -44,7 +44,7 @@
         "teamRole": "Frontend Developer",
         "avatar": "https://i.ibb.co/XW1T5kc/Viktoria.jpg",
         "gitHub": "https://github.com/Viktoriia1005",
-        "text": "Я думаю, нам нужно больше запросов"
+        "text": "Да лучше потом удалим, если что. Еще 800 запросов нам не помешают"
 
     },
 
@@ -61,7 +61,7 @@
         "teamRole": "Frontend Developer",
         "avatar": "https://i.ibb.co/fX3LvFq/Igor2.jpg",
         "gitHub": "https://github.com/iPanamas",
-        "text": "Ща сделаю правки во всех файлах"
+        "text": "Ща сделаю правки во всех файлах и закончим"
 
     }
 

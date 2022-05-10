@@ -6,8 +6,10 @@ import { warning } from './notification';
 import { success } from './notification';
 import { renderMarkup } from '../templates/cardTemplate';
 import { startSpin, stopSpin } from './spinner';
+import './pagination';
 
 const collectionEl = document.querySelector('.collection');
+const formIntput = document.querySelector('header-form__input');
 
 let formData = {};
 const DEBOUNCE_DELAY = 300;
@@ -35,10 +37,15 @@ function onKeyWordSearch(evt) {
 // Поиск по сабмиту формы
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
-  searchMovie();
-  evt.currentTarget.reset();
-  formData = {};
-  localStorage.removeItem(STORAGE_KEY);
+  console.log(evt.currentTarget.elements.headerInput.value);
+  if (evt.currentTarget.elements.headerInput.value === '') {
+    return;
+  } else {
+    searchMovie();
+    evt.currentTarget.reset();
+    formData = {};
+    localStorage.removeItem(STORAGE_KEY);
+  }
 }
 // Очистка страницы
 function clearPage() {
@@ -55,7 +62,7 @@ export async function searchMovie(evt) {
     clearPage();
     const loadGenres = await fetchGenres();
     stopSpin();
-    console.log(moviesByKeyWord);
+
     renderMarkup(moviesByKeyWord.results, loadGenres);
     success(moviesByKeyWord.total_results);
   }
@@ -65,7 +72,7 @@ export async function searchMovie(evt) {
   //    }
 }
 let page;
-export async function getTrends() {
+ async function getTrends() {
   page = 1;
   const response = await fetchPopularMovies(page);
   const theGenres = await fetchGenres();

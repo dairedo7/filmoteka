@@ -2,7 +2,6 @@
 import axios from 'axios';
 import Pagination from 'tui-pagination';
 import debounce from 'lodash.debounce';
-// import 'tui-pagination/dist/tui-pagination.css';
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
 import { getTrends } from './searchMovie.js';
@@ -14,30 +13,11 @@ const form = document.querySelector('.header-form__input');
 form.addEventListener('input', debounce(onFormChange, DEBOUNCE_DELAY));
 const container = document.getElementById('pagination');
 
-// const search_form = document.querySelector('.header-form__label');
-// search_form.addEventListener('submit', handlerKeyWord);
-
-// function handlerKeyWord(e) {
-//   e.preventDefault();
-//   let value = search_form.elements.header-input.value.trim();
-
-//   fetchMoviePagination(value, page)
-//     .then(data => {
-//       if (data) {
-//         pagination.reset(data.total_pages);
-//         getMovies(data.results);
-//       }
-//     })
-//     .catch(console.error);
-
-//   setPagination(value);
-// }
-// const API_KEY = 'api_key=76293c6bcb8bbcc89a96d2b767d5c3a3';
 const PER_PAGE = 20;
 const options = {
   totalItems: 2000,
   itemsPerPage: PER_PAGE,
-  visiblePages: 7,
+  visiblePages: 10,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -47,7 +27,6 @@ const pagination = new Pagination(container, options);
 let page = pagination.getCurrentPage();
 
 pagination.on('afterMove', loadMovies);
-// let page
 async function loadMovies(event) {
   collectionEl.textContent = '';
   const response = await fetchPopularMovies(event.page);
@@ -78,21 +57,9 @@ async function onFormChange(evt) {
 
   console.log(moviesByKeyWord);
   renderMarkup(moviesByKeyWord.results, loadGenres);
-  // success(moviesByKeyWord.total_results);
+
   pagination.reset(moviesByKeyWord.total_results);
   pagination.on('afterMove', loadMovies);
 
   loadMovies();
 }
-
-// pagination.reset(loadMovies);
-// loadMovies()
-// function setPagination(value) {
-//   pagination.on('afterMove', ({ page }) => {
-//     fetchMoviePagination(value, page)
-//       .then(data => getMovies(data.results))
-//       .catch(console.log);
-//   });
-// }
-
-// console.log(page)
