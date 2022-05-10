@@ -1,5 +1,4 @@
 .tui-pagination {
-    margin-top: 50px;
     margin-bottom: 60px;
     height: 40px;
     text-align: center;
@@ -8,9 +7,10 @@
 .tui-pagination .tui-page-btn {
     display: inline-block;
     position: relative;
+    margin-right: 1px;
     width: 40px;
     padding: 12px 0 12px;
-    color: black;
+    color: $textBlackColor;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -23,25 +23,25 @@
 .tui-ico-last,
 .tui-ico-next,
 .tui-ico-prev {
-    overflow: hidden;
+overflow: hidden;
 }
 
 .tui-pagination .tui-page-btn:hover {
-    background-color: #ff6b08;
+    background-color: $accentColor;
     border-radius: 5px;
     transition: 500ms ease-in-out 0s;
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-    background-color: #ff6b08;
+    background-color: $accentColor;
     color: white;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .tui-pagination .tui-is-selected:hover {
-    background-color: #ff6b08;
+    background-color: $accentColor;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
@@ -62,7 +62,7 @@
     line-height: 35px;
     white-space: nowrap;
     font-weight: normal;
-    background-color: #f7f7f7;
+    background-color: $bgSecondaryColor;
     border-radius: 5px;
 }
 
@@ -90,7 +90,7 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 0px;
-    color: black;
+    color: $textBlackColor;
 }
 
 .tui-pagination .tui-prev-is-ellip,
@@ -101,15 +101,15 @@
 
 .tui-pagination .tui-prev {
     margin-right: 10px;
-    margin-left: 1px;
-    background-color: #f7f7f7;
+    margin-left: 2px;
+    background-color: $bgSecondaryColor;
     border-radius: 5px;
 }
 
 .tui-pagination .tui-next {
     margin-left: 10px;
-    margin-right: 1px;
-    background-color: #f7f7f7;
+    margin-right: 2px;
+    background-color: $bgSecondaryColor;
     border-radius: 5px;
 }
 
@@ -147,17 +147,9 @@
 
 .tui-pagination .tui-is-disabled {
     display: none;
-    background: #f7f7f7;
+    background: $bgSecondaryColor;
 }
 
-.tui-pagination .tui-is-disabled:hover {
-    background-color: grey;
-    cursor: default;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-}
 
 .tui-pagination .tui-is-disabled .tui-ico-prev {
     display: none;
@@ -179,24 +171,7 @@
     background-position: -13px -12px;
 }
 
-.tui-page-inputs {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.tui-page-inputs .tui-page-input {
-    display: inline-block;
-    width: 10px;
-    height: 12px;
-    padding: 8px 0 6px;
-    font-size: 12px;
-    text-align: center;
-    color: #333;
-    border: 0;
-    outline: none;
-}
-
 .tui-page-inputs .tui-page-current {
-    color: #ff6b08;
+    color: $accentColor;
 }
 
