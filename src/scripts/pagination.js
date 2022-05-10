@@ -33,14 +33,8 @@ async function loadMovies(event) {
   console.log(response.results);
   const loadGenres = await fetchGenres();
 
-  pagination.off('afterMove', loadMovies);
-
   return renderMarkup(response.results, loadGenres);
 }
-
-// async function afterInput() {
-//   const fetchData = await
-// }
 
 async function onFormChange(evt) {
   evt.preventDefault();

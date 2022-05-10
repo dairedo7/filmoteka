@@ -49,7 +49,7 @@
   }
 
   @include for-size(desktop) {
-    height: 462px;
+    height: 461px;
   }
 }
 
@@ -60,7 +60,7 @@
     width: 336px;
   }
   @include for-size(desktop) {
-    width: 309px;
+    width: 308px;
   }
   height: 100%;
   object-fit: contain;

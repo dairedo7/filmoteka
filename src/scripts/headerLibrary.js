@@ -51,7 +51,7 @@ async function getMovieDets(id) {
       stopSpin();
     }
   }
-  console.log(movieDetailsArr);
+
   //Inserting the movie collection to render in the markup
   return renderWatched(movieDetailsArr);
 }
@@ -130,8 +130,6 @@ modalEl.addEventListener('click', evt => {
   if (queueBtnEl.textContent === 'add to queue') {
     for (const item of movieQueueArr) {
       const itemIndex = movieQueueArr.indexOf(item.id);
-      console.log(queue.id);
-      console.log(item.id);
 
       if (item.id === queue.id) {
         movieQueueArr.splice(itemIndex, 1);

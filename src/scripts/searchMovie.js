@@ -6,9 +6,10 @@ import { warning } from './notification';
 import { success } from './notification';
 import { renderMarkup } from '../templates/cardTemplate';
 import { startSpin, stopSpin } from './spinner';
+import './pagination';
 
 const collectionEl = document.querySelector('.collection');
-const inputField = document.querySelector('.header-form__input');
+const formIntput = document.querySelector('header-form__input');
 
 let formData = {};
 const DEBOUNCE_DELAY = 300;
@@ -28,7 +29,7 @@ function onKeyWordSearch(evt) {
   evt.preventDefault();
   if (evt.target.value === '') {
     collectionEl.textContent = '';
-    getTrends();
+    return getTrends();
   }
   searchMovie();
 }
@@ -36,17 +37,15 @@ function onKeyWordSearch(evt) {
 // Поиск по сабмиту формы
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
-  if (inputField === evt.target.value) {
+  console.log(evt.currentTarget.elements.headerInput.value);
+  if (evt.currentTarget.elements.headerInput.value === '') {
+    return;
+  } else {
     searchMovie();
+    evt.currentTarget.reset();
+    formData = {};
+    localStorage.removeItem(STORAGE_KEY);
   }
-  if (evt.target.value === '') {
-    collectionEl.textContent = '';
-    getTrends();
-  }
-  searchMovie();
-  evt.currentTarget.reset();
-  formData = {};
-  localStorage.removeItem(STORAGE_KEY);
 }
 // Очистка страницы
 function clearPage() {
@@ -63,7 +62,7 @@ export async function searchMovie(evt) {
     clearPage();
     const loadGenres = await fetchGenres();
     stopSpin();
-    console.log(moviesByKeyWord);
+
     renderMarkup(moviesByKeyWord.results, loadGenres);
     success(moviesByKeyWord.total_results);
   }

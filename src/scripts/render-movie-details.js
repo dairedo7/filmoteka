@@ -17,7 +17,6 @@ export function renderMovieDetails(movieDetails) {
     vote_count,
   } = movieDetails;
 
-  console.log(genres);
   let genre;
   if (genres.length === 1) {
     genre = genres.map(({ name }) => `${name}`);

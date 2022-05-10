@@ -4,7 +4,6 @@ export function renderMarkup(res, genres) {
 
   const response = res
     .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
-      console.log(defaultPoster);
       const poster = `https://image.tmdb.org/t/p/w500` + poster_path;
       if (genre_ids.length > 3) {
         const other = 'Other';

@@ -1,5 +1,5 @@
 // import localStorageCollections from './headerLibrary';
-import { getMovies } from './headerLibrary';
+import { getTrends } from './searchMovie';
 import { emptyLibrary } from './emptyLibrary';
 const refs = {
   header: document.querySelector('.header'),
@@ -47,16 +47,10 @@ function onHeaderClick(evt) {
     refs.collectionEl.classList.add('collection__background');
     refs.collectionEl.insertAdjacentHTML('beforeend', emptyLibrary);
     refs.pagination.classList.add('visually-hidden');
-
-    refs.backgroundImg.onclick = evt => {
-      console.log(evt.target);
-      getMovieDets();
-    };
   }
 }
 
 function onLogoClick(evt) {
-  console.log(evt.target);
   evt.preventDefault();
 
   refs.headerLibrary.classList.add('visually-hidden');
@@ -64,5 +58,5 @@ function onLogoClick(evt) {
   refs.pagination.classList.remove('visually-hidden');
   refs.collectionEl.classList.remove('collection__background');
   refs.collectionEl.textContent = '';
-  getMovies();
+  getTrends();
 }
