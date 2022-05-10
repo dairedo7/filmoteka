@@ -73,7 +73,7 @@ export async function searchMovie(evt) {
   //    }
 }
 let page;
-export async function getTrends() {
+ async function getTrends() {
   page = 1;
   const response = await fetchPopularMovies(page);
   const theGenres = await fetchGenres();
