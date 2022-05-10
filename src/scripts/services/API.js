@@ -64,3 +64,9 @@ export const fetchTrailerMovie = async id => {
   const sourseId = data.results[0].key;
   return sourseId;
 };
+
+export const fetchGenresById = async (genreId) => {
+  const response = await axios.get(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${genreId}`);
+  const data = await response.data;
+  return data.results;
+}
