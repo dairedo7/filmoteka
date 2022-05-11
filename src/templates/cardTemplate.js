@@ -1,8 +1,10 @@
 const collectionEl = document.querySelector('.collection');
 export function renderMarkup(res, genres) {
-  console.log(res);
+  const defaultPoster = `https://i.pinimg.com/564x/e4/71/1e/e4711e46bea5264eaab661d643285ff6.jpg`;
+
   const response = res
     .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
+      const poster = `https://image.tmdb.org/t/p/w500` + poster_path;
       if (genre_ids.length > 3) {
         const other = 'Other';
         genre_ids[2] = other;
@@ -16,7 +18,7 @@ export function renderMarkup(res, genres) {
             <img
               class='item__img'
               id='${id}'
-              src='https://image.tmdb.org/t/p/w500${poster_path}'
+              src='${poster_path ? poster : defaultPoster}'
               alt='${title}'
             />
           </div>

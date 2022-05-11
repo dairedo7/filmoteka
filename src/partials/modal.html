@@ -1,6 +1,6 @@
-<div class="backdrop is-hidden" data-modal>
+<div class="backdrop is-hidden">
   <div class="modal">
-    <button type="button" class="btn modal-close-btn" aria-label="Кнопка закрытия модального окна" data-modal-close>
+    <button type="button" class="btn modal-close-btn" aria-label="Кнопка закрытия модального окна">
       <svg class="modal__icon" width="30" height="30">
         <use href="./images/svg/close-btn.svg#icon-close-btn"></use>
       </svg>
@@ -29,6 +29,20 @@
             <p class="modal-key">Genre</p>
             <p class="modal-values">Western</p>
           </li>
+          <li class="modal-item">
+            <p class="modal-key">Trailer</p>
+            <p class="modal-values">
+              <button
+                type="button"
+                class="btn modal-play-btn"
+                aria-label="Кнопка открытия трейлера"
+              >
+                <svg class="play__icon" width="30" height="30">
+                  <use href="./images/svg/close-btn.svg#icon-play2"></use>
+                </svg></button
+              >Play
+            </p>
+          </li>
         </ul>
         <div class="modal-overview">
           <p>About</p>
@@ -48,4 +62,17 @@
       </div> -->
     </div>
   </div>
+</div>
+
+<div class="backdrop__trailer is-hidden">
+  <!-- <iframe
+    class="trailer"
+    width="1920"
+    height="1080"
+    src="https://www.youtube.com/embed/e-5obm1G_FY"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe> -->
 </div>

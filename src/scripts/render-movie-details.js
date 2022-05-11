@@ -17,7 +17,6 @@ export function renderMovieDetails(movieDetails) {
     vote_count,
   } = movieDetails;
 
-  console.log(genres);
   let genre;
   if (genres.length === 1) {
     genre = genres.map(({ name }) => `${name}`);
@@ -30,7 +29,11 @@ export function renderMovieDetails(movieDetails) {
   }
 
   // src = 'https://image.tmdb.org/t/p/original${poster_path}';
-  const movieDetailsEl = `<img src="https://image.tmdb.org/t/p/w780${poster_path}" alt="постер" class="modal-img" />
+  const defaultPoster = `https://i.pinimg.com/564x/e4/71/1e/e4711e46bea5264eaab661d643285ff6.jpg`;
+  const poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  const movieDetailsEl = `<img src="${
+    poster_path ? poster : defaultPoster
+  }" alt="постер" class="modal-img" />
       <div class="modal-description">
         <h2 class="modal-title">${title}</h2>
         <ul class="modal-list">
@@ -43,7 +46,7 @@ export function renderMovieDetails(movieDetails) {
           </li>
           <li class="modal-item">
             <p class="modal-key">Popularity</p>
-            <p class="modal-values">${popularity}</p>
+            <p class="modal-values">${parseInt(popularity)}</p>
           </li>
           <li class="modal-item">
             <p class="modal-key">Original Title</p>
@@ -52,6 +55,10 @@ export function renderMovieDetails(movieDetails) {
           <li class="modal-item">
             <p class="modal-key">Genre</p>
             <p class="modal-values">${genre}</p>
+          </li>
+          <li class="modal-item">
+            <p class="modal-key">Trailer</p>
+            <p class="modal-values"><button type="button" class="btn modal-play-btn">Play</button></p>
           </li>
         </ul>
         <div class="modal-overview">

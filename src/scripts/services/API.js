@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { failure } from '../notification';
-
+import { renderMovieDetails } from '../render-movie-details';
 const BASE_URL = `https://api.themoviedb.org/3`;
 const API_KEY = `76293c6bcb8bbcc89a96d2b767d5c3a3`;
 
 axios.defaults.baseURL = BASE_URL;
 
 export const fetchPopularMovies = async page => {
-  const response = await axios.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`);
+  const response = await axios.get(
+    `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}&per_page=5`,
+  );
   const popularMoviesData = response.data;
   return popularMoviesData;
 };
@@ -56,15 +58,10 @@ export const fetchGenres = async () => {
   }
 };
 
-export const fetchTrailerMovie = async id => {
+export const fetchMovieTrailer = async id => {
   const response = await axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
-  const data = await response.data;
-  const sourseId = data.results[0].key;
-  return sourseId;
-};
+  const videos = await response.data.results;
+  const onlyTrailer = videos.filter(video => video.type === 'Trailer').pop();
 
-export const fetchGenresById = async (genreId) => {
-  const response = await axios.get(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${genreId}`);
-  const data = await response.data;
-  return data.results;
-}
+  return onlyTrailer;
+};

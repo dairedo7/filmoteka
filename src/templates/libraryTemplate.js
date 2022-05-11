@@ -1,10 +1,12 @@
 const collectionEl = document.querySelector('.collection');
 export function renderWatched(res, genres) {
-  console.log(res);
+  const defaultPoster = `https://i.pinimg.com/564x/e4/71/1e/e4711e46bea5264eaab661d643285ff6.jpg`;
+
   const response = res
     .map(({ id, poster_path, title, genres, release_date, vote_average }) => {
       const getGenres = genres.map(({ name }) => name).slice(0, 2);
       getGenres.splice(2, 0, 'Other');
+      const poster = `https://image.tmdb.org/t/p/w500` + poster_path;
 
       return `
         <li class='item'>
@@ -12,7 +14,7 @@ export function renderWatched(res, genres) {
             <img
               class='item__img'
               id='${id}'
-              src='https://image.tmdb.org/t/p/w500${poster_path}'
+              src='${poster_path ? poster : defaultPoster}'
               alt='${title}'
             />
           </div>

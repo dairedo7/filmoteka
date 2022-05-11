@@ -17,7 +17,7 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.3);
 
   &.is-hidden {
     // visibility: hidden;
@@ -36,7 +36,7 @@
   transition: transform $animationProps;
 
   
-  // filter: drop-shadow(0 8px 7px black);
+  filter: drop-shadow(0 8px 7px black);
 
   width: 280px;
   // height: 940px;
@@ -52,10 +52,12 @@
     overflow-y: auto;
   }
 
+  border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+
   @include for-size(tablet) {
     width: 704px;
     
-    height: 505px; //?
+    height: 552px; //?505
 
     padding-top: 40px;
     padding-right: 72px;
@@ -83,10 +85,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  // width: 30px;
+  // height: 30px;
 
-  background: transparent;
+  background-color: transparent;
   color: $blackColor;
 
   transition: color $animationProps, transform $animationProps;
@@ -114,6 +116,8 @@
   height: 357px;
   object-fit: cover;
   border-radius: 5px;
+
+  border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
 
   @include for-size(tablet) {
     width: 264px;
@@ -230,6 +234,41 @@
   border-radius: 5px;
 }
 
+.modal-play-btn {
+  width: 55px;
+  height: 16px;
+  text-transform: uppercase;
+  color: $textBlackColor;
+  
+  background-color: transparent;
+  
+    padding-top: 1px;
+  
+  
+  display: flex;
+  
+  justify-content: center;
+  
+  border: 1px solid $textBlackColor;
+  
+  transition: color $animationProps,
+  background-color $animationProps;
+  
+  
+  
+  &:hover,
+  &:focus {
+    border: transparent; //none
+    
+    background-color: $accentColor;
+    padding-top: 2px;
+    box-shadow: 0px 8px 43px rgb(255 107 1 / 65%);
+
+        color: $textWhiteColor;
+  }
+}
+
+
 .modal-overview {
   font-weight: 500;
   font-size: 12px;
@@ -251,7 +290,7 @@
   color: $textBlackColor;
 
   margin-top: 8px;
-  max-height: 236px;
+  max-height: 204px; //?236
   overflow-y: auto;
 }
 
@@ -273,7 +312,7 @@
   height: 44px;
   text-transform: uppercase;
   color: $textBlackColor;
-  background: transparent;
+  background-color: transparent;
 
   padding: 0 7px;
 
@@ -284,7 +323,7 @@
 
   border: 1px solid $textBlackColor;
 
-  transition: color $animationProps, background-color $animationProps;
+transition: 300ms ease-in-out 0s;
 
   @include for-size(tablet) {
     width: 125px;
@@ -296,13 +335,72 @@
 
   &:hover,
   &:focus {
-    border: transparent; //none
+    border: 1px solid transparent;
     background-color: $accentColor;
 
     color: $textWhiteColor;
+    box-shadow: 0px 8px 43px rgb(255 107 1 / 60%);
   }
 
   &:not(:last-child) {
     margin-right: 15px;
   }
+  &__added {
+    border: transparent; //none
+    background-color: $accentColor;
+    
+    color: $textWhiteColor;
+    
+  }
+}
+
+
+//trailer
+
+.backdrop__trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  opacity: 1;
+
+  transition: opacity $animationProps;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.9);
+
+  &.is-hidden {
+    // visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.trailer {
+  width: 313px;
+  height: 176px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform $animationProps;
+  
+  box-shadow: -7px -7px 7px $accentColor;
+  
+  border-radius: 5px;
+  
+    border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+  
+  @include for-size(tablet) {
+   width: 707px;
+  height: 398px;
+    }
+  
+  @include for-size(desktop) {
+   width: 996px;
+  height: 560px;
+    }
 }

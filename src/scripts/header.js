@@ -1,5 +1,7 @@
 // import localStorageCollections from './headerLibrary';
+import { getTrends } from './searchMovie';
 import { getMovies } from './headerLibrary';
+import { emptyLibrary } from './emptyLibrary';
 const refs = {
   header: document.querySelector('.header'),
   headerLibrary: document.querySelector('.header-library'),
@@ -8,6 +10,8 @@ const refs = {
   headerNavigation: document.querySelector('.header-box'),
   collectionEl: document.querySelector('.collection'),
   headerTitle: document.querySelector('.header-box__title'),
+
+  pagination: document.getElementById('pagination'),
 };
 
 refs.libraryNavigation.addEventListener('click', onLibraryClick);
@@ -25,6 +29,9 @@ function onLibraryClick(evt) {
     getMovies();
     refs.headerLibrary.classList.add('visually-hidden');
     refs.header.classList.remove('visually-hidden');
+    refs.pagination.classList.remove('visually-hidden');
+    refs.collectionEl.classList.remove('collection__background');
+    refs.collectionEl.classList.remove('library__collection');
   }
 }
 
@@ -39,15 +46,20 @@ function onHeaderClick(evt) {
     refs.headerLibrary.classList.remove('visually-hidden');
     refs.header.classList.add('visually-hidden');
     refs.collectionEl.innerHTML = '';
+    refs.collectionEl.classList.add('collection__background');
+    refs.collectionEl.insertAdjacentHTML('beforeend', emptyLibrary);
+    refs.pagination.classList.add('visually-hidden');
   }
 }
 
 function onLogoClick(evt) {
-  console.log(evt.target);
   evt.preventDefault();
 
   refs.headerLibrary.classList.add('visually-hidden');
   refs.header.classList.remove('visually-hidden');
+  refs.pagination.classList.remove('visually-hidden');
+  refs.collectionEl.classList.remove('collection__background');
+  refs.collectionEl.classList.remove('library__collection');
   refs.collectionEl.textContent = '';
   getMovies();
 }

@@ -3,6 +3,9 @@ import { renderMovieDetails } from './render-movie-details';
 import { renderWatchedQueueButtons } from './render-watched-queue-btn';
 import { startSpin, stopSpin } from './spinner';
 
+import { fetchMovieTrailer } from './services/API';
+import { makeTrailer } from './trailer-play';
+
 let watchedMovies = {};
 import { getData } from './localStorage';
 import { setNewWatchedMovie } from './localStorage';
@@ -14,9 +17,11 @@ import { getDataQ } from './localStorage';
 import { setNewQueueMovie } from './localStorage';
 import { checkedQueueMovie } from './localStorage';
 import { removeQueueMovie } from './localStorage';
+import imagePing from 'tui-pagination';
 
 const backdropEl = document.querySelector('.backdrop');
 const modalContainerEl = document.querySelector('.modal-container');
+const backdropTrailerContainerEl = document.querySelector('.backdrop__trailer');
 
 let details;
 let modalButtonsEl;
@@ -49,17 +54,33 @@ const modalEl = document.querySelector('.modal-container');
 modalEl.addEventListener('click', evt => {
   const watchedBtnEl = document.querySelector('.modal-btn__watched');
   const queueBtnEl = document.querySelector('.modal-btn__queue');
+  const trailerBtnEl = document.querySelector('.modal-play-btn');
 
   if (watchedBtnEl === evt.target) {
     onWatchedBtnClick();
   } else if (queueBtnEl === evt.target) {
     onQueueBtnClick();
+  } else if (trailerBtnEl === evt.target) {
+    onTrailerBtnClick();
   }
 });
 
+// trailer btn
+async function onTrailerBtnClick() {
+  window.removeEventListener('keydown', onEscPress);
+  backdropTrailerContainerEl.classList.remove('is-hidden');
+  window.addEventListener('keydown', onEscClick);
+  startSpin();
+
+  const { id } = details;
+  const trailer = await fetchMovieTrailer(id);
+  makeTrailer(trailer);
+
+  stopSpin();
+}
+
 // watched btn
 function onWatchedBtnClick() {
-  console.log(details);
   const { title, id } = details;
   if (checkedWatchedMovie(title)) {
     removeWatchedMovie(title);
@@ -88,6 +109,12 @@ function onCloseBtnClick() {
   window.removeEventListener('keydown', onEscPress);
   document.body.style.overflow = '';
 }
+function trailerClosed() {
+  backdropTrailerContainerEl.innerHTML = '';
+  backdropTrailerContainerEl.classList.add('is-hidden');
+  window.removeEventListener('keydown', onEscClick);
+  window.addEventListener('keydown', onEscPress);
+}
 
 backdropEl.addEventListener('click', onBackdropClick);
 
@@ -96,9 +123,21 @@ function onBackdropClick(event) {
     onCloseBtnClick();
   }
 }
-
 function onEscPress(event) {
   if (event.code === 'Escape') {
     onCloseBtnClick();
+  }
+}
+
+backdropTrailerContainerEl.addEventListener('click', onBackdropTrailerClick);
+
+function onBackdropTrailerClick(event) {
+  if (event.currentTarget === event.target) {
+    trailerClosed();
+  }
+}
+function onEscClick(event) {
+  if (event.code === 'Escape') {
+    trailerClosed();
   }
 }

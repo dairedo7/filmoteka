@@ -10,7 +10,7 @@ export function failure() {
 }
 
 export function warning() {
-  Notiflix.Notify.warning("Please, enter your reques");
+  Notiflix.Notify.warning("You've reached the last page of your inquiry!");
 }
 
 // Объект визуальных настроек
@@ -27,14 +27,14 @@ Notiflix.Notify.init({
   backOverlayColor: 'rgba(0,0,0,0.5)',
   plainText: true,
   showOnlyTheLastOne: false,
-  clickToClose: false,
+  clickToClose: true,
   pauseOnHover: true,
 
   ID: 'NotiflixNotify',
   className: 'notiflix-notify',
   zindex: 4000,
   fontFamily: 'Roboto',
-  fontSize: '16px',
+  fontSize: '14px',
   cssAnimation: true,
   cssAnimationDuration: 400,
   cssAnimationStyle: 'zoom', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
@@ -45,40 +45,40 @@ Notiflix.Notify.init({
   fontAwesomeIconSize: '34px',
 
   success: {
-    background: '#32c682',
+    background: '#1c1c1cf5',
     textColor: '#fff',
     childClassName: 'notiflix-notify-success',
-    notiflixIconColor: 'rgba(0,0,0,0.2)',
+    notiflixIconColor: '#ff6b08',
     fontAwesomeClassName: 'fas fa-check-circle',
-    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
+    fontAwesomeIconColor: '#ff6b08',
     backOverlayColor: 'rgba(50,198,130,0.2)',
   },
 
   failure: {
-    background: '#ff5549',
+    background: '#1c1c1cf5',
     textColor: '#fff',
     childClassName: 'notiflix-notify-failure',
-    notiflixIconColor: 'rgba(0,0,0,0.2)',
+    notiflixIconColor: '#ff6b08',
     fontAwesomeClassName: 'fas fa-times-circle',
-    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
+    fontAwesomeIconColor: '#ff6b08',
     backOverlayColor: 'rgba(255,85,73,0.2)',
   },
 
   warning: {
-    background: '#eebf31',
+    background: '#1c1c1cf5',
     textColor: '#fff',
     childClassName: 'notiflix-notify-warning',
-    notiflixIconColor: 'rgba(0,0,0,0.2)',
+    notiflixIconColor: '#ff6b08',
     fontAwesomeClassName: 'fas fa-exclamation-circle',
     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
     backOverlayColor: 'rgba(238,191,49,0.2)',
   },
 
   info: {
-    background: '#26c0d3',
+    background: '#1c1c1cf5',
     textColor: '#fff',
     childClassName: 'notiflix-notify-info',
-    notiflixIconColor: 'rgba(0,0,0,0.2)',
+    notiflixIconColor: '#ff6b08',
     fontAwesomeClassName: 'fas fa-info-circle',
     fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
     backOverlayColor: 'rgba(38,192,211,0.2)',
