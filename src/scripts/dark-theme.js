@@ -1,34 +1,23 @@
 const themeCheckboxEl = document.querySelector('.header-form__checkbox');
-const scrollTopBtnEl = document.querySelector('.scroll-top');
-const headerEl = document.querySelector('.header');
-const headerMylibEl = document.querySelector('.header-library');
-const footerEl = document.querySelector('.footer');
-const modalEl = document.querySelector('.modal');
-const modalCloseBtnEl = document.querySelector('.modal-close-btn');
-const backDropModalEl = document.querySelector('.backdrop');
-const modalTitle = document.querySelector('.modal-title');
-const container = document.querySelector('.modal-container');
 
 function onChangeCheckbox() {
   if (localStorage.getItem('onChange') == 'true') {
     themeCheckboxEl.checked = true;
   }
 }
-onChangeCheckbox();
 
-function getItems() {
-  if (localStorage.getItem('style') == 'dark') {
-    document.body.classList.toggle('dark');
-    headerEl.classList.toggle('dark-header');
-    headerMylibEl.classList.toggle('dark-headerMyLib');
-    footerEl.classList.toggle('dark-footer');
-    scrollTopBtnEl.classList.toggle('dark-scroll-top');
-    modalEl.classList.toggle('dark-modal');
-    modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
-    backDropModalEl.classList.toggle('dark-modalBackdrop');
+function checkboxDis() {
+  if (localStorage.getItem('onChange') == '') {
+    themeCheckboxEl.checked = false;
   }
 }
-getItems();
+
+function getBodyStyle() {
+  if (localStorage.getItem('style') == 'dark') {
+    document.body.classList.toggle('dark');
+  }
+}
+getBodyStyle();
 
 themeCheckboxEl.addEventListener('change', changeTheme);
 
@@ -41,15 +30,22 @@ function changeTheme() {
     localStorage.setItem('onChange', '');
     localStorage.setItem('style', '');
   }
-  toggleClass();
 }
 
-function toggleClass() {
-  footerEl.classList.toggle('dark-footer');
-  scrollTopBtnEl.classList.toggle('dark-scroll-top');
-  headerEl.classList.toggle('dark-header');
-  headerMylibEl.classList.toggle('dark-headerMyLib');
-  modalEl.classList.toggle('dark-modal');
-  modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
-  backDropModalEl.classList.toggle('dark-modalBackdrop');
-}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(event => {
+  event.matches && changeTheme();
+  // if (document.body.getAttribute('class') == 'dark') {
+  //   localStorage.setItem('onChange', 'true');
+  //   localStorage.setItem('style', 'dark');
+  // }
+  onChangeCheckbox();
+});
+
+window.matchMedia('(prefers-color-scheme: light)').addListener(event => {
+  event.matches && changeTheme();
+  // if (document.body.getAttribute('class') == '') {
+  //   localStorage.setItem('onChange', '');
+  //   localStorage.setItem('style', '');
+  // }
+  checkboxDis();
+});

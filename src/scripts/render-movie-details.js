@@ -58,7 +58,7 @@ export function renderMovieDetails(movieDetails) {
           </li>
           <li class="modal-item">
             <p class="modal-key">Trailer</p>
-            <p class="modal-values"><button type="button" class="btn modal-play-btn">Play</button></p>
+            <p class="modal-values"><button type="button" class="btn modal-play-btn fa-brands fa-youtube"></button></p>
           </li>
         </ul>
         <div class="modal-overview">
