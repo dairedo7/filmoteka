@@ -58,9 +58,10 @@ export const fetchGenres = async () => {
   }
 };
 
-export const fetchTrailerMovie = async id => {
+export const fetchMovieTrailer = async id => {
   const response = await axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
-  const data = await response.data;
-  const sourseId = data.results[0].key;
-  return sourseId;
+  const videos = await response.data.results;
+  const onlyTrailer = videos.filter(video => video.type === 'Trailer').pop();
+
+  return onlyTrailer;
 };
