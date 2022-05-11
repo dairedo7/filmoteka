@@ -52,6 +52,7 @@ function clearPage() {
   refs.gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
+
 export async function searchMovie(evt) {
   const inputValue = refs.search.headerInput.value;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
@@ -65,11 +66,13 @@ export async function searchMovie(evt) {
 
     renderMarkup(moviesByKeyWord.results, loadGenres);
     success(moviesByKeyWord.total_results);
+
   }
 
   // else if (moviesByKeyWord.total_pages < 1) {
   //         return warning();
   //    }
+
 }
 let page;
  async function getTrends() {
