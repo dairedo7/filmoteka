@@ -60,7 +60,8 @@ function clearPage() {
 }
 // Функция поиска фильма и уведомлений
 async function searchMovie() {
-  const inputValue = refs.search.headerInput.value.trim();
+  try {
+      const inputValue = refs.search.headerInput.value.trim();
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
   startSpin();
 
@@ -69,10 +70,9 @@ async function searchMovie() {
     stopSpin();
     renderMarkup(moviesByKeyWord.results, loadGenres);
     success(moviesByKeyWord.total_results);
-
-  // else if (moviesByKeyWord.total_pages < 1) {
-  //         return warning();
-  //    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 let page;
 async function getTrends() {
