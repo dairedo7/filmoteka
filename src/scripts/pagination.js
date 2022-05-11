@@ -15,9 +15,9 @@ const container = document.getElementById('pagination');
 
 const PER_PAGE = 20;
 const options = {
-  totalItems: 2000,
+  totalItems: 10000,
   itemsPerPage: PER_PAGE,
-  visiblePages: 10,
+  visiblePages: 5,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
