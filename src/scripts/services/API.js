@@ -62,12 +62,32 @@ export const fetchMovieTrailer = async id => {
   const response = await axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
   const videos = await response.data.results;
   const onlyTrailer = videos.filter(video => video.type === 'Trailer').pop();
-
+  console.log(onlyTrailer);
   return onlyTrailer;
 };
 
-export const fetchGenresById = async (genreId) => {
-  const response = await axios.get(`${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${genreId}`);
+export const fetchGenresById = async genreId => {
+  const response = await axios.get(
+    `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${genreId}`,
+  );
   const movieGenre = await response.data;
-  return movieGenre.results;
-}
+  return movieGenre;
+};
+
+export const fetchTopRatedMovies = async page => {
+  const response = await axios.get(
+    `movie/top_rated?api_key=8467b35301383f6844ef88f323a204bb&page=${page}&region=UA&language=en-US`,
+  );
+  const results = response.data;
+  return results;
+};
+
+// https://api.themoviedb.org/3/movie/upcoming?api_key=8467b35301383f6844ef88f323a204bb&page=1
+
+export const fetchUpcomingMovies = async page => {
+  const response = await axios.get(
+    `movie/upcoming?api_key=8467b35301383f6844ef88f323a204bb&page=${page}&language=en-US`,
+  );
+  const results = response.data;
+  return results;
+};
