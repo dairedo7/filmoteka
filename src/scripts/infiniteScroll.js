@@ -17,19 +17,27 @@ export function infScroll(element) {
   function onEntry(entries, observer) {
     entries.forEach(entry => {
       let target = entry;
-      console.log(entry);
+      // console.log(entry);
+      const defaultClass = entry.target.classList[1];
+      const darkTheme = entry.target.classList[2];
       if (entry.isIntersecting) {
         // console.log(!entry.target.classList[1]);
         if (!entry.target.classList[1]) {
           observer.unobserve(element);
         }
-        if (entry.target.classList[1] === '.top_movies__footer') {
+        if (
+          defaultClass === '.top_movies__footer' ||
+          (darkTheme === '.top_movies__footer' && defaultClass === 'dark-footer')
+        ) {
           startSpin();
           getTopMovies();
           stopSpin();
           // observer.unobserve(element);
         }
-        if (entry.target.classList[1] === '.upcoming_movies__footer') {
+        if (
+          defaultClass === '.top_movies__footer' ||
+          (darkTheme === '.upcoming_movies__footer' && defaultClass === 'dark-footer')
+        ) {
           // observer.unobserve(element);
           // if (!element.classList.contains('.top_movies__footer')) {
           //   observer.unobserve(element);
