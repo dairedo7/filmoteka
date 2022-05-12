@@ -32,7 +32,7 @@ refs.genreSelect.addEventListener('change', onGenresSelect);
 async function onGenresSelect(evt) {
   const genreId = evt.target.value;
   const moviesByGenre = await fetchGenresById(genreId);
-  console.log(moviesByGenre);
+
   startSpin();
   const loadGenres = await fetchGenres();
   clearPage();
