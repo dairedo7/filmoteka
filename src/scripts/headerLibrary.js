@@ -4,7 +4,7 @@ import { fetchMovieDetails } from './services/API';
 import { renderWatched } from '../templates/libraryTemplate.js';
 import { fetchPopularMovies, fetchGenres } from './services/API';
 import { startSpin, stopSpin } from './spinner';
-
+// import './pagination.js';
 const refs = {
   watchedBtn: document.querySelector('[data-btn="watched"]'),
   queuedBtn: document.querySelector('[data-btn="queue"]'),
@@ -94,13 +94,14 @@ async function getMovieQueue(id) {
 
 //Getting Trending Movies to display on the main page after visiting of the library-page
 let page;
-export async function getMovies() {
+export async function getMovies(event) {
   page = 1;
-  const response = await fetchPopularMovies(page);
+  refs.collectionEl.textContent = '';
+  const response = await fetchPopularMovies(event.page);
   const loadGenres = await fetchGenres();
   // console.log(loadGenres);
 
-  return renderMarkup(response.results, loadGenres);
+  return renderMarkup(response, loadGenres);
 }
 
 // Add or remove movie-item from library

@@ -4,13 +4,14 @@ import Pagination from 'tui-pagination';
 import debounce from 'lodash.debounce';
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
-import { getTrends } from './searchMovie.js';
+import { getTrends, searchMovie } from './searchMovie.js';
+import { getMovies } from './headerLibrary.js';
 
 const DEBOUNCE_DELAY = 300;
 const search = document.querySelector('.header-form');
 const collectionEl = document.querySelector('.collection');
 const form = document.querySelector('.header-form__input');
-form.addEventListener('input', debounce(onFormChange, DEBOUNCE_DELAY));
+// form.addEventListener('input', debounce(onFormChange, DEBOUNCE_DELAY));
 const container = document.getElementById('pagination');
 
 const PER_PAGE = 20;
@@ -23,43 +24,81 @@ const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
 };
-const pagination = new Pagination(container, options);
+export const pagination = new Pagination(container, options);
 let page = pagination.getCurrentPage();
 
-pagination.on('afterMove', loadMovies);
-async function loadMovies(event) {
-  collectionEl.textContent = '';
-  const response = await fetchPopularMovies(event.page);
-  console.log(response.results);
-  const loadGenres = await fetchGenres();
+pagination.on('afterMove', getMovies);
+// const { total_results } = getMovies(results);
+// console.log(total_results);
 
-  return renderMarkup(response.results, loadGenres);
-}
+// async function loadMovies(event) {
+//   collectionEl.textContent = '';
+//   const response = await fetchPopularMovies(event.page);
+//   console.log(response.results);
+//   const loadGenres = await fetchGenres();
 
-async function onFormChange(evt) {
-  evt.preventDefault();
-  if (evt.target.value === '') {
-    collectionEl.textContent = '';
+//   return renderMarkup(response.results, loadGenres);
+// }
 
-    getTrends();
-  }
+// async function onFormChange(evt) {
+//   // evt.preventDefault();
+//   if (evt.target.value === '') {
+//     return;
+//   }
+//   const inputValue = search.headerInput.value;
+//   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
+//   const loadGenres = await fetchGenres();
+//   console.log(evt.target.value !== '');
+//   if (evt.target.value === '') {
+//     collectionEl.textContent = '';
 
-  const inputValue = search.headerInput.value;
-  console.log(inputValue);
+//     pagination.on('afterMove', getTrends);
+//   }
+//   if (evt.target.value !== '') {
+//     collectionEl.textContent = '';
+//     pagination.on('afterMove', searchMovie);
+//     pagination.reset(moviesByKeyWord.total_results);
+//     pagination.off('afterMove', moviesByKeyWord);
+//   }
+//   console.log(evt.target.value === '');
 
-  collectionEl.textContent = '';
+//   // console.log(evt.target.value);
+//   // if (evt.target.value === '') {
+//   //   collectionEl.textContent = '';
+//   //   pagination.off('afterMove', moviesByKeyWord);
+//   //   pagination.on('afterMove', getTrends);
+//   // }
 
-  pagination.off('afterMove', loadMovies);
+//   // pagination.on('afterMove', loadMovies);
+// }
 
-  const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
+// async function onFormChange(evt) {
+//   evt.preventDefault();
 
-  const loadGenres = await fetchGenres();
+//   const inputValue = search.headerInput.value;
+//   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
+//   const loadGenres = await fetchGenres();
 
-  console.log(moviesByKeyWord);
-  renderMarkup(moviesByKeyWord.results, loadGenres);
+//   // console.log(evt.target.value);
+//   // if (evt.target.value === '') {
+//   //   collectionEl.textContent = '';
+//   //   pagination.off('afterMove', moviesByKeyWord);
+//   //   pagination.on('afterMove', getTrends);
+//   // }
 
-  pagination.reset(moviesByKeyWord.total_results);
-  pagination.on('afterMove', loadMovies);
+//   console.log(inputValue);
 
-  loadMovies();
-}
+//   collectionEl.textContent = '';
+
+//   console.log(moviesByKeyWord);
+//   renderMarkup(moviesByKeyWord.results, loadGenres);
+
+//   pagination.reset(moviesByKeyWord.total_results);
+
+//   if (evt.target.value === '') {
+//     collectionEl.textContent = '';
+//     pagination.off('afterMove', moviesByKeyWord);
+//     pagination.on('afterMove', getTrends);
+//   }
+//   // pagination.on('afterMove', loadMovies);
+// }
