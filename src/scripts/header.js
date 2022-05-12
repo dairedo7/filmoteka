@@ -12,6 +12,7 @@ const refs = {
   headerTitle: document.querySelector('.header-box__title'),
   buttonsList: document.querySelector('.buttons__list'),
   pagination: document.getElementById('pagination'),
+  footer: document.querySelector('footer'),
 };
 
 refs.libraryNavigation.addEventListener('click', onLibraryClick);
@@ -51,6 +52,7 @@ function onHeaderClick(evt) {
     refs.collectionEl.insertAdjacentHTML('beforeend', emptyLibrary);
     refs.pagination.classList.add('visually-hidden');
     refs.buttonsList.classList.add('visually-hidden');
+    refs.footer.classList.remove('.top_movies__footer');
   }
 }
 
