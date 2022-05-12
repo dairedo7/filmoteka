@@ -1,31 +1,52 @@
 .buttons__list {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin-bottom: 50px;
+  @include for-size(tablet) {
+    flex-direction: row;
+  }
 }
 
 .buttons__list__item {
   &:not(:last-child) {
-    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+
+  @include for-size(tablet) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
   }
 }
 
 .buttons_trending,
 .buttons__top_rated,
 .buttons__upcoming {
-  padding: 15px 30px;
+  padding: 15px 50px;
   border: 1px solid burlywood;
   background-color: transparent;
   background-color: aliceblue;
+
+  @include for-size(tablet) {
+    padding: 15px 50px;
+    font-size: 14px;
+  }
+
+  @include for-size(desktop) {
+    padding: 20px 60px;
+    font-size: 14px;
+  }
 
   &:hover,
   &:focus {
     font-size: 14px;
     font-weight: 700;
-    color: rgba(2, 118, 126, 0.4);
+    color: rgba(240, 32, 5, 0.4);
     transform: scale(1.03);
-    box-shadow: rgba(240, 124, 46, 0.4) -5px 5px, rgba(240, 140, 46, 0.3) -10px 10px,
-      rgba(240, 133, 46, 0.2) -15px 15px, rgba(240, 162, 46, 0.1) -20px 20px,
-      rgba(240, 133, 46, 0.05) -25px 25px;
+    box-shadow: rgba(248, 157, 21, 0.2) 0px 20px 40px -7px;
   }
 }
