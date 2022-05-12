@@ -1,0 +1,31 @@
+.buttons__list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.buttons__list__item {
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.buttons_trending,
+.buttons__top_rated,
+.buttons__upcoming {
+  padding: 15px 30px;
+  border: 1px solid burlywood;
+  background-color: transparent;
+  background-color: aliceblue;
+
+  &:hover,
+  &:focus {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(2, 118, 126, 0.4);
+    transform: scale(1.03);
+    box-shadow: rgba(240, 124, 46, 0.4) -5px 5px, rgba(240, 140, 46, 0.3) -10px 10px,
+      rgba(240, 133, 46, 0.2) -15px 15px, rgba(240, 162, 46, 0.1) -20px 20px,
+      rgba(240, 133, 46, 0.05) -25px 25px;
+  }
+}

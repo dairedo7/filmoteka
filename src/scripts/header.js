@@ -1,6 +1,6 @@
 // import localStorageCollections from './headerLibrary';
 import { getTrends } from './searchMovie';
-import { getMovies } from './headerLibrary';
+import { getMovies } from './renderMainPage';
 import { emptyLibrary } from './emptyLibrary';
 const refs = {
   header: document.querySelector('.header'),
@@ -10,7 +10,7 @@ const refs = {
   headerNavigation: document.querySelector('.header-box'),
   collectionEl: document.querySelector('.collection'),
   headerTitle: document.querySelector('.header-box__title'),
-
+  buttonsList: document.querySelector('.buttons__list'),
   pagination: document.getElementById('pagination'),
 };
 
@@ -32,6 +32,7 @@ function onLibraryClick(evt) {
     refs.pagination.classList.remove('visually-hidden');
     refs.collectionEl.classList.remove('collection__background');
     refs.collectionEl.classList.remove('library__collection');
+    refs.buttonsList.classList.remove('visually-hidden');
   }
 }
 
@@ -49,6 +50,7 @@ function onHeaderClick(evt) {
     refs.collectionEl.classList.add('collection__background');
     refs.collectionEl.insertAdjacentHTML('beforeend', emptyLibrary);
     refs.pagination.classList.add('visually-hidden');
+    refs.buttonsList.classList.add('visually-hidden');
   }
 }
 
@@ -60,6 +62,8 @@ function onLogoClick(evt) {
   refs.pagination.classList.remove('visually-hidden');
   refs.collectionEl.classList.remove('collection__background');
   refs.collectionEl.classList.remove('library__collection');
+  refs.buttonsList.classList.remove('visually-hidden');
   refs.collectionEl.textContent = '';
+
   getMovies();
 }

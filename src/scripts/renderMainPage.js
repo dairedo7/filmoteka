@@ -23,7 +23,7 @@ export async function getMovies(page) {
   const loadGenres = await fetchGenres();
   // console.log(loadGenres);
 
-  return renderMarkup(response.results, loadGenres);
+  return renderMarkup(response, loadGenres);
 }
 
 // function renderMarkup(res) {
