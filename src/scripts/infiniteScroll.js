@@ -35,7 +35,7 @@ export function infScroll(element) {
           // observer.unobserve(element);
         }
         if (
-          defaultClass === '.top_movies__footer' ||
+          defaultClass === '.upcoming_movies__footer' ||
           (darkTheme === '.upcoming_movies__footer' && defaultClass === 'dark-footer')
         ) {
           // observer.unobserve(element);
