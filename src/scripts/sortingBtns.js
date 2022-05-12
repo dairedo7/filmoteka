@@ -55,7 +55,7 @@ export async function getTopMovies() {
   topPage += 1;
   const response = await fetchTopRatedMovies(topPage);
   const loadGenres = await fetchGenres();
-  // console.log(response);
+  console.log(response);
 
   return renderMarkup(response, loadGenres);
 }
@@ -67,7 +67,7 @@ export async function getUpcomingMovies() {
   upcomingPage += 1;
   const response = await fetchUpcomingMovies(upcomingPage);
   const loadGenres = await fetchGenres();
-  // console.log(response);
+  console.log(response);
 
   return renderMarkup(response, loadGenres);
 }

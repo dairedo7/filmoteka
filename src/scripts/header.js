@@ -38,7 +38,6 @@ function onLibraryClick(evt) {
 }
 
 function onHeaderClick(evt) {
-  evt.preventDefault();
   if (evt.target.nodeName !== 'A') {
     return;
   }
@@ -58,7 +57,6 @@ function onHeaderClick(evt) {
 
 function onLogoClick(evt) {
   evt.preventDefault();
-
   refs.headerLibrary.classList.add('visually-hidden');
   refs.header.classList.remove('visually-hidden');
   refs.pagination.classList.remove('visually-hidden');

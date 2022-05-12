@@ -10,7 +10,8 @@ import { failure, warning, success } from './notification';
 import { renderMarkup } from '../templates/cardTemplate';
 import { startSpin, stopSpin } from './spinner';
 import { pagination } from './pagination';
-
+import { getMovies } from './headerLibrary';
+import { infScroll } from './infiniteScroll';
 // const formIntput = document.querySelector('header-form__input');
 
 let formData = {};
@@ -21,6 +22,7 @@ const refs = {
   search: document.querySelector('.header-form'),
   gallery: document.querySelector('.collection'),
   genreSelect: document.querySelector('.genres-form'),
+  pagination: document.getElementById('pagination'),
 };
 
 userData();
@@ -28,6 +30,7 @@ refs.search.addEventListener('submit', onFormSubmitSearch);
 refs.search.addEventListener('input', debounce(onKeyWordSearch, DEBOUNCE_DELAY));
 refs.search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY));
 refs.genreSelect.addEventListener('change', onGenresSelect);
+
 // Функция фильтрации фильмов по жанрам
 async function onGenresSelect(evt) {
   const genreId = evt.target.value;
@@ -46,6 +49,8 @@ function onKeyWordSearch(evt) {
   evt.preventDefault();
   if (evt.target.value === '') {
     refs.gallery.textContent = '';
+    pagination.off('afterMove', searchMovie);
+    pagination.on('afterMove', getMovies);
 
     return getTrends();
   } else {
@@ -77,6 +82,7 @@ function clearPage() {
 export async function searchMovie(evt) {
   try {
     const inputValue = refs.search.headerInput.value.trim();
+
     const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
     const loadGenres = await fetchGenres();
     startSpin();
@@ -85,7 +91,12 @@ export async function searchMovie(evt) {
     stopSpin();
 
     renderMarkup(moviesByKeyWord, loadGenres);
-    pagination.reset(moviesByKeyWord.total_results);
+    // pagination.reset(moviesByKeyWord.total_results);
+    if (moviesByKeyWord.total_results < 20) {
+      refs.pagination.classList.add('visually-hidden');
+    } else {
+      refs.pagination.classList.remove('visually-hidden');
+    }
 
     success(moviesByKeyWord.total_results);
   } catch (error) {
