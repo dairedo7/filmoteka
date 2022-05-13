@@ -135,8 +135,8 @@ body.show-modal .modal-team {
     border-radius: 5%;
     &:hover,
     &:focus {
-        transform: scale(1.1);
-        box-shadow: 0 15px 15px -5px rgba(255, 107, 1, 0.6);
+        transform: scale(1.01);
+        box-shadow: 0px 10px 8px -6px $accentColor;
     }
 }
 
@@ -144,6 +144,7 @@ body.show-modal .modal-team {
     width: 200px;
     height: 200px;
     object-fit: cover;
+    border: 1px solid rgba($color: #000000, $alpha: 0.6);
     border-radius: 5%;
     margin: auto;
 }

@@ -4,7 +4,7 @@
 
 .header {
   padding-top: 40px;
-  padding-bottom: 62px;
+  padding-bottom: 47px;
   box-shadow: 0px 0px 1px 0px #000000;
 
   // @include for-size(tablet-up) {
@@ -161,7 +161,7 @@
 
 .header-form {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .header-form__label {
@@ -186,7 +186,7 @@
   cursor: pointer;
   outline: none;
   border-color: transparent;
-  border-bottom: 0.5px solid #fff;
+  border-bottom: 0.5px solid #ffffff;
   background-color: transparent;
   color: $textWhiteColor;
   transition: border-color 250ms linear;
@@ -225,11 +225,12 @@
 }
 
 .genres-form__select {
+  font-size: 14px;
   cursor: pointer;
   width: 170px;
   outline: none;
   border-color: transparent;
-  border-bottom: 0.5px solid #fff;
+  border-bottom: 0.5px solid #ffffff;
   background-color: transparent;
   color: $genresColor;
   transition: border-color 250ms linear;
