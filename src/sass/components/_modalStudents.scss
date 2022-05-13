@@ -132,12 +132,11 @@ body.show-modal .modal-team {
     color: black;
     transition: transform $animationProps, box-shadow $animationProps;
     float: left;
-
+    border-radius: 5%;
     &:hover,
     &:focus {
         transform: scale(1.1);
         box-shadow: 0 15px 15px -5px rgba(255, 107, 1, 0.6);
-        border-radius: 5%;
     }
 }
 
