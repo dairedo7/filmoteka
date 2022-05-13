@@ -12,7 +12,7 @@
 
 .buttons__list__item {
   &:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   @include for-size(tablet) {
@@ -26,27 +26,14 @@
 .buttons_trending,
 .buttons__top_rated,
 .buttons__upcoming {
-  padding: 15px 50px;
-  border: 1px solid burlywood;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   background-color: transparent;
-  background-color: aliceblue;
-
-  @include for-size(tablet) {
-    padding: 15px 50px;
-    font-size: 14px;
-  }
-
-  @include for-size(desktop) {
-    padding: 20px 60px;
-    font-size: 14px;
-  }
 
   &:hover,
   &:focus {
-    font-size: 14px;
-    font-weight: 700;
-    color: rgba(240, 32, 5, 0.4);
-    transform: scale(1.03);
-    box-shadow: rgba(248, 157, 21, 0.2) 0px 20px 40px -7px;
+    border-color: rgba($color: $accentColor, $alpha: 0.7);
+    transform: scale(1.02);
   }
 }

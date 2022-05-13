@@ -24,7 +24,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $accentColor;
+
+  background-color: #393939;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -41,13 +42,13 @@
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: #393939;
+  background-color: #ffffff;
   -webkit-transition: .4s;
   transition: .3s;
 }
 
 input:checked+.header-form__slider {
-  background-color: #393939;
+  background-color: $accentColor;
 }
 
 input:focus+.header-form__slider{
@@ -59,7 +60,7 @@ input:checked+.header-form__slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
-  background-color: #ffffff;
+  background-color: #393939;
   content: '🌙';
 }
 
