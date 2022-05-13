@@ -1,6 +1,6 @@
-import { onEscClick } from './modal';
-import { startSpin, stopSpin } from './spinner';
-import { fetchMovieTrailer } from './services/API';
+import { onEscClick } from '../scripts/modal';
+import { startSpin, stopSpin } from '../scripts/spinner';
+import { fetchMovieTrailer } from '../scripts/services/API';
 import { getRefs } from '../scripts/refs';
 
 const { backdropTrailerContainerEl } = getRefs();
