@@ -7,7 +7,7 @@ import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scri
 import { getTrends, searchMovie } from './searchMovie.js';
 import { getMovies } from './headerLibrary.js';
 import { getRefs } from '../scripts/refs';
-const {container} = getRefs()
+const { container } = getRefs();
 
 const DEBOUNCE_DELAY = 300;
 const search = document.querySelector('.header-form');

@@ -5,7 +5,7 @@ import { renderWatched } from '../templates/libraryTemplate.js';
 import { fetchPopularMovies, fetchGenres } from './services/API';
 import { startSpin, stopSpin } from './spinner';
 import { getRefs } from '../scripts/refs';
-const { watchedBtn, queuedBtn, collectionEl, backgroundImg} = getRefs()
+const { watchedBtn, queuedBtn, collectionEl, backgroundImg } = getRefs();
 // import './pagination.js';
 
 //Variables for objects-array conversion from array of id's

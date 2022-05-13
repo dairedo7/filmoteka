@@ -8,7 +8,7 @@ export function getData() {
     const parsedData = JSON.parse(savedData);
     watchedMovies = parsedData;
     return watchedMovies;
-      }
+    }
 }
 
 // 2 set movie
