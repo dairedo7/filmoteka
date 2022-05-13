@@ -3,16 +3,18 @@ import { getRefs } from '../scripts/refs';
 import { getTrends } from './searchMovie';
 import { getMovies } from './renderMainPage';
 import { emptyLibrary } from './emptyLibrary';
-const {header,
-headerLibrary,
-libraryLogo,
-libraryNavigation,
-headerNavigation,
-collectionEl,
-headerTitle,
-buttonsList,
-pagination,
-footer} = getRefs()
+const {
+  header,
+  headerLibrary,
+  libraryLogo,
+  libraryNavigation,
+  headerNavigation,
+  collectionEl,
+  headerTitle,
+  buttonsList,
+  pagination,
+  footer,
+} = getRefs();
 
 libraryNavigation.addEventListener('click', onLibraryClick);
 headerNavigation.addEventListener('click', onHeaderClick);
@@ -51,6 +53,7 @@ function onHeaderClick(evt) {
     pagination.classList.add('visually-hidden');
     buttonsList.classList.add('visually-hidden');
     footer.classList.remove('.top_movies__footer');
+    footer.classList.remove('.upcoming_movies__footer');
   }
 }
 

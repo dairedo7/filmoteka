@@ -5,7 +5,7 @@ import { startSpin, stopSpin } from './spinner';
 import { getRefs } from '../scripts/refs';
 
 import { fetchMovieTrailer } from './services/API';
-import { makeTrailer } from './trailer-play';
+import { makeTrailer } from '../templates/trailer-play';
 
 let watchedMovies = {};
 import { getData } from './localStorage';
@@ -18,7 +18,6 @@ import { getDataQ } from './localStorage';
 import { setNewQueueMovie } from './localStorage';
 import { checkedQueueMovie } from './localStorage';
 import { removeQueueMovie } from './localStorage';
-import imagePing from 'tui-pagination';
 
 const { backdropEl, modalContainerEl, backdropTrailerContainerEl, modalEl, closeBtnEl } = getRefs();
 

@@ -21,7 +21,6 @@ let queue;
 
 //Collection of localStorage watched movies
 async function getMovieDets(id) {
-  //   console.log(getWatchedMovies());
   const emptyLibraryNotification = (collectionEl.innerHTML =
     '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>');
 
@@ -55,7 +54,6 @@ async function getMovieDets(id) {
 
 //Collection of localStorage queued movies
 async function getMovieQueue(id) {
-  // console.log(getQueueMovies());
   const emptyLibraryNotification = (collectionEl.innerHTML =
     '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>');
 
@@ -95,7 +93,6 @@ export async function getMovies(event) {
   collectionEl.textContent = '';
   const response = await fetchPopularMovies(event.page);
   const loadGenres = await fetchGenres();
-  // console.log(loadGenres);
 
   return renderMarkup(response, loadGenres);
 }
@@ -104,7 +101,6 @@ export async function getMovies(event) {
 const modalEl = document.querySelector('.modal-container');
 
 modalEl.addEventListener('click', evt => {
-  console.log(evt.target.textContent);
   const watchedBtnEl = document.querySelector('.modal-btn__watched');
   const queueBtnEl = document.querySelector('.modal-btn__queue');
 

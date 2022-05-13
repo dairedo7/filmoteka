@@ -14,7 +14,16 @@ import { getMovies } from './headerLibrary';
 import { infScroll } from './infiniteScroll';
 import { getRefs } from '../scripts/refs';
 // const formIntput = document.querySelector('header-form__input');
-const { search, gallery, genreSelect, container, DEBOUNCE_DELAY, STORAGE_KEY,  LOCAL_STORAGE_DELAY} = getRefs();
+const {
+  search,
+  gallery,
+  genreSelect,
+  container,
+  DEBOUNCE_DELAY,
+  STORAGE_KEY,
+  LOCAL_STORAGE_DELAY,
+  footer,
+} = getRefs();
 
 let formData = {};
 
@@ -40,6 +49,10 @@ async function onGenresSelect(evt) {
 // Поиск по ключевому слову
 function onKeyWordSearch(evt) {
   evt.preventDefault();
+  if (footer.classList.length >= 2) {
+    footer.classList.remove('.top_movies__footer');
+    footer.classList.remove('.upcoming_movies__footer');
+  }
   if (evt.target.value === '') {
     gallery.textContent = '';
     pagination.off('afterMove', searchMovie);
@@ -47,6 +60,7 @@ function onKeyWordSearch(evt) {
 
     return getTrends();
   } else {
+    console.log('worked');
     searchMovie();
   }
 }
@@ -55,11 +69,8 @@ function onKeyWordSearch(evt) {
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
-  // console.log(evt.currentTarget.elements.headerInput.value);
   if (search.headerInput.value === '') {
     return warning();
-
-    console.log(evt.currentTarget.elements.headerInput.value);
   } else {
     searchMovie();
     evt.currentTarget.reset();
@@ -84,7 +95,7 @@ export async function searchMovie(evt) {
     stopSpin();
 
     renderMarkup(moviesByKeyWord, loadGenres);
-    // pagination.reset(moviesByKeyWord.total_results);
+
     if (moviesByKeyWord.total_results < 20) {
       container.classList.add('visually-hidden');
     } else {
@@ -101,12 +112,10 @@ let page = pagination.getCurrentPage();
 async function getTrends(event) {
   const response = await fetchPopularMovies(page);
   const theGenres = await fetchGenres();
-  console.log(response);
 
   return renderMarkup(response, theGenres);
 }
 
-// pagination.on('afterMove', getTrends);
 // Функция сохранения данных в локальное хранилище
 function onInputSaveData(evt) {
   formData[evt.target.name] = evt.target.value;

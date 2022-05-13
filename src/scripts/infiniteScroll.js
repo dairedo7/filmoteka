@@ -1,8 +1,5 @@
-import { renderMarkup } from '../templates/cardTemplate.js';
-import { renderWatched } from '../templates/libraryTemplate.js';
 import { getTopMovies, getUpcomingMovies } from './sortingBtns.js';
 import { startSpin, stopSpin } from './spinner';
-import { searchMovie } from './searchMovie';
 
 export function infScroll(element) {
   let topMoviesFooter = document.querySelector('.top_movies__footer');
@@ -15,42 +12,45 @@ export function infScroll(element) {
     threshold: 0.2,
   });
 
+  //Adding elements to observe for intersection
   function onEntry(entries, observer) {
     entries.forEach(entry => {
-      let target = entry;
-      // console.log(entry);
       const defaultClass = entry.target.classList[1];
       const darkTheme = entry.target.classList[2];
+      const darkFooter = 'dark-footer';
+      const topMoviesClass = '.top_movies__footer';
+      const upcMoviesClass = '.upcoming_movies__footer';
+
       if (entry.isIntersecting) {
-        // console.log(!entry.target.classList[1]);
+        //Removing observer from footer when out of the top-movies or upcoming-movies scope
         if (!entry.target.classList[1]) {
           observer.unobserve(element);
         }
+        //Removing observer when searching for a movie in the input field
         if (
-          defaultClass === '.top_movies__footer' ||
-          (darkTheme === '.top_movies__footer' && defaultClass === 'dark-footer')
+          !element.classList.contains(topMoviesClass) ||
+          !element.classList.contains(upcMoviesClass)
+        ) {
+          observer.unobserve(element);
+        }
+        //Adding observer for top-movies and upcoming movies collections
+        if (
+          defaultClass === topMoviesClass ||
+          (darkTheme === topMoviesClass && defaultClass === darkFooter)
         ) {
           startSpin();
           getTopMovies();
           stopSpin();
-          // observer.unobserve(element);
         }
         if (
-          defaultClass === '.upcoming_movies__footer' ||
-          (darkTheme === '.upcoming_movies__footer' && defaultClass === 'dark-footer')
+          defaultClass === upcMoviesClass ||
+          (darkTheme === upcMoviesClass && defaultClass === darkFooter)
         ) {
-          // observer.unobserve(element);
-          // if (!element.classList.contains('.top_movies__footer')) {
-          //   observer.unobserve(element);
-          // }
-
           startSpin();
           getUpcomingMovies();
           stopSpin();
         }
-        // console.log();
       }
-      // if(entry.target)
     });
   }
   observer.observe(element);
