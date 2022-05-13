@@ -1,7 +1,7 @@
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
 import { onMovieCardClick } from './modal.js';
-import { onBtnTrailerClick } from './trailer-play';
+import { onBtnTrailerClick } from '../templates/trailer-play.js';
 import { getRefs } from '../scripts/refs';
 
 const { collectionEl } = getRefs();
