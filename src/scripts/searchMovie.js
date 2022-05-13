@@ -12,24 +12,17 @@ import { startSpin, stopSpin } from './spinner';
 import { pagination } from './pagination';
 import { getMovies } from './headerLibrary';
 import { infScroll } from './infiniteScroll';
+import { getRefs } from '../scripts/refs';
 // const formIntput = document.querySelector('header-form__input');
+const { search, gallery, genreSelect, container, DEBOUNCE_DELAY, STORAGE_KEY,  LOCAL_STORAGE_DELAY} = getRefs();
 
 let formData = {};
-const DEBOUNCE_DELAY = 500;
-const STORAGE_KEY = 'search-form-state';
-const LOCAL_STORAGE_DELAY = 500;
-const refs = {
-  search: document.querySelector('.header-form'),
-  gallery: document.querySelector('.collection'),
-  genreSelect: document.querySelector('.genres-form'),
-  pagination: document.getElementById('pagination'),
-};
 
 userData();
-refs.search.addEventListener('submit', onFormSubmitSearch);
-refs.search.addEventListener('input', debounce(onKeyWordSearch, DEBOUNCE_DELAY));
-refs.search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY));
-refs.genreSelect.addEventListener('change', onGenresSelect);
+search.addEventListener('submit', onFormSubmitSearch);
+search.addEventListener('input', debounce(onKeyWordSearch, DEBOUNCE_DELAY));
+search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY));
+genreSelect.addEventListener('change', onGenresSelect);
 
 // Функция фильтрации фильмов по жанрам
 async function onGenresSelect(evt) {
@@ -40,7 +33,7 @@ async function onGenresSelect(evt) {
   const loadGenres = await fetchGenres();
   clearPage();
   stopSpin();
-  refs.search.headerInput.value = '';
+  search.headerInput.value = '';
   renderMarkup(moviesByGenre, loadGenres);
   clearLocalStorage();
 }
@@ -48,7 +41,7 @@ async function onGenresSelect(evt) {
 function onKeyWordSearch(evt) {
   evt.preventDefault();
   if (evt.target.value === '') {
-    refs.gallery.textContent = '';
+    gallery.textContent = '';
     pagination.off('afterMove', searchMovie);
     pagination.on('afterMove', getMovies);
 
@@ -63,7 +56,7 @@ function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
   // console.log(evt.currentTarget.elements.headerInput.value);
-  if (refs.search.headerInput.value === '') {
+  if (search.headerInput.value === '') {
     return warning();
 
     console.log(evt.currentTarget.elements.headerInput.value);
@@ -75,13 +68,13 @@ function onFormSubmitSearch(evt) {
 }
 // Очистка страницы
 function clearPage() {
-  refs.gallery.innerHTML = '';
+  gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
 
 export async function searchMovie(evt) {
   try {
-    const inputValue = refs.search.headerInput.value.trim();
+    const inputValue = search.headerInput.value.trim();
 
     const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue);
     const loadGenres = await fetchGenres();
@@ -93,9 +86,9 @@ export async function searchMovie(evt) {
     renderMarkup(moviesByKeyWord, loadGenres);
     // pagination.reset(moviesByKeyWord.total_results);
     if (moviesByKeyWord.total_results < 20) {
-      refs.pagination.classList.add('visually-hidden');
+      container.classList.add('visually-hidden');
     } else {
-      refs.pagination.classList.remove('visually-hidden');
+      container.classList.remove('visually-hidden');
     }
 
     success(moviesByKeyWord.total_results);
@@ -128,9 +121,9 @@ function userData() {
   }
   if (savedUserData) {
     Object.entries(parsedUserData).forEach(([name, value]) => {
-      if (!refs.search.elements[name]) return;
+      if (!search.elements[name]) return;
       formData[name] = value;
-      refs.search.elements[name].value = value;
+      search.elements[name].value = value;
     });
   }
 }

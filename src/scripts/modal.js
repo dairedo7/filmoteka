@@ -2,6 +2,7 @@ import { fetchMovieDetails } from './services/API';
 import { renderMovieDetails } from './render-movie-details';
 import { renderWatchedQueueButtons } from './render-watched-queue-btn';
 import { startSpin, stopSpin } from './spinner';
+import { getRefs } from '../scripts/refs';
 
 import { fetchMovieTrailer } from './services/API';
 import { makeTrailer } from './trailer-play';
@@ -19,9 +20,7 @@ import { checkedQueueMovie } from './localStorage';
 import { removeQueueMovie } from './localStorage';
 import imagePing from 'tui-pagination';
 
-const backdropEl = document.querySelector('.backdrop');
-const modalContainerEl = document.querySelector('.modal-container');
-const backdropTrailerContainerEl = document.querySelector('.backdrop__trailer');
+const { backdropEl, modalContainerEl, backdropTrailerContainerEl, modalEl, closeBtnEl } = getRefs();
 
 let details;
 let modalButtonsEl;
@@ -50,7 +49,6 @@ export async function onMovieCardClick(id) {
 }
 
 // modal events
-const modalEl = document.querySelector('.modal-container');
 modalEl.addEventListener('click', evt => {
   const watchedBtnEl = document.querySelector('.modal-btn__watched');
   const queueBtnEl = document.querySelector('.modal-btn__queue');
@@ -102,7 +100,6 @@ function onQueueBtnClick() {
 }
 
 // modal closing
-const closeBtnEl = document.querySelector('.modal-close-btn');
 closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');

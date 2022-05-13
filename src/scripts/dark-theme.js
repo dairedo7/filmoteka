@@ -1,5 +1,5 @@
-const themeCheckboxEl = document.querySelector('.header-form__checkbox');
-const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+import {getRefs} from '../scripts/refs';
+const { themeCheckboxEl, darkModeMediaQuery } = getRefs();
 
 function themeOnPcUser() {
   if (darkModeMediaQuery.matches === true) {

@@ -1,4 +1,6 @@
-const backdropTrailerContainerEl = document.querySelector('.backdrop__trailer');
+import { getRefs } from '../scripts/refs';
+
+const { backdropTrailerContainerEl } = getRefs();
 export function makeTrailer(trailerData) {
   const { key } = trailerData;
 
