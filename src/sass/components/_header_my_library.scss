@@ -61,9 +61,6 @@
   }
 }
 
-.header-library__container {
-}
-
 .library-navigation {
   display: flex;
   justify-content: space-between;
@@ -72,15 +69,10 @@
   margin-bottom: 60px;
 }
 
-.library-navigation__svg {
-}
 
 .library-navigation__logo {
   display: flex;
   align-items: center;
-}
-
-.library-logo__svg {
 }
 
 .library-navigation__text {
@@ -119,9 +111,6 @@
 .library-navigation__link {
   color: #ffffff;
   text-transform: uppercase;
-}
-
-.header-library__button-container {
 }
 
 .header-library__button-list {
