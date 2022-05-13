@@ -27,21 +27,24 @@ overflow: hidden;
 }
 
 .tui-pagination .tui-page-btn:hover {
+  opacity: 0.8;
     background-color: $accentColor;
+    color: #ffffff;
     border-radius: 5px;
-    transition: 500ms ease-in-out 0s;
+    transition: background 250ms ease-in-out 0s;
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
     background-color: $accentColor;
-    color: white;
+    color: #ffffff;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .tui-pagination .tui-is-selected:hover {
     background-color: $accentColor;
+    opacity: 1;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
@@ -55,6 +58,7 @@ overflow: hidden;
 .tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
+    margin: 0;
     overflow: hidden;
     height: 40px;
     padding: 0;
@@ -70,7 +74,7 @@ overflow: hidden;
     border-right: 0;
 }
 
-.tui-pagination .tui-next-is-ellip {
+.tui-next-is-ellip {
     border-left: 0;
 }
 
@@ -90,7 +94,6 @@ overflow: hidden;
     display: inline-block;
     vertical-align: middle;
     font-size: 0px;
-    color: $textBlackColor;
 }
 
 .tui-pagination .tui-prev-is-ellip,
@@ -114,24 +117,28 @@ overflow: hidden;
 }
 
 .tui-pagination .tui-ico-first {
+  margin-top: 5px;
     width: 11px;
     height: 10px;
     background-position: 0px 0px;
 }
 
 .tui-pagination .tui-ico-prev {
+  margin-top: 5px;
     width: 6px;
     height: 10px;
     background-position: -26px 0px;
 }
 
 .tui-pagination .tui-ico-next {
+  margin-top: 5px;
     width: 6px;
     height: 10px;
     background-position: -13px -24px;
 }
 
 .tui-pagination .tui-ico-last {
+  margin-top: 5px;
     width: 11px;
     height: 10px;
     background-position: 0px -12px;
@@ -140,10 +147,11 @@ overflow: hidden;
 .tui-pagination .tui-ico-ellip {
     width: 10px;
     height: 2px;
-    margin-top: 16px;
+    margin-top: 20px;
     vertical-align: top;
     background-position: 0px -24px;
 }
+
 
 .tui-pagination .tui-is-disabled {
     display: none;

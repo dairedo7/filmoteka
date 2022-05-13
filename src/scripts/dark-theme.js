@@ -1,55 +1,70 @@
 const themeCheckboxEl = document.querySelector('.header-form__checkbox');
-const scrollTopBtnEl = document.querySelector('.scroll-top');
-const headerEl = document.querySelector('.header');
-const headerMylibEl = document.querySelector('.header-library');
-const footerEl = document.querySelector('.footer');
-const modalEl = document.querySelector('.modal');
-const modalCloseBtnEl = document.querySelector('.modal-close-btn');
-const backDropModalEl = document.querySelector('.backdrop');
-const modalTitle = document.querySelector('.modal-title');
-const container = document.querySelector('.modal-container');
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-function onChangeCheckbox() {
-  if (localStorage.getItem('onChange') == 'true') {
+function themeOnPcUser() {
+  if (darkModeMediaQuery.matches === true) {
+    document.body.classList.add('dark');
     themeCheckboxEl.checked = true;
-  }
-}
-onChangeCheckbox();
-
-function getItems() {
-  if (localStorage.getItem('style') == 'dark') {
-    document.body.classList.toggle('dark');
-    headerEl.classList.toggle('dark-header');
-    headerMylibEl.classList.toggle('dark-headerMyLib');
-    footerEl.classList.toggle('dark-footer');
-    scrollTopBtnEl.classList.toggle('dark-scroll-top');
-    modalEl.classList.toggle('dark-modal');
-    modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
-    backDropModalEl.classList.toggle('dark-modalBackdrop');
-  }
-}
-getItems();
-
-themeCheckboxEl.addEventListener('change', changeTheme);
-
-function changeTheme() {
-  document.body.classList.toggle('dark');
-  if (document.body.getAttribute('class') == 'dark') {
-    localStorage.setItem('onChange', 'true');
-    localStorage.setItem('style', 'dark');
   } else {
-    localStorage.setItem('onChange', '');
-    localStorage.setItem('style', '');
+    document.body.classList.remove('dark');
+    themeCheckboxEl.checked = false;
   }
-  toggleClass();
 }
+themeOnPcUser();
 
-function toggleClass() {
-  footerEl.classList.toggle('dark-footer');
-  scrollTopBtnEl.classList.toggle('dark-scroll-top');
-  headerEl.classList.toggle('dark-header');
-  headerMylibEl.classList.toggle('dark-headerMyLib');
-  modalEl.classList.toggle('dark-modal');
-  modalCloseBtnEl.classList.toggle('dark-modalCloseBtn');
-  backDropModalEl.classList.toggle('dark-modalBackdrop');
-}
+darkModeMediaQuery.addListener(event => {
+  document.body.classList.add('dark');
+  themeCheckboxEl.checked = true;
+
+  const darkModeOn = event.matches;
+
+  if (darkModeOn === false) {
+    document.body.classList.remove('dark');
+    themeCheckboxEl.checked = false;
+  }
+  console.log(`Тёмный режим ${darkModeOn ? '🌚 включен' : '🌞 выключен'}.`);
+});
+
+themeCheckboxEl.addEventListener('change', () => document.body.classList.toggle('dark'));
+
+// window.matchMedia('(prefers-color-scheme: dark)').addListener(event => {
+//   if (window.matchMedia('(prefers-color-scheme: dark)').matches === true) {
+//     event.matches && changeTheme();
+//     console.log('Активирована черная тема');
+//     checkboxEnable();
+//   }
+// });
+
+// function checkboxEnable() {
+//   if (localStorage.getItem('onChange') == 'true') {
+//     themeCheckboxEl.checked = true;
+//   }
+// }
+// checkboxEnable();
+
+// function checkboxDisable() {
+//   if (localStorage.getItem('onChange') == '') {
+//     themeCheckboxEl.checked = false;
+//   }
+// }
+// checkboxDisable();
+
+// function getBodyStyle() {
+//   if (localStorage.getItem('style') == 'dark') {
+//     document.body.classList.toggle('dark');
+//   }
+// }
+// getBodyStyle();
+
+// themeCheckboxEl.addEventListener('change', changeTheme);
+
+// function changeTheme() {
+//   document.body.classList.toggle('dark');
+//   if (document.body.getAttribute('class') == 'dark') {
+//     localStorage.setItem('onChange', 'true');
+//     localStorage.setItem('style', 'dark');
+//   } else {
+//     localStorage.setItem('onChange', '');
+//     localStorage.setItem('style', '');
+//   }
+// }

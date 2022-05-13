@@ -1,55 +1,56 @@
 // Dark style for document elements
 .dark {
-  background: $DarkThemeBackgroundColor  !important;
-  color: $DarkThemeColorWhite  !important;
+  background: $DarkThemeBackgroundColor;
+  color: $DarkThemeColorWhite;
 }
 
-.dark-header {
-  box-shadow: 0px 0px 1px 0px #ffffff !important;
+  body.dark{
+.header {
+  box-shadow: 0px 0px 1px 0px #ffffff;
 }
 
-.dark-headerMyLib {
-  box-shadow: 0px 0px 1px 0px #ffffff !important;
+.header-library {
+  box-shadow: 0px 0px 1px 0px #ffffff ;
 }
 
-.dark-footer {
-  background: #1c1c1c !important;
-  color: $DarkThemeColorWhite  !important;
-  box-shadow: 0px 0px 1px 0px #ffffff !important;
+.footer {
+  background: #1c1c1c;
+  color: $DarkThemeColorWhite ;
+  box-shadow: 0px 0px 1px 0px #ffffff;
 
 }
 
-.dark-scroll-top {
-  background: transparent !important;
-  color: $DarkThemeColorWhite  !important;
+.scroll-top {
+  background: transparent;
+  color: $DarkThemeColorWhite ;
 }
 
-.dark-modal {
-  background: $DarkThemeModalBackground  !important;
-  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
-}
-
-.dark-modalCloseBtn {
-  color: $DarkThemeColorWhite  !important;
-
-  &:hover {
-    color: $accentColor  !important;
-  }
-}
-
-.dark-modalBackdrop {
-  background-color: rgba(100, 100, 100, 0.1) !important;
-}
 // End dark style for document elements
 
 // Dark style for modal elements
-body.dark .modal {
+.modal {
+  background: $DarkThemeModalBackground ;
+  border-color: rgba($color: #ffffff, $alpha: 0.3);
+}
+
+  .modalBackdrop {
+  background-color: rgba(100, 100, 100, 0.1);
+}
+
+  .modal-close-btn {
+  color: $DarkThemeColorWhite ;
+
+  &:hover {
+    color: $accentColor ;
+  }
+}
+
   .modal-title {
     color: $DarkThemeColorWhite;
   }
 
   .modal-img {
-    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+    border-color: rgba($color: #ffffff, $alpha: 0.3);
   }
 
   .modal-values {
@@ -72,7 +73,7 @@ body.dark .modal {
     border-color: $DarkThemeColorWhite;
     color: $DarkThemeColorWhite;
     &:hover {
-      border: 1px solid transparent;
+      border-color: transparent;
     }
   }
 
@@ -81,15 +82,32 @@ body.dark .modal {
     color: $DarkThemeColorWhite;
 
         &:hover {
-      border: 1px solid transparent;
+      border-color: transparent;
     }
   }
-}
 // End dark style for modal elements
 
 // Films collection style
-body.dark .films-collection {
+.films-collection {
   .item__img {
-    border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+    border-color: rgba($color: #ffffff, $alpha: 0.3);
   }
 }
+
+// Pagination dark style
+.tui-pagination .tui-page-btn {
+  color: $textWhiteColor;
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-last,
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+    background-color: #9d4c15;
+}
+// End pagination dark style
+}
+
+
