@@ -132,7 +132,7 @@ function onBackdropTrailerClick(event) {
     trailerClosed();
   }
 }
-function onEscClick(event) {
+export function onEscClick(event) {
   if (event.code === 'Escape') {
     trailerClosed();
   }

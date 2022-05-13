@@ -15,6 +15,7 @@ export function renderMarkup({ results }, genres) {
       return `
         <li class='item'>
           <div class='item__box'>
+          <button type="button" class="btn trailer__btn fa-brands fa-youtube" id='${id}'></button>
             <img
               class='item__img'
               id='${id}'
