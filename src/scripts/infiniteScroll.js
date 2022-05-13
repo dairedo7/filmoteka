@@ -26,12 +26,13 @@ export function infScroll(element) {
         if (!entry.target.classList[1]) {
           observer.unobserve(element);
         }
-        //Removing observer when searching for a movie in the input field
+
         //Adding observer for top-movies and upcoming movies collections
         if (
           defaultClass === topMoviesClass ||
           (darkTheme === topMoviesClass && defaultClass === darkFooter)
         ) {
+          //Removing observer when searching for a movie in the input field
           if (!element.classList.contains(topMoviesClass)) {
             observer.unobserve(element);
           }
@@ -43,6 +44,7 @@ export function infScroll(element) {
           defaultClass === upcMoviesClass ||
           (darkTheme === upcMoviesClass && defaultClass === darkFooter)
         ) {
+          //Removing observer when searching for a movie in the input field
           if (!element.classList.contains(upcMoviesClass)) {
             observer.unobserve(element);
           }
