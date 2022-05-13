@@ -26,13 +26,8 @@ export async function getMovies(page) {
   const response = await fetchPopularMovies(page);
 
   const loadGenres = await fetchGenres();
-  // console.log(loadGenres);
 
   return renderMarkup(response, loadGenres);
 }
-
-// function renderMarkup(res) {
-//   return collectionEl.insertAdjacentHTML('beforeend', markup(res));
-// }
 
 getMovies();

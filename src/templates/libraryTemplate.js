@@ -35,6 +35,6 @@ export function renderWatched(res, genres) {
     `;
     })
     .join('');
-  // console.log(response);
+
   return collectionEl.insertAdjacentHTML('beforeend', response);
 }

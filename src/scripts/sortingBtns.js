@@ -7,18 +7,17 @@ import { getRefs } from '../scripts/refs';
 
 const {
   collectionEl,
-buttonsList,
-topMoviesBtn,
-upcomingMoviesBtn,
-trendingMoviesBtn,
-container,
-footer } = getRefs();
+  buttonsList,
+  topMoviesBtn,
+  upcomingMoviesBtn,
+  trendingMoviesBtn,
+  container,
+  footer,
+} = getRefs();
 
 buttonsList.addEventListener('click', onBtnClick);
 
 function onBtnClick(evt) {
-  //   console.log(evt.target === topMoviesBtn);
-
   evt.preventDefault();
   if (evt.target === topMoviesBtn) {
     collectionEl.textContent = '';
@@ -57,7 +56,6 @@ export async function getTopMovies() {
   topPage += 1;
   const response = await fetchTopRatedMovies(topPage);
   const loadGenres = await fetchGenres();
-  // console.log(response);
 
   return renderMarkup(response, loadGenres);
 }
@@ -69,7 +67,6 @@ export async function getUpcomingMovies() {
   upcomingPage += 1;
   const response = await fetchUpcomingMovies(upcomingPage);
   const loadGenres = await fetchGenres();
-  // console.log(response);
 
   return renderMarkup(response, loadGenres);
 }
