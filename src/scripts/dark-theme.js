@@ -1,4 +1,4 @@
-import {getRefs} from '../scripts/refs';
+import { getRefs } from '../scripts/refs';
 const { themeCheckboxEl, darkModeMediaQuery } = getRefs();
 
 function themeOnPcUser() {
@@ -12,7 +12,7 @@ function themeOnPcUser() {
 }
 themeOnPcUser();
 
-darkModeMediaQuery.addListener(event => {
+darkModeMediaQuery.addEventListener('click', event => {
   document.body.classList.add('dark');
   themeCheckboxEl.checked = true;
 

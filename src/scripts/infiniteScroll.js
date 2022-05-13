@@ -3,6 +3,7 @@ import { renderWatched } from '../templates/libraryTemplate.js';
 import { getTopMovies, getUpcomingMovies } from './sortingBtns.js';
 import { startSpin, stopSpin } from './spinner';
 import { searchMovie } from './searchMovie';
+
 export function infScroll(element) {
   let topMoviesFooter = document.querySelector('.top_movies__footer');
   let upcomingMoviesFooter = document.querySelector('upcoming_movies__footer');
