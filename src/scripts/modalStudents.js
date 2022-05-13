@@ -1,16 +1,12 @@
 import team from '../data/modalStudents.json';
 import markupTeam from '../templates/modalStudents';
+import { getRefs } from '../scripts/refs';
 
-const refs = {
-  openModalBtn: document.querySelector('[data-team-open]'),
-  closeModalBtn: document.querySelector('[data-team-close]'),
-  backdrop: document.querySelector('.backdrop-team'),
-  // teamList: document.querySelector('.list-team'),
-};
+const { openModalBtn, closeModalBtn, backdrop } = getRefs();
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+openModalBtn.addEventListener('click', onOpenModal);
+closeModalBtn.addEventListener('click', onCloseModal);
+backdrop.addEventListener('click', onBackdropClick);
 
 
 function onOpenModal() {

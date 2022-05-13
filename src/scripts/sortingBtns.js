@@ -3,14 +3,16 @@ import { fetchTopRatedMovies, fetchUpcomingMovies, fetchGenres } from './service
 import { getMovies } from './renderMainPage';
 import { startSpin, stopSpin } from './spinner';
 import { infScroll } from './infiniteScroll';
+import { getRefs } from '../scripts/refs';
 
-const collectionEl = document.querySelector('.collection');
-const buttonsList = document.querySelector('.buttons__list');
-const topMoviesBtn = document.querySelector('[data-action="top_rated"]');
-const upcomingMoviesBtn = document.querySelector('[data-action="upcoming"]');
-const trendingMoviesBtn = document.querySelector('[data-action="trending"]');
-const pagination = document.getElementById('pagination');
-const footer = document.querySelector('footer');
+const {
+  collectionEl,
+buttonsList,
+topMoviesBtn,
+upcomingMoviesBtn,
+trendingMoviesBtn,
+container,
+footer } = getRefs();
 
 buttonsList.addEventListener('click', onBtnClick);
 
@@ -20,7 +22,7 @@ function onBtnClick(evt) {
   evt.preventDefault();
   if (evt.target === topMoviesBtn) {
     collectionEl.textContent = '';
-    pagination.classList.add('visually-hidden');
+    container.classList.add('visually-hidden');
     footer.classList.add('.top_movies__footer');
     footer.classList.remove('.upcoming_movies__footer');
     let currentFooter = footer;
@@ -29,7 +31,7 @@ function onBtnClick(evt) {
   }
   if (evt.target === upcomingMoviesBtn) {
     collectionEl.textContent = '';
-    pagination.classList.add('visually-hidden');
+    container.classList.add('visually-hidden');
     footer.classList.add('.upcoming_movies__footer');
     footer.classList.remove('.top_movies__footer');
     let currentFooter = footer;
@@ -39,7 +41,7 @@ function onBtnClick(evt) {
   if (evt.target === trendingMoviesBtn) {
     collectionEl.textContent = '';
 
-    pagination.classList.remove('visually-hidden');
+    container.classList.remove('visually-hidden');
     footer.classList.remove('.upcoming_movies__footer');
     footer.classList.remove('.top_movies__footer');
     startSpin();

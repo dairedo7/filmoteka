@@ -1,8 +1,9 @@
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
 import { onMovieCardClick } from './modal.js';
+import { getRefs } from '../scripts/refs';
 
-const collectionEl = document.querySelector('.collection');
+const { collectionEl } = getRefs();
 
 collectionEl.addEventListener('click', evt => {
   if (evt.target === evt.currentTarget) {

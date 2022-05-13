@@ -4,21 +4,17 @@ import { fetchMovieDetails } from './services/API';
 import { renderWatched } from '../templates/libraryTemplate.js';
 import { fetchPopularMovies, fetchGenres } from './services/API';
 import { startSpin, stopSpin } from './spinner';
+import { getRefs } from '../scripts/refs';
+const { watchedBtn, queuedBtn, collectionEl, backgroundImg} = getRefs()
 // import './pagination.js';
-const refs = {
-  watchedBtn: document.querySelector('[data-btn="watched"]'),
-  queuedBtn: document.querySelector('[data-btn="queue"]'),
-  collectionEl: document.querySelector('.collection'),
-  backgroundImg: document.querySelector('.collection__item'),
-};
 
 //Variables for objects-array conversion from array of id's
 let movieDetailsArr = [];
 let movieQueueArr = [];
 
 //watchedBtn & queuedBtn Listeners
-refs.watchedBtn.addEventListener('click', getMovieDets);
-refs.queuedBtn.addEventListener('click', getMovieQueue);
+watchedBtn.addEventListener('click', getMovieDets);
+queuedBtn.addEventListener('click', getMovieQueue);
 
 let dets;
 let queue;
@@ -26,14 +22,14 @@ let queue;
 //Collection of localStorage watched movies
 async function getMovieDets(id) {
   //   console.log(getWatchedMovies());
-  const emptyLibraryNotification = (refs.collectionEl.innerHTML =
+  const emptyLibraryNotification = (collectionEl.innerHTML =
     '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>');
 
   //Adding the orange color & shadow to the active class
-  refs.watchedBtn.classList.add('is_active');
-  refs.collectionEl.classList.add('library__collection');
-  refs.queuedBtn.classList.remove('is_active');
-  refs.collectionEl.classList.remove('collection__background');
+  watchedBtn.classList.add('is_active');
+  collectionEl.classList.add('library__collection');
+  queuedBtn.classList.remove('is_active');
+  collectionEl.classList.remove('collection__background');
 
   id = getWatchedMovies();
 
@@ -42,7 +38,7 @@ async function getMovieDets(id) {
   movieDetailsArr = [];
   if (id.length > 0) {
     startSpin();
-    refs.collectionEl.textContent = '';
+    collectionEl.textContent = '';
   }
 
   for (const item of id) {
@@ -60,14 +56,14 @@ async function getMovieDets(id) {
 //Collection of localStorage queued movies
 async function getMovieQueue(id) {
   // console.log(getQueueMovies());
-  const emptyLibraryNotification = (refs.collectionEl.innerHTML =
+  const emptyLibraryNotification = (collectionEl.innerHTML =
     '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>');
 
   //Adding the orange color & shadow to the active class
-  refs.queuedBtn.classList.add('is_active');
-  refs.collectionEl.classList.add('library__collection');
-  refs.watchedBtn.classList.remove('is_active');
-  refs.collectionEl.classList.remove('collection__background');
+  queuedBtn.classList.add('is_active');
+  collectionEl.classList.add('library__collection');
+  watchedBtn.classList.remove('is_active');
+  collectionEl.classList.remove('collection__background');
 
   id = getQueueMovies();
 
@@ -76,7 +72,7 @@ async function getMovieQueue(id) {
 
   if (id.length > 0) {
     startSpin();
-    refs.collectionEl.textContent = '';
+    collectionEl.textContent = '';
   }
   //Enumerating through id's of locally saved movies to insert them into the array of objects
 
@@ -96,7 +92,7 @@ async function getMovieQueue(id) {
 let page;
 export async function getMovies(event) {
   page = 1;
-  refs.collectionEl.textContent = '';
+  collectionEl.textContent = '';
   const response = await fetchPopularMovies(event.page);
   const loadGenres = await fetchGenres();
   // console.log(loadGenres);

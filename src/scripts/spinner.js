@@ -1,4 +1,5 @@
-const spinRef = document.querySelector('.js-spinner');
+import { getRefs } from '../scripts/refs';
+const { spinRef } = getRefs();
 
 function startSpin() {
   spinRef.classList.add('is-open');

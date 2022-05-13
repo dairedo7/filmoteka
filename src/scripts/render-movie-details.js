@@ -1,8 +1,10 @@
 import SimpleLightbox from 'simplelightbox';
 // Дополнительный импорт стилей
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { getRefs } from '../scripts/refs';
 
-const modalContainerEl = document.querySelector('.modal-container');
+const { modalContainerEl } = getRefs();
+
 export function renderMovieDetails(movieDetails) {
   // id
   const {

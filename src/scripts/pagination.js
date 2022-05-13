@@ -6,13 +6,14 @@ import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
 import { getTrends, searchMovie } from './searchMovie.js';
 import { getMovies } from './headerLibrary.js';
+import { getRefs } from '../scripts/refs';
+const {container} = getRefs()
 
 const DEBOUNCE_DELAY = 300;
 const search = document.querySelector('.header-form');
 const collectionEl = document.querySelector('.collection');
 const form = document.querySelector('.header-form__input');
 // form.addEventListener('input', debounce(onFormChange, DEBOUNCE_DELAY));
-const container = document.getElementById('pagination');
 
 const PER_PAGE = 20;
 const options = {
