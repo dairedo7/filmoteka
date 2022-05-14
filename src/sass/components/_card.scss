@@ -1,4 +1,6 @@
 .item {
+  position: relative;
+
   height: 462px;
   margin-bottom: 55px;
   cursor: pointer;
@@ -148,4 +150,21 @@
   line-height: 14px;
   background-color: $accentColor;
   border-radius: 5px;
+
 }
+
+}
+
+.trailer__btn {
+  font-size: 25px;
+  background-color: transparent;
+  padding: 0;
+
+  position: absolute;
+  top: 8px;
+  left: 13px;
+}
+.trailer__btn::before {
+  color: #ff0019;
+}
+>>>>>>> main
