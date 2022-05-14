@@ -18,6 +18,9 @@
 }
 
 .header-form__slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -25,19 +28,15 @@
   right: 0;
   bottom: 0;
 
-  background-color: #393939;
+  background-color: rgba(#393939, $alpha: 0.85);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 .header-form__slider:before {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   position: absolute;
-
-  content: '☀️';
+  font-size: 15px;
+  content: '';
   height: 26px;
   width: 26px;
   left: 4px;
@@ -47,11 +46,19 @@
   transition: .3s;
 }
 
-input:checked+.header-form__slider {
-  background-color: $accentColor;
+.header-slider__icon {
+  margin-top: 4px;
 }
 
-input:focus+.header-form__slider{
+.light {
+  margin-left: 2px;
+}
+
+input:checked+.header-form__slider {
+  background-color: rgba($accentColor , $alpha: 0.75);
+}
+
+input:focus+.header-form__slider {
   box-shadow: 0 0 1px $accentColor;
   background-color: #ffffff;
 }
@@ -61,7 +68,7 @@ input:checked+.header-form__slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
   background-color: #393939;
-  content: '🌙';
+  content: '';
 }
 
 .header-form__slider.header-form__slider--round {
@@ -71,4 +78,5 @@ input:checked+.header-form__slider:before {
 .header-form__slider.header-form__slider--round:before {
   border-radius: 50%;
 }
+
 // End custom checkbox for switch dark style
