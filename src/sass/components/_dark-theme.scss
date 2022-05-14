@@ -107,20 +107,16 @@
 .tui-pagination .tui-next-is-ellip {
     background-color: #9d4c15;
 }
-// End pagination dark style
 
-// Sort button style
-// .buttons_trending,
-// .buttons__top_rated,
-// .buttons__upcoming {
-//   color: #d7d7d7;
-//   background-color: #161616;
-//   border-color: rgba(255, 255, 255, 0.3);
-//   &:hover,
-//   &:focus {
-//     border-color: rgba($color: $accentColor, $alpha: 0.7);
-//   }
-// }
+// End pagination dark style
+.buttons-list__button {
+  color: white;
+  border: 0.5px solid rgba(250, 250, 250, 0.2);
+}
+
+.buttons-list__button:hover {
+  background: rgba(255, 255, 255, .1);
+}
 // End sort button style
 
 // Modal students style

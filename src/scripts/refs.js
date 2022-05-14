@@ -36,7 +36,7 @@ export function getRefs() {
     gallery: document.querySelector('.collection'),
     genreSelect: document.querySelector('.genres-form'),
     // sorting btns
-    buttonsList: document.querySelector('.buttons__list'),
+    buttonsList: document.querySelector('.buttons-list'),
     topMoviesBtn: document.querySelector('[data-action="top_rated"]'),
     upcomingMoviesBtn: document.querySelector('[data-action="upcoming"]'),
     trendingMoviesBtn: document.querySelector('[data-action="trending"]'),

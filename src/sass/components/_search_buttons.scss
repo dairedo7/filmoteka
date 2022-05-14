@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
+
   @include for-size(tablet) {
     flex-direction: row;
   }
@@ -23,70 +24,67 @@
   }
 }
 
-// .buttons_trending,
-// .buttons__top_rated,
-// .buttons__upcoming {
-//   font-weight: 500;
-//   padding: 10px 20px;
-//   border: 1px solid rgba(0, 0, 0, 0.5);
-//   background-color: transparent;
 
-//   &:hover,
-//   &:focus {
-//     border-color: rgba($color: $accentColor, $alpha: 0.7);
-//     transform: scale(1.02);
-//   }
-// }
-
-.buttons_trending {
+.buttons-list__button {
   text-decoration: none;
   display: inline-block;
-  padding: 20px 30px;
-  margin: 10px 20px;
+
   position: relative;
   color: black;
-  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
   background: none;
   font-weight: 300;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 0;
+
+  @include for-size (tablet) {
+    padding: 20px 30px;
+  }
 }
-.buttons_trending:before, .buttons_trending:after {
+
+.buttons-list__button:before,
+.buttons-list__button:after {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
   opacity: 0;
 }
-.buttons_trending:before {
+
+.buttons-list__button:before {
   bottom: 0;
   left: 0;
   border-left: 2px solid $accentColor;
   border-top: 2px solid $accentColor;
   transition: 0s ease opacity .8s, .2s ease width .4s, .2s ease height .6s;
 }
-.buttons_trending:after {
+
+.buttons-list__button:after {
   top: 0;
   right: 0;
   border-right: 2px solid $accentColor;
   border-bottom: 2px solid $accentColor;
   transition: 0s ease opacity .4s, .2s ease width, .2s ease height .2s;
 }
-.buttons_trending:hover:before,
-.buttons_trending:hover:after {
+
+.buttons-list__button:hover:before,
+.buttons-list__button:hover:after {
   height: 100%;
   width: 100%;
   opacity: 1;
 }
-.buttons_trending:hover:before {
+
+.buttons-list__button:hover:before {
   transition: 0s ease opacity 0s, .2s ease height, .2s ease width .2s;
 }
-.buttons_trending:hover:after {
+
+.buttons-list__button:hover:after {
   transition: 0s ease opacity .4s, .2s ease height .4s, .2s ease width .6s;
 }
-.buttons_trending:hover {
-  background: rgba(255, 255, 255, .2);
-}
 
+.buttons-list__button:hover {
+  background: rgba(250, 250, 250, .1);
+}
