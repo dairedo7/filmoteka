@@ -2,7 +2,7 @@ import { getRefs } from '../scripts/refs';
 const { themeCheckboxEl, darkModeMediaQuery } = getRefs();
 
 function themeOnPcUser() {
-  if (darkModeMediaQuery.matches === true) {
+  if (darkModeMediaQuery.matches) {
     document.body.classList.add('dark');
     themeCheckboxEl.checked = true;
   } else {
@@ -12,7 +12,7 @@ function themeOnPcUser() {
 }
 themeOnPcUser();
 
-darkModeMediaQuery.addEventListener('click', event => {
+darkModeMediaQuery.addListener(event => {
   document.body.classList.add('dark');
   themeCheckboxEl.checked = true;
 
