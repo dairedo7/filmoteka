@@ -18,12 +18,7 @@
     </div>
     <form class="header-form">
       <label class="header-form__label">
-        <input
-          class="header-form__input"
-          type="text"
-          placeholder="Search movie"
-          name="headerInput"
-        />
+        <input class="header-form__input" type="text" placeholder="Search movie" name="headerInput" />
         <button class="header-form__btn" type="submit">
           <svg class="header-form__icon" width="12" height="12">
             <use href="/images/svg/icons.svg#search"></use>
@@ -56,8 +51,19 @@
       </select>
     </form>
     <label class="header-form__switch">
-      <input type="checkbox" class="header-form__checkbox" />
-      <span class="header-form__slider header-form__slider--round"></span>
+      <input class="header-form__checkbox" type="checkbox" />
+      <span class="header-form__slider header-form__slider--round">
+        <p class="header-slider__box">
+          <svg class="header-slider__icon" width="19" height="19">
+            <use href="./images/svg/icons.svg#icon-sun-1"></use>
+          </svg>
+        </p>
+        <p class="header-slider__box">
+          <svg class="header-slider__icon" width="18" height="18">
+            <use href="./images/svg/icons.svg#icon-moon-1"></use>
+          </svg>
+        </p>
+      </span>
     </label>
   </div>
 </header>

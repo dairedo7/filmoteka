@@ -18,6 +18,9 @@
 }
 
 .header-form__slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -43,8 +46,16 @@
   transition: .3s;
 }
 
+.header-slider__icon {
+  margin-top: 4px;
+}
+
+.light {
+  margin-left: 2px;
+}
+
 input:checked+.header-form__slider {
-  background-color: rgba($accentColor , $alpha: 0.85);
+  background-color: rgba($accentColor , $alpha: 0.75);
 }
 
 input:focus+.header-form__slider {
