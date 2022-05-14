@@ -4,46 +4,45 @@
   color: $DarkThemeColorWhite;
 }
 
-  body.dark{
-.header {
-  box-shadow: 0px 0px 1px 0px #ffffff;
-}
+body.dark {
+  .header {
+    box-shadow: 0px 0px 1px 0px #ffffff;
+  }
 
-.header-library {
-  box-shadow: 0px 0px 1px 0px #ffffff ;
-}
+  .header-library {
+    box-shadow: 0px 0px 1px 0px #ffffff;
+  }
 
-.footer {
-  background: #1c1c1c;
-  color: $DarkThemeColorWhite ;
-  box-shadow: 0px 0px 1px 0px #ffffff;
+  .footer {
+    background: #1c1c1c;
+    color: $DarkThemeColorWhite ;
+    box-shadow: 0px 0px 1px 0px #ffffff;
+  }
 
-}
+  .scroll-top {
+    background: transparent;
+    color: $DarkThemeColorWhite ;
+  }
 
-.scroll-top {
-  background: transparent;
-  color: $DarkThemeColorWhite ;
-}
+  // End dark style for document elements
 
-// End dark style for document elements
-
-// Dark style for modal elements
-.modal {
-  background: $DarkThemeModalBackground ;
-  border-color: rgba($color: #ffffff, $alpha: 0.3);
-}
+  // Dark style for modal elements
+  .modal {
+    background: $DarkThemeModalBackground ;
+    border-color: rgba($color: #ffffff, $alpha: 0.3);
+  }
 
   .modalBackdrop {
-  background-color: rgba(100, 100, 100, 0.1);
-}
+    background-color: rgba(100, 100, 100, 0.1);
+  }
 
   .modal-close-btn {
-  color: $DarkThemeColorWhite ;
+    color: $DarkThemeColorWhite ;
 
-  &:hover {
-    color: $accentColor ;
+    &:hover {
+      color: $accentColor ;
+    }
   }
-}
 
   .modal-title {
     color: $DarkThemeColorWhite;
@@ -72,6 +71,7 @@
   .modal-btn__watched {
     border-color: $DarkThemeColorWhite;
     color: $DarkThemeColorWhite;
+
     &:hover {
       border-color: transparent;
     }
@@ -81,82 +81,89 @@
     border-color: $DarkThemeColorWhite;
     color: $DarkThemeColorWhite;
 
-        &:hover {
+    &:hover {
       border-color: transparent;
     }
   }
-// End dark style for modal elements
 
-// Films collection style
-.films-collection {
-  .item__img {
-    border-color: rgba($color: #ffffff, $alpha: 0.3);
+  // End dark style for modal elements
+
+  // Films collection style
+  .films-collection {
+    .item__img {
+      border-color: rgba($color: #ffffff, $alpha: 0.3);
+    }
   }
-}
 
-// Pagination dark style
-.tui-pagination .tui-page-btn {
-  color: $textWhiteColor;
-}
+  // Pagination dark style
+  .tui-pagination .tui-page-btn {
+    color: $textWhiteColor;
+  }
 
-.tui-pagination .tui-first,
-.tui-pagination .tui-prev,
-.tui-pagination .tui-next,
-.tui-pagination .tui-last,
-.tui-pagination .tui-prev-is-ellip,
-.tui-pagination .tui-next-is-ellip {
+  .tui-pagination .tui-first,
+  .tui-pagination .tui-prev,
+  .tui-pagination .tui-next,
+  .tui-pagination .tui-last,
+  .tui-pagination .tui-prev-is-ellip,
+  .tui-pagination .tui-next-is-ellip {
     background-color: #9d4c15;
-}
+  }
 
-// End pagination dark style
-.buttons-list__button {
-  color: white;
-  border: 0.5px solid rgba(250, 250, 250, 0.2);
-}
+  // End pagination dark style
+  .buttons-list__button {
+    color: white;
+    border: 0.5px solid rgba(250, 250, 250, 0.2);
 
-.buttons-list__button:hover {
-  background: rgba(255, 255, 255, .1);
-}
-// End sort button style
+    &:hover,
+    &:focus,
+    &:active {
+      background: rgba($accentColor , $alpha: 0.6);
+    }
+  }
 
-// Modal students style
 
-.backdrop-team {
+
+  // End sort button style
+
+  // Modal students style
+
+  .backdrop-team {
     background-color: rgba(0, 0, 0, 0.5);
-}
+  }
 
-.modal-team {
+  .modal-team {
     background: #1f1f1f;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-}
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  }
 
-.team-close-btn {
+  .team-close-btn {
     background: transparent;
     color: $whiteColor;
     transition: color $animationProps, transform $animationProps;
+
     &:hover,
     &:focus {
-        color: $accentColor;
+      color: $accentColor;
     }
-}
+  }
 
-.title-team {
+  .title-team {
     color: $accentColor;
-}
+  }
 
-.team-box {
+  .team-box {
     color: #ffffff;
     transition: transform $animationProps, box-shadow $animationProps;
-}
+  }
 
-.team-role {
+  .team-role {
     color: $accentColor;
-}
-.avatar {
-      border: 1px solid rgba($color: $accentColor, $alpha: 0.6)
-}
-// End modal students style
-}
+  }
 
+  .avatar {
+    border: 1px solid rgba($color: $accentColor, $alpha: 0.6)
+  }
 
+  // End modal students style
+}
