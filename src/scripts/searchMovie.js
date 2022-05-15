@@ -28,7 +28,7 @@ const {
 let formData = {};
 
 userData();
-search.addEventListener('submit', onFormSubmitSearch);
+// search.addEventListener('submit', onFormSubmitSearch);
 // search.addEventListener('input', debounce(onKeyWordSearch, DEBOUNCE_DELAY));
 search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY));
 genreSelect.addEventListener('change', onGenresSelect);
@@ -66,17 +66,17 @@ async function onGenresSelect(evt) {
 // }
 
 // Поиск по сабмиту формы
-function onFormSubmitSearch(evt) {
-  evt.preventDefault();
+// function onFormSubmitSearch(evt) {
+//   evt.preventDefault();
 
-  if (search.headerInput.value === '') {
-    return warning();
-  } else {
-    onFormInput(evt);
-    evt.currentTarget.reset();
-    clearLocalStorage();
-  }
-}
+//   if (search.headerInput.value === '') {
+//     return warning();
+//   } else {
+//     onFormInput(evt);
+//     evt.currentTarget.reset();
+//     clearLocalStorage();
+//   }
+// }
 // Очистка страницы
 function clearPage() {
   gallery.innerHTML = '';
@@ -84,7 +84,7 @@ function clearPage() {
 // Функция поиска фильма и уведомлений
 let page = pagination.getCurrentPage();
 console.log(page);
-export async function searchMovie() {
+export async function searchMovieByQuery() {
   try {
     const inputValue = search.headerInput.value.trim();
 
