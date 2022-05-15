@@ -91,3 +91,36 @@ Notiflix.Notify.init({
     backOverlayColor: 'rgba(38,192,211,0.2)',
   },
 });
+
+Notiflix.Report.init({
+  className: 'notiflix-report',
+  width: '320px',
+  backgroundColor: '#1c1c1cf5',
+  borderRadius: '25px',
+  rtl: false,
+  zindex: 4002,
+  backOverlay: true,
+  backOverlayColor: 'rgba(0,0,0,0.5)',
+  backOverlayClickToClose: false,
+  fontFamily: 'Roboto',
+  svgSize: '110px',
+  plainText: true,
+  titleFontSize: '16px',
+  titleMaxLength: 34,
+  messageFontSize: '13px',
+  messageMaxLength: 400,
+  buttonFontSize: '14px',
+  buttonMaxLength: 34,
+  cssAnimation: true,
+  cssAnimationDuration: 360,
+  cssAnimationStyle: 'fade', // 'fade' - 'zoom'
+
+  info: {
+    svgColor: '#ff6b08',
+    titleColor: '#ffffff',
+    messageColor: '#ffffff',
+    buttonBackground: '#ff6b08',
+    buttonColor: '#fff',
+    backOverlayColor: 'rgba(0, 0, 0,0.5)',
+  },
+});
