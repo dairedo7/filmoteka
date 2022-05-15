@@ -2,9 +2,13 @@ import { onEscClick } from '../scripts/modal';
 import { startSpin, stopSpin } from '../scripts/spinner';
 import { fetchMovieTrailer } from '../scripts/services/API';
 import { getRefs } from '../scripts/refs';
+import { missingTrailer } from '../scripts/notification';
 
 const { backdropTrailerContainerEl } = getRefs();
 export function makeTrailer(trailerData) {
+  if (!trailerData.key) {
+    return;
+  }
   const { key } = trailerData;
 
   const trailerEl = `<iframe
@@ -23,10 +27,19 @@ export function makeTrailer(trailerData) {
 export async function onBtnTrailerClick(id) {
   backdropTrailerContainerEl.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscClick);
+
   startSpin();
 
   const trailer = await fetchMovieTrailer(id);
-  makeTrailer(trailer);
 
-  stopSpin();
+  if (!trailer) {
+    stopSpin();
+    backdropTrailerContainerEl.classList.add('is-hidden');
+    missingTrailer();
+    return;
+  } else {
+    makeTrailer(trailer);
+
+    stopSpin();
+  }
 }

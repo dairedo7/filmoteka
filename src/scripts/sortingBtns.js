@@ -4,6 +4,7 @@ import { getMovies } from './renderMainPage';
 import { startSpin, stopSpin } from './spinner';
 import { infScroll } from './infiniteScroll';
 import { getRefs } from '../scripts/refs';
+import { searchMovie } from './pagination';
 
 const {
   collectionEl,
@@ -13,6 +14,7 @@ const {
   trendingMoviesBtn,
   container,
   footer,
+  search,
 } = getRefs();
 
 buttonsList.addEventListener('click', onBtnClick);
@@ -21,18 +23,20 @@ function onBtnClick(evt) {
   evt.preventDefault();
   if (evt.target === topMoviesBtn) {
     collectionEl.textContent = '';
-    container.classList.add('visually-hidden');
+
     footer.classList.add('.top_movies__footer');
     footer.classList.remove('.upcoming_movies__footer');
+    search.reset();
     let currentFooter = footer;
 
     infScroll(currentFooter);
   }
   if (evt.target === upcomingMoviesBtn) {
     collectionEl.textContent = '';
-    container.classList.add('visually-hidden');
+
     footer.classList.add('.upcoming_movies__footer');
     footer.classList.remove('.top_movies__footer');
+    search.reset();
     let currentFooter = footer;
 
     infScroll(currentFooter);
@@ -40,9 +44,9 @@ function onBtnClick(evt) {
   if (evt.target === trendingMoviesBtn) {
     collectionEl.textContent = '';
 
-    container.classList.remove('visually-hidden');
     footer.classList.remove('.upcoming_movies__footer');
     footer.classList.remove('.top_movies__footer');
+    search.reset();
     startSpin();
     getMovies();
     stopSpin();

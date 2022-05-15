@@ -5,7 +5,20 @@ import { renderWatched } from '../templates/libraryTemplate.js';
 import { fetchPopularMovies, fetchGenres } from './services/API';
 import { startSpin, stopSpin } from './spinner';
 import { getRefs } from '../scripts/refs';
+import { searchMovie } from './pagination';
+import { options } from './pagination';
+const { container } = getRefs();
+import Pagination from 'tui-pagination';
+
+const PER_PAGE = 20;
+
+// import { pagination } from './pagination';
+import { getTrendingMovies } from './moviesBoxPagination';
+console.log('trending movies ' + getTrendingMovies);
 const { watchedBtn, queuedBtn, collectionEl, backgroundImg } = getRefs();
+// import paginationDefault from './pagination';
+// console.log('current page' + paginationDefault); //current page
+
 // import './pagination.js';
 
 //Variables for objects-array conversion from array of id's
@@ -72,8 +85,8 @@ async function getMovieQueue(id) {
     startSpin();
     collectionEl.textContent = '';
   }
-  //Enumerating through id's of locally saved movies to insert them into the array of objects
 
+  //Enumerating through id's of locally saved movies to insert them into the array of objects
   for (const item of id) {
     if (item) {
       queue = await fetchMovieDetails(item);
@@ -87,11 +100,16 @@ async function getMovieQueue(id) {
 }
 
 //Getting Trending Movies to display on the main page after visiting of the library-page
-let page;
-export async function getMovies(event) {
-  page = 1;
+let pagination = new Pagination(container, options);
+let page = pagination.getCurrentPage();
+
+pagination.off('afterMove', searchMovie);
+pagination.on('afterMove', getMovies);
+
+export async function getMovies({ page }) {
   collectionEl.textContent = '';
-  const response = await fetchPopularMovies(event.page);
+  const response = await fetchPopularMovies(page);
+
   const loadGenres = await fetchGenres();
 
   return renderMarkup(response, loadGenres);

@@ -8,9 +8,16 @@ export function success(title) {
 export function failure() {
   Notiflix.Notify.failure('Sorry, no matches found for your search query!');
 }
+export function missingTrailer() {
+  Notiflix.Report.info(
+    'Missing trailer!',
+    'Knowledge rests not upon truth alone, but upon error also." <br/><br/>- Carl Gustav Jung',
+    'Okay',
+  );
+}
 
 export function warning() {
-  Notiflix.Notify.warning("Please, enter your request");
+  Notiflix.Notify.warning('Please, enter your request');
 }
 
 // Объект визуальных настроек

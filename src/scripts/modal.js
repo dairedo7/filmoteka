@@ -18,6 +18,7 @@ import { getDataQ } from './localStorage';
 import { setNewQueueMovie } from './localStorage';
 import { checkedQueueMovie } from './localStorage';
 import { removeQueueMovie } from './localStorage';
+import { missingTrailer } from './notification';
 
 const { backdropEl, modalContainerEl, backdropTrailerContainerEl, modalEl, closeBtnEl } = getRefs();
 
@@ -71,9 +72,17 @@ async function onTrailerBtnClick() {
 
   const { id } = details;
   const trailer = await fetchMovieTrailer(id);
-  makeTrailer(trailer);
+  console.log(trailer);
+  if (!trailer) {
+    stopSpin();
+    missingTrailer();
+    backdropTrailerContainerEl.classList.add('is-hidden');
+    return;
+  } else {
+    makeTrailer(trailer);
 
-  stopSpin();
+    stopSpin();
+  }
 }
 
 // watched btn
