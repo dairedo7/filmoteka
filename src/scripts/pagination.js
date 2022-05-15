@@ -27,11 +27,11 @@ export const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
 };
-console.log(options.page);
+
 export let pagination = new Pagination(container, options);
-console.log(pagination);
+
 let page = pagination.getCurrentPage();
-console.log(page);
+
 pagination.on('afterMove', getMovies);
 let inputValue = search.headerInput.value;
 // async function initPage() {
@@ -83,9 +83,7 @@ export async function onFormInput(evt) {
   pagination.off('afterMove', getMovies);
   page = 1;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
-  console.log(inputValue);
-  console.log(page);
-  console.log(moviesByKeyWord);
+
   const loadGenres = await fetchGenres();
   console.log(loadGenres);
   renderMarkup(moviesByKeyWord, loadGenres);

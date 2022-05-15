@@ -13,6 +13,8 @@ import { onFormInput, pagination } from './pagination';
 import { getMovies } from './headerLibrary';
 import { infScroll } from './infiniteScroll';
 import { getRefs } from '../scripts/refs';
+import { searchMovie } from './pagination';
+
 // const formIntput = document.querySelector('header-form__input');
 const {
   search,
@@ -34,8 +36,13 @@ search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY))
 genreSelect.addEventListener('change', onGenresSelect);
 
 // Функция фильтрации фильмов по жанрам
-async function onGenresSelect(evt) {
-  const genreId = evt.target.value;
+let genreId;
+export async function onGenresSelect(event) {
+  footer.classList.remove('.top_movies__footer');
+  footer.classList.remove('.upcoming_movies__footer');
+  console.log(event.target.value);
+  genreId = event.target.value;
+  console.log(genreId);
   const moviesByGenre = await fetchGenresById(genreId);
 
   startSpin();
@@ -43,7 +50,9 @@ async function onGenresSelect(evt) {
   clearPage();
   stopSpin();
   search.headerInput.value = '';
+
   renderMarkup(moviesByGenre, loadGenres);
+
   clearLocalStorage();
 }
 // // Поиск по ключевому слову
@@ -66,6 +75,7 @@ async function onGenresSelect(evt) {
 // }
 
 // Поиск по сабмиту формы
+
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
@@ -83,8 +93,7 @@ function clearPage() {
   gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
-let page = pagination.getCurrentPage();
-console.log(page);
+
 export async function searchMovieByQuery() {
   try {
     const inputValue = search.headerInput.value.trim();
@@ -101,12 +110,6 @@ export async function searchMovieByQuery() {
     pagination.reset(moviesByKeyWord.total_results);
     renderMarkup(moviesByKeyWord, loadGenres);
 
-    // if (moviesByKeyWord.total_results < 20) {
-    //   container.classList.add('visually-hidden');
-    // } else {
-    //   container.classList.remove('visually-hidden');
-    // }
-
     success(moviesByKeyWord.total_results);
   } catch (error) {
     console.log(error);
@@ -115,7 +118,7 @@ export async function searchMovieByQuery() {
 
 // let page = pagination.getCurrentPage();
 // console.log(page);
-
+let page = 0;
 async function getTrends() {
   page += 1;
   const response = await fetchPopularMovies(page);

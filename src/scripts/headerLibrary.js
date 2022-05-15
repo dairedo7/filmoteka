@@ -12,14 +12,7 @@ import Pagination from 'tui-pagination';
 
 const PER_PAGE = 20;
 
-// import { pagination } from './pagination';
-import { getTrendingMovies } from './moviesBoxPagination';
-console.log('trending movies ' + getTrendingMovies);
 const { watchedBtn, queuedBtn, collectionEl, backgroundImg } = getRefs();
-// import paginationDefault from './pagination';
-// console.log('current page' + paginationDefault); //current page
-
-// import './pagination.js';
 
 //Variables for objects-array conversion from array of id's
 let movieDetailsArr = [];
