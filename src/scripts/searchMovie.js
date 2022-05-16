@@ -79,8 +79,10 @@ function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
   if (search.headerInput.value === '') {
-    gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
+    // gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
+    fetchPopularMovies();
     return warning();
+    
   }
   
   // else {
