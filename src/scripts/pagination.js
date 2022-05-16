@@ -219,9 +219,9 @@ let genreId;
 export async function onGenresSelect(event) {
   footer.classList.remove('.top_movies__footer');
   footer.classList.remove('.upcoming_movies__footer');
-  console.log(event.target.value);
+  // console.log(event.target.value);
   genreId = event.target.value;
-  console.log(genreId);
+  // console.log(genreId);
   const page = 1;
   const moviesByGenre = await fetchGenresById(genreId, page);
 
@@ -250,7 +250,7 @@ paginationGenres.on('beforeMove', function (evt) {
 });
 
 paginationGenres.on('afterMove', async function (evt) {
-  console.log(evt.page);
+  // console.log(evt.page);
   const moviesByGenre = await fetchGenresById(genreId, evt.page);
 
   startSpin();

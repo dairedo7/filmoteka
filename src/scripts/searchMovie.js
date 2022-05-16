@@ -82,7 +82,8 @@ function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
   if (search.headerInput.value === '') {
-    gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
+    // gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
+    fetchPopularMovies();
     return warning();
   }
   
@@ -103,14 +104,14 @@ export async function searchMovieByQuery() {
     const inputValue = search.headerInput.value.trim();
 
     const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
-    console.log(page);
+    // console.log(page);
 
     const loadGenres = await fetchGenres();
     startSpin();
     clearPage();
 
     stopSpin();
-    console.log(moviesByKeyWord.total_results);
+    // console.log(moviesByKeyWord.total_results);
     pagination.reset(moviesByKeyWord.total_results);
     renderMarkup(moviesByKeyWord, loadGenres);
 
