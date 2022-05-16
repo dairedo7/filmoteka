@@ -47,6 +47,7 @@
   border-radius: 5px;
 
   background-color: $bgMainColor;
+
   @include for-size(tablet-up) {
     max-height: 95%; //todo
     overflow-y: auto;
@@ -195,9 +196,11 @@
   font-size: 12px;
   line-height: 1.17;
   color: $textBlackColor;
+
   @include for-size(tablet) {
     width: 160px;
   }
+
   @include for-size(desktop) {
     width: 190px;
   }
@@ -299,7 +302,7 @@
 
   border: 1px solid $textBlackColor;
 
-transition: 300ms ease-in-out 0s;
+  transition: 300ms ease-in-out 0s;
 
   @include for-size(tablet) {
     width: 125px;
@@ -321,6 +324,7 @@ transition: 300ms ease-in-out 0s;
   &:not(:last-child) {
     margin-right: 15px;
   }
+
   &__added {
     border: transparent; //none
     background-color: $accentColor;
@@ -368,15 +372,15 @@ transition: 300ms ease-in-out 0s;
 
   border-radius: 5px;
 
-    border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
 
   @include for-size(tablet) {
-   width: 707px;
-  height: 398px;
-    }
+    width: 707px;
+    height: 398px;
+  }
 
   @include for-size(desktop) {
-   width: 996px;
-  height: 560px;
-    }
+    width: 996px;
+    height: 560px;
+  }
 }
