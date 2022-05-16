@@ -58,6 +58,7 @@ export async function searchMovie({ page }) {
   const getMovies = await fetchMoviesSearchQuery(inputValue, page);
 
   const loadGenres = await fetchGenres();
+
   // pagination.reset(getMovies.total_results);
   return renderMarkup(getMovies, loadGenres);
 }
@@ -83,9 +84,9 @@ export async function onFormInput(evt) {
   pagination.off('afterMove', getMovies);
   page = 1;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
-
   const loadGenres = await fetchGenres();
-  console.log(loadGenres);
+  container.classList.remove('visually-hidden');
+ 
   renderMarkup(moviesByKeyWord, loadGenres);
 
   pagination.reset(moviesByKeyWord.total_results);
