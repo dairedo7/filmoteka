@@ -13,6 +13,8 @@ import { onFormInput, pagination } from './pagination';
 import { getMovies } from './headerLibrary';
 import { infScroll } from './infiniteScroll';
 import { getRefs } from '../scripts/refs';
+import { searchMovie } from './pagination';
+
 // const formIntput = document.querySelector('header-form__input');
 const {
   search,
@@ -34,8 +36,14 @@ search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY))
 genreSelect.addEventListener('change', onGenresSelect);
 
 // Функция фильтрации фильмов по жанрам
-async function onGenresSelect(evt) {
-  const genreId = evt.target.value;
+let genreId;
+export async function onGenresSelect(event) {
+  footer.classList.remove('.top_movies__footer');
+  footer.classList.remove('.upcoming_movies__footer');
+  container.classList.remove('visually-hidden');
+  console.log(event.target.value);
+  genreId = event.target.value;
+  console.log(genreId);
   const moviesByGenre = await fetchGenresById(genreId);
 
   startSpin();
@@ -43,7 +51,9 @@ async function onGenresSelect(evt) {
   clearPage();
   stopSpin();
   search.headerInput.value = '';
+
   renderMarkup(moviesByGenre, loadGenres);
+
   clearLocalStorage();
 }
 // // Поиск по ключевому слову
@@ -66,25 +76,28 @@ async function onGenresSelect(evt) {
 // }
 
 // Поиск по сабмиту формы
+
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
   if (search.headerInput.value === '') {
+    gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
     return warning();
-  } else {
-    onFormInput(evt);
-    evt.currentTarget.reset();
-    clearLocalStorage();
   }
+  
+  // else {
+  //   onFormInput(evt);
+  //   evt.currentTarget.reset();
+  //   clearLocalStorage();
+  // }
 }
 // Очистка страницы
 function clearPage() {
   gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
-let page = pagination.getCurrentPage();
-console.log(page);
-export async function searchMovie() {
+
+export async function searchMovieByQuery() {
   try {
     const inputValue = search.headerInput.value.trim();
 
@@ -100,12 +113,6 @@ export async function searchMovie() {
     pagination.reset(moviesByKeyWord.total_results);
     renderMarkup(moviesByKeyWord, loadGenres);
 
-    // if (moviesByKeyWord.total_results < 20) {
-    //   container.classList.add('visually-hidden');
-    // } else {
-    //   container.classList.remove('visually-hidden');
-    // }
-
     success(moviesByKeyWord.total_results);
   } catch (error) {
     console.log(error);
@@ -114,7 +121,7 @@ export async function searchMovie() {
 
 // let page = pagination.getCurrentPage();
 // console.log(page);
-
+let page = 0;
 async function getTrends() {
   page += 1;
   const response = await fetchPopularMovies(page);

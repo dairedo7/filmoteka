@@ -4,10 +4,11 @@ import Pagination from 'tui-pagination';
 import debounce from 'lodash.debounce';
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
-
+import { success, failure } from './notification';
 // import { getTrends } from './searchMovie.js';
 import { getMovies } from './headerLibrary.js';
 import { getRefs } from '../scripts/refs';
+
 const { container, footer } = getRefs();
 
 const DEBOUNCE_DELAY = 500;
@@ -28,11 +29,10 @@ export const options = {
   lastItemClassName: 'tui-last-child',
 };
 
-console.log(options.page);
 export let pagination = new Pagination(container, options);
-console.log(pagination);
+
 let page = pagination.getCurrentPage();
-console.log(page);
+
 pagination.on('afterMove', getMovies);
 let inputValue = search.headerInput.value;
 // async function initPage() {
@@ -59,6 +59,7 @@ export async function searchMovie({ page }) {
   const getMovies = await fetchMoviesSearchQuery(inputValue, page);
 
   const loadGenres = await fetchGenres();
+ 
   // pagination.reset(getMovies.total_results);
   return renderMarkup(getMovies, loadGenres);
 }
@@ -84,11 +85,15 @@ export async function onFormInput(evt) {
   pagination.off('afterMove', getMovies);
   page = 1;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
-  console.log(inputValue);
-  console.log(page);
-  console.log(moviesByKeyWord);
   const loadGenres = await fetchGenres();
-  console.log(loadGenres);
+  if (moviesByKeyWord.total_results === 0) {
+    failure();
+  }
+  if (moviesByKeyWord.total_results > 0) {
+    success(moviesByKeyWord.total_results);
+  }
+  container.classList.remove('visually-hidden');
+ 
   renderMarkup(moviesByKeyWord, loadGenres);
 
   pagination.reset(moviesByKeyWord.total_results);

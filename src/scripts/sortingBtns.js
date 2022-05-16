@@ -26,6 +26,7 @@ function onBtnClick(evt) {
 
     footer.classList.add('.top_movies__footer');
     footer.classList.remove('.upcoming_movies__footer');
+    container.classList.add('visually-hidden');
     search.reset();
     let currentFooter = footer;
 
@@ -36,6 +37,7 @@ function onBtnClick(evt) {
 
     footer.classList.add('.upcoming_movies__footer');
     footer.classList.remove('.top_movies__footer');
+    container.classList.add('visually-hidden');
     search.reset();
     let currentFooter = footer;
 
@@ -46,6 +48,7 @@ function onBtnClick(evt) {
 
     footer.classList.remove('.upcoming_movies__footer');
     footer.classList.remove('.top_movies__footer');
+    pagination.classList.remove('visually-hidden');
     search.reset();
     startSpin();
     getMovies();
