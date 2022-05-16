@@ -3,8 +3,8 @@ import { fetchPopularMovies, fetchGenres } from '../scripts/services/API';
 import { onMovieCardClick } from './modal.js';
 import { onBtnTrailerClick } from '../templates/trailer-play.js';
 import { getRefs } from '../scripts/refs';
-import { pagination } from './pagination.js';
-const { collectionEl } = getRefs();
+import { paginationMain } from './pagination.js';
+const { collectionEl, container } = getRefs();
 
 collectionEl.addEventListener('click', evt => {
   if (evt.target === evt.currentTarget) {
@@ -23,13 +23,20 @@ collectionEl.addEventListener('click', evt => {
 let page;
 
 export async function getMovies() {
+  collectionEl.innerHTML = '';
   page = 1;
+  paginationMain.reset();
   const response = await fetchPopularMovies(page);
 
-  const loadGenres = await fetchGenres();
-  pagination.reset(response.total_results);
+  if (response.total_results < 20) {
+    container.classList.add('visually-hidden');
+  } else {
+    container.classList.remove('visually-hidden');
+  }
 
+  const loadGenres = await fetchGenres();
+  // pagination.reset(response.total_results);
   return renderMarkup(response, loadGenres);
 }
 
-// getMovies();
+getMovies();

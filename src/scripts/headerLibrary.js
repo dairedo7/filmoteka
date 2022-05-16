@@ -93,20 +93,20 @@ async function getMovieQueue(id) {
 }
 
 //Getting Trending Movies to display on the main page after visiting of the library-page
-let pagination = new Pagination(container, options);
-let page = pagination.getCurrentPage();
+// let pagination = new Pagination(container, options);
+// let page = pagination.getCurrentPage();
 
-pagination.off('afterMove', searchMovie);
-pagination.on('afterMove', getMovies);
+// pagination.off('afterMove', searchMovie);
+// pagination.on('afterMove', getMovies);
 
-export async function getMovies({ page }) {
-  collectionEl.textContent = '';
-  const response = await fetchPopularMovies(page);
+// export async function getMovies({ page }) {
+//   collectionEl.textContent = '';
+//   const response = await fetchPopularMovies(page);
 
-  const loadGenres = await fetchGenres();
+//   const loadGenres = await fetchGenres();
 
-  return renderMarkup(response, loadGenres);
-}
+//   return renderMarkup(response, loadGenres);
+// }
 
 // Add or remove movie-item from library
 const modalEl = document.querySelector('.modal-container');

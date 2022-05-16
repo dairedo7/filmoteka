@@ -2,14 +2,25 @@
 import axios from 'axios';
 import Pagination from 'tui-pagination';
 import debounce from 'lodash.debounce';
+import { startSpin, stopSpin } from './spinner';
 import { renderMarkup } from '../templates/cardTemplate.js';
-import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
+
+import {
+  fetchPopularMovies,
+  fetchGenres,
+  fetchMoviesSearchQuery,
+  fetchGenresById,
+} from '../scripts/services/API';
+
 import { success, failure } from './notification';
+
 // import { getTrends } from './searchMovie.js';
-import { getMovies } from './headerLibrary.js';
+import { clearPage, clearLocalStorage } from './searchMovie';
+// import { getMovies } from './headerLibrary.js';
+import { getMovies } from './renderMainPage';
 import { getRefs } from '../scripts/refs';
 
-const { container, footer } = getRefs();
+const { container, footer, genreSelect } = getRefs();
 
 const DEBOUNCE_DELAY = 500;
 
@@ -23,18 +34,27 @@ export const options = {
   totalItems: 10000,
   itemsPerPage: PER_PAGE,
   visiblePages: 5,
-  page: 0,
+  page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
 };
 
-export let pagination = new Pagination(container, options);
+// export let pagination = new Pagination(container, options);
+export const paginationMain = new Pagination(container, options);
+paginationMain.on('beforeMove', function () {
+  collectionEl.innerHTML = '';
+});
+paginationMain.on('afterMove', async function (evt) {
+  const response = await fetchPopularMovies(evt.page);
+  const loadGenres = await fetchGenres();
 
-let page = pagination.getCurrentPage();
+  return renderMarkup(response, loadGenres);
+});
+// let page = pagination.getCurrentPage();
 
-pagination.on('afterMove', getMovies);
-let inputValue = search.headerInput.value;
+// pagination.on('afterMove', getMovies);
+// let inputValue = search.headerInput.value;
 // async function initPage() {
 //   try {
 //     const data = await fetchMoviesSearchQuery(inputValue, page);
@@ -48,42 +68,43 @@ let inputValue = search.headerInput.value;
 
 // initPage();
 
-export async function searchMovie({ page }) {
-  if (inputValue === '') {
-    return;
-  }
+export const paginationSearch = new Pagination(container, options);
+let inputValue;
+// export async function searchMovie({ page }) {
+//   if (inputValue === '') {
+//     return;
+//   }
 
-  console.log(page);
+//   collectionEl.textContent = '';
+//   const getMovies = await fetchMoviesSearchQuery(inputValue, page);
 
-  collectionEl.textContent = '';
-  const getMovies = await fetchMoviesSearchQuery(inputValue, page);
+//   const loadGenres = await fetchGenres();
+//   // pagination.reset(getMovies.total_results);
+//   return renderMarkup(getMovies, loadGenres);
+// }
 
-  const loadGenres = await fetchGenres();
- 
-  // pagination.reset(getMovies.total_results);
-  return renderMarkup(getMovies, loadGenres);
-}
 
 form.addEventListener('input', debounce(onFormInput, DEBOUNCE_DELAY));
 // search.addEventListener('submit', onFormSubmitSearch);
 
 export async function onFormInput(evt) {
+  inputValue = evt.target.value;
   evt.preventDefault();
   if (evt.target.value === '') {
-    pagination.off('afterMove', searchMovie);
-    pagination.on('afterMove', getMovies);
-
-    return getMovies(page);
+    // pagination.off('afterMove', searchMovie);
+    // pagination.on('afterMove', getMovies);
+    return getMovies();
   }
   if (footer.classList.length >= 2) {
     footer.classList.remove('.top_movies__footer');
     footer.classList.remove('.upcoming_movies__footer');
   }
-  inputValue = search.headerInput.value;
+  // inputValue = search.headerInput.value;
 
   collectionEl.textContent = '';
-  pagination.off('afterMove', getMovies);
-  page = 1;
+  // pagination.off('afterMove', getMovies);
+  paginationSearch.reset();
+  let page = 1;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
   const loadGenres = await fetchGenres();
   if (moviesByKeyWord.total_results === 0) {
@@ -96,10 +117,31 @@ export async function onFormInput(evt) {
  
   renderMarkup(moviesByKeyWord, loadGenres);
 
-  pagination.reset(moviesByKeyWord.total_results);
+  if (moviesByKeyWord.total_results < 20) {
+    container.classList.add('visually-hidden');
+  } else {
+    container.classList.remove('visually-hidden');
+  }
 
-  pagination.on('afterMove', searchMovie);
+  // pagination.reset(moviesByKeyWord.total_results);
+
+  // pagination.on('afterMove', searchMovie);
 }
+
+paginationSearch.on('beforeMove', function (evt) {
+  collectionEl.innerHTML = '';
+});
+paginationSearch.on('afterMove', async function (evt) {
+  const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, evt.page);
+
+  startSpin();
+  const loadGenres = await fetchGenres();
+  // clearPage();
+  stopSpin();
+  // search.headerInput.value = '';
+  renderMarkup(moviesByKeyWord, loadGenres);
+  // clearLocalStorage();
+});
 
 // async function onFormSubmitSearch(evt) {
 //   evt.preventDefault();
@@ -168,3 +210,54 @@ export async function onFormInput(evt) {
 // }
 
 // export default paginationDefault;
+
+export const paginationGenres = new Pagination(container, options);
+
+genreSelect.addEventListener('change', onGenresSelect);
+
+let genreId;
+export async function onGenresSelect(event) {
+  footer.classList.remove('.top_movies__footer');
+  footer.classList.remove('.upcoming_movies__footer');
+  console.log(event.target.value);
+  genreId = event.target.value;
+  console.log(genreId);
+  const page = 1;
+  const moviesByGenre = await fetchGenresById(genreId, page);
+
+  collectionEl.innerHTML = '';
+  paginationGenres.reset();
+  // pagination.movePageTo(1);
+  if (moviesByGenre.total_results < 20) {
+    container.classList.add('visually-hidden');
+  } else {
+    container.classList.remove('visually-hidden');
+  }
+
+  startSpin();
+  const loadGenres = await fetchGenres();
+  clearPage();
+  stopSpin();
+  search.headerInput.value = '';
+
+  renderMarkup(moviesByGenre, loadGenres);
+
+  clearLocalStorage();
+}
+
+paginationGenres.on('beforeMove', function (evt) {
+  collectionEl.innerHTML = '';
+});
+
+paginationGenres.on('afterMove', async function (evt) {
+  console.log(evt.page);
+  const moviesByGenre = await fetchGenresById(genreId, evt.page);
+
+  startSpin();
+  const loadGenres = await fetchGenres();
+  // clearPage();
+  stopSpin();
+  search.headerInput.value = '';
+  renderMarkup(moviesByGenre, loadGenres);
+  clearLocalStorage();
+});
