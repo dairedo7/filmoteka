@@ -41,9 +41,7 @@ export async function onGenresSelect(event) {
   footer.classList.remove('.top_movies__footer');
   footer.classList.remove('.upcoming_movies__footer');
   container.classList.remove('visually-hidden');
-  console.log(event.target.value);
   genreId = event.target.value;
-  console.log(genreId);
   const moviesByGenre = await fetchGenresById(genreId);
 
   startSpin();

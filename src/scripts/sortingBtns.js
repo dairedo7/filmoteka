@@ -15,6 +15,7 @@ const {
   container,
   footer,
   search,
+  genreSelect,
 } = getRefs();
 
 buttonsList.addEventListener('click', onBtnClick);
@@ -54,6 +55,7 @@ function onBtnClick(evt) {
     getMovies();
     stopSpin();
   }
+  genreSelect.reset();
 }
 
 //Receiving the collection of top-rated movies
