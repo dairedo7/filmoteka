@@ -9,7 +9,7 @@ import {
 import { failure, warning, success } from './notification';
 import { renderMarkup } from '../templates/cardTemplate';
 import { startSpin, stopSpin } from './spinner';
-import { onFormInput, pagination } from './pagination';
+import { onFormInput, pagination, paginationSearch } from './pagination';
 import { getMovies } from './headerLibrary';
 import { infScroll } from './infiniteScroll';
 import { getRefs } from '../scripts/refs';
@@ -33,28 +33,28 @@ userData();
 search.addEventListener('submit', onFormSubmitSearch);
 // search.addEventListener('input', debounce(onKeyWordSearch, DEBOUNCE_DELAY));
 search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY));
-genreSelect.addEventListener('change', onGenresSelect);
+// genreSelect.addEventListener('change', onGenresSelect);
 
 // Функция фильтрации фильмов по жанрам
-let genreId;
-export async function onGenresSelect(event) {
-  footer.classList.remove('.top_movies__footer');
-  footer.classList.remove('.upcoming_movies__footer');
-  console.log(event.target.value);
-  genreId = event.target.value;
-  console.log(genreId);
-  const moviesByGenre = await fetchGenresById(genreId);
+// let genreId;
+// export async function onGenresSelect(event) {
+//   footer.classList.remove('.top_movies__footer');
+//   footer.classList.remove('.upcoming_movies__footer');
+//   console.log(event.target.value);
+//   genreId = event.target.value;
+//   console.log(genreId);
+//   const moviesByGenre = await fetchGenresById(genreId);
 
-  startSpin();
-  const loadGenres = await fetchGenres();
-  clearPage();
-  stopSpin();
-  search.headerInput.value = '';
+//   startSpin();
+//   const loadGenres = await fetchGenres();
+//   clearPage();
+//   stopSpin();
+//   search.headerInput.value = '';
 
-  renderMarkup(moviesByGenre, loadGenres);
+//   renderMarkup(moviesByGenre, loadGenres);
 
-  clearLocalStorage();
-}
+//   clearLocalStorage();
+// }
 // // Поиск по ключевому слову
 // function onKeyWordSearch(evt) {
 //   evt.preventDefault();
@@ -89,7 +89,7 @@ function onFormSubmitSearch(evt) {
   // }
 }
 // Очистка страницы
-function clearPage() {
+export function clearPage() {
   gallery.innerHTML = '';
 }
 // Функция поиска фильма и уведомлений
@@ -126,7 +126,7 @@ async function getTrends() {
 
   return renderMarkup(response, theGenres);
 }
-getTrends();
+// getTrends();
 // Функция сохранения данных в локальное хранилище
 function onInputSaveData(evt) {
   formData[evt.target.name] = evt.target.value;
@@ -149,7 +149,7 @@ function userData() {
 }
 
 // функция очистки localStorage
-function clearLocalStorage() {
+export function clearLocalStorage() {
   formData = {};
   localStorage.removeItem(STORAGE_KEY);
 }
