@@ -36,6 +36,7 @@ search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY))
 // genreSelect.addEventListener('change', onGenresSelect);
 
 // Функция фильтрации фильмов по жанрам
+
 // let genreId;
 // export async function onGenresSelect(event) {
 //   footer.classList.remove('.top_movies__footer');
@@ -55,6 +56,7 @@ search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY))
 
 //   clearLocalStorage();
 // }
+
 // // Поиск по ключевому слову
 // function onKeyWordSearch(evt) {
 //   evt.preventDefault();
@@ -80,8 +82,10 @@ function onFormSubmitSearch(evt) {
   evt.preventDefault();
 
   if (search.headerInput.value === '') {
+    gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
     return warning();
   }
+  
   // else {
   //   onFormInput(evt);
   //   evt.currentTarget.reset();

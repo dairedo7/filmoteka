@@ -25,7 +25,7 @@ export function renderWatched(res, genres) {
           <div class='wrapper'>
             <ul class='genres'>
 
-              <li class='genres__item'>${getGenres.join(', ')}</li> 
+              <li class='genres__item'>${getGenres.join(', ')}</li>
 
             </ul>
             <span class='item__year'>${release_date}</span>

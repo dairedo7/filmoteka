@@ -11,10 +11,10 @@
 }
 
 @include for-size(tablet-up) {
-.footer__text-span {
-  display: block;
-  margin-bottom: 13px;
-}
+  .footer__text-span {
+    display: block;
+    margin-bottom: 13px;
+  }
 }
 
 .footer_icon {
@@ -29,11 +29,27 @@
 }
 
 @keyframes heartAnimation {
-  from {
-    transform: scale(2);
+  0% {
+    transform: scale(1.25);
   }
 
-  to {
-    transform: scale(1);
+  20% {
+    transform: scale(1.5);
+  }
+
+  40% {
+    transform: scale(1.25);
+  }
+
+  60% {
+    transform: scale(1.5);
+  }
+
+  80% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1.25);
   }
 }

@@ -4,6 +4,7 @@ import Pagination from 'tui-pagination';
 import debounce from 'lodash.debounce';
 import { startSpin, stopSpin } from './spinner';
 import { renderMarkup } from '../templates/cardTemplate.js';
+
 import {
   fetchPopularMovies,
   fetchGenres,
@@ -11,11 +12,14 @@ import {
   fetchGenresById,
 } from '../scripts/services/API';
 
+import { success, failure } from './notification';
+
 // import { getTrends } from './searchMovie.js';
 import { clearPage, clearLocalStorage } from './searchMovie';
 // import { getMovies } from './headerLibrary.js';
 import { getMovies } from './renderMainPage';
 import { getRefs } from '../scripts/refs';
+
 const { container, footer, genreSelect } = getRefs();
 
 const DEBOUNCE_DELAY = 500;
@@ -79,6 +83,7 @@ let inputValue;
 //   return renderMarkup(getMovies, loadGenres);
 // }
 
+
 form.addEventListener('input', debounce(onFormInput, DEBOUNCE_DELAY));
 // search.addEventListener('submit', onFormSubmitSearch);
 
@@ -101,9 +106,15 @@ export async function onFormInput(evt) {
   paginationSearch.reset();
   let page = 1;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
-
   const loadGenres = await fetchGenres();
-  console.log(loadGenres);
+  if (moviesByKeyWord.total_results === 0) {
+    failure();
+  }
+  if (moviesByKeyWord.total_results > 0) {
+    success(moviesByKeyWord.total_results);
+  }
+  container.classList.remove('visually-hidden');
+ 
   renderMarkup(moviesByKeyWord, loadGenres);
 
   if (moviesByKeyWord.total_results < 20) {
