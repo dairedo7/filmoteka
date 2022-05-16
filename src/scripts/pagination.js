@@ -4,10 +4,11 @@ import Pagination from 'tui-pagination';
 import debounce from 'lodash.debounce';
 import { renderMarkup } from '../templates/cardTemplate.js';
 import { fetchPopularMovies, fetchGenres, fetchMoviesSearchQuery } from '../scripts/services/API';
-
+import { success, failure } from './notification';
 // import { getTrends } from './searchMovie.js';
 import { getMovies } from './headerLibrary.js';
 import { getRefs } from '../scripts/refs';
+
 const { container, footer } = getRefs();
 
 const DEBOUNCE_DELAY = 500;
@@ -58,7 +59,7 @@ export async function searchMovie({ page }) {
   const getMovies = await fetchMoviesSearchQuery(inputValue, page);
 
   const loadGenres = await fetchGenres();
-
+ 
   // pagination.reset(getMovies.total_results);
   return renderMarkup(getMovies, loadGenres);
 }
@@ -85,6 +86,12 @@ export async function onFormInput(evt) {
   page = 1;
   const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
   const loadGenres = await fetchGenres();
+  if (moviesByKeyWord.total_results === 0) {
+    failure();
+  }
+  if (moviesByKeyWord.total_results > 0) {
+    success(moviesByKeyWord.total_results);
+  }
   container.classList.remove('visually-hidden');
  
   renderMarkup(moviesByKeyWord, loadGenres);
