@@ -4,7 +4,7 @@ import { onMovieCardClick } from './modal.js';
 import { onBtnTrailerClick } from '../templates/trailer-play.js';
 import { getRefs } from '../scripts/refs';
 import { paginationMain } from './pagination.js';
-const { collectionEl } = getRefs();
+const { collectionEl, container } = getRefs();
 
 collectionEl.addEventListener('click', evt => {
   if (evt.target === evt.currentTarget) {
@@ -27,6 +27,12 @@ export async function getMovies() {
   page = 1;
   paginationMain.reset();
   const response = await fetchPopularMovies(page);
+
+  if (response.total_results < 20) {
+    container.classList.add('visually-hidden');
+  } else {
+    container.classList.remove('visually-hidden');
+  }
 
   const loadGenres = await fetchGenres();
   // pagination.reset(response.total_results);
