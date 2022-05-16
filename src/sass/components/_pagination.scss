@@ -1,7 +1,18 @@
+.pagination {
+  padding-bottom: 40px;
+
+  @include for-size(tablet) {
+    padding-bottom: 60px;
+  }
+}
+
 .tui-pagination {
-  margin-bottom: 60px;
-  height: 40px;
   text-align: center;
+
+  @include for-size(tablet-up) {
+    display: flex;
+  }
+
 }
 
 .tui-pagination .tui-page-btn {

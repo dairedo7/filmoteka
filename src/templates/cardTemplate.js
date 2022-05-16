@@ -23,9 +23,7 @@ export function renderMarkup({ results }, genres) {
               alt='${title}'
             />
           </div>
-
           <h2 class='item__title'>${title}</h2>
-
           <div class='wrapper'>
             <ul class='genres'>
               ${genre_ids

@@ -27,6 +27,7 @@ export const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
 };
+
 console.log(options.page);
 export let pagination = new Pagination(container, options);
 console.log(pagination);
