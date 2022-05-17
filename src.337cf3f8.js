@@ -152,4 +152,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{"../scripts/refs":"FbTA"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var r=a(require("./scripts/services/API")),e=a(require("./scripts/renderMainPage")),s=require("./scripts/scroll-to-top"),i=a(require("./scripts/header")),t=a(require("./scripts/pagination")),u=a(require("./scripts/spinner")),c=a(require("./scripts/modalStudents")),n=a(require("./scripts/dark-theme")),p=a(require("./scripts/sortingBtns"));function a(r){return r&&r.__esModule?r:{default:r}}require("./scripts/infiniteScroll");
 },{"./sass/main.scss":"clu1","./scripts/services/API":"XqD0","./scripts/renderMainPage":"q8Z5","./scripts/scroll-to-top":"Hibt","./scripts/header":"BSv9","./scripts/pagination":"fZBP","./scripts/spinner":"nmpS","./scripts/modalStudents":"hyPF","./scripts/dark-theme":"HzNH","./scripts/sortingBtns":"t8kM","./scripts/infiniteScroll":"wbTd"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka/src.91e32e87.js.map
+//# sourceMappingURL=/filmoteka/src.337cf3f8.js.map
