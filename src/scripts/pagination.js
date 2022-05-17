@@ -95,6 +95,9 @@ export async function onFormInput(evt) {
     // pagination.on('afterMove', getMovies);
     return getMovies();
   }
+    if (inputValue === ' ') {
+      return;
+  }
   if (footer.classList.length >= 2) {
     footer.classList.remove('.top_movies__footer');
     footer.classList.remove('.upcoming_movies__footer');

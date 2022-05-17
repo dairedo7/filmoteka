@@ -80,13 +80,16 @@ search.addEventListener('input', throttle(onInputSaveData, LOCAL_STORAGE_DELAY))
 
 function onFormSubmitSearch(evt) {
   evt.preventDefault();
-
   if (search.headerInput.value === '') {
+    
     // gallery.innerHTML = '<h2>Sorry, we found no movies by your request</h2>'
-    fetchPopularMovies();
+    // fetchPopularMovies();
     return warning();
   }
-  
+
+  // if (search.headerInput.value.indexOf(' ') > -1) {
+  //    console.log("Probel");
+  // }
   // else {
   //   onFormInput(evt);
   //   evt.currentTarget.reset();
@@ -102,7 +105,6 @@ export function clearPage() {
 export async function searchMovieByQuery() {
   try {
     const inputValue = search.headerInput.value.trim();
-
     const moviesByKeyWord = await fetchMoviesSearchQuery(inputValue, page);
     // console.log(page);
 
@@ -119,6 +121,7 @@ export async function searchMovieByQuery() {
   } catch (error) {
     console.log(error);
   }
+  
 }
 
 // let page = pagination.getCurrentPage();
