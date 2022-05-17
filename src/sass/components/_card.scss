@@ -60,8 +60,12 @@
 }
 
 .item__img {
+  height: 100%;
   width: 280px;
   border: 0.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+
+  object-fit: contain;
 
   @include for-size(tablet) {
     width: 336px;
@@ -70,17 +74,15 @@
   @include for-size(desktop) {
     width: 308px;
   }
-
-  height: 100%;
-  object-fit: contain;
-  border-radius: 5px;
 }
 
 .item__title {
-  text-transform: uppercase;
   font-size: 12px;
   line-height: 1.17;
+  text-transform: uppercase;
+
   padding-top: 10px;
+
   transition: color 0.3s ease-in-out 0s;
 
   @include for-size(tablet) {
@@ -96,7 +98,6 @@
   font-size: 12px;
   line-height: 1.33;
   color: $accentColor;
-  padding: 1px 0;
 }
 
 .genres {
@@ -148,15 +149,15 @@
 }
 
 .trailer__btn {
+  position: absolute;
+  top: 8px;
+  left: 13px;
+  padding: 0;
+
   font-size: 30px;
   opacity: 0.7;
   background-color: transparent;
   transition: font-size 150ms linear;
-  padding: 0;
-
-  position: absolute;
-  top: 8px;
-  left: 13px;
 
   &:hover {
     opacity: 1;

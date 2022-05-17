@@ -1,32 +1,47 @@
-// //Font
+//Font
 $mainFontSize: 12px;
 $modalTitleFontSize: 30px;
 $mainFont: 'Roboto', sans-serif;
 
+// Animation
+$animationProps: 300ms ease-in-out 0s;
+
+// Breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// COLORS
 // Dark theme colors
 $DarkThemeBackgroundColor: #000000f5;
 $DarkThemeBackgroundColorFooter: #1c1c1c;
 $DarkThemeModalBackground: #131212;
 $DarkThemeColorWhite: #ffffff;
 $DarkThemeColorBlack: #000000;
+$DarkThemeModalBackdrop: rgba(100, 100, 100, 0.1);
+$DarkThemePaginationBtn: #f27b2b;
+$DarkThemeTeamBackdrop: rgba(0, 0, 0, 0.5);
 
-//COLORS
 //Main Colors
 $textBlackColor: #000000;
 $textWhiteColor: #ffffff;
 $textFooterColor: #545454;
 $textRedColor: #ff001b;
-$whiteColor: #ffffff;
 $genresColor: #ff6b08c4;
+$whiteColor: #ffffff;
 $blackColor: #000000;
 
 //Background Colors
 $bgMainColor: #ffffff;
 $bgSecondaryColor: #f7f7f7;
+$bgThirdColor: #393939;
 $bgHeaderColor: rgba(0, 0, 0, 0.56);
-
+$bgBackdropColor: rgba(0, 0, 0, 0.3);
+$bgColorBackdropTrailer: rgba(0, 0, 0, 0.9);
+$bgColorScrollBar: #272727;
 //Modal Colors
 $modalSubtitleColor: #8c8c8c;
+$modalYouTubeBtnColor: #ff0019;
 
 //Icon
 $icon-color: #818181;
@@ -34,12 +49,4 @@ $icon-color: #818181;
 //Accent colors
 $accentColor: #ff6b08;
 $btnHoverColor: rgba(255, 107, 1, 0.6);
-
-// // Animation
-
-$animationProps: 300ms ease-in-out 0s;
-
-// // Breakpoints
-$mobile: 320px;
-$tablet: 768px;
-$desktop: 1024px;
+// END COLORS

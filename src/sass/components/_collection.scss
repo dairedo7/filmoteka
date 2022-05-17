@@ -28,20 +28,20 @@
     cursor: pointer;
     overflow: hidden;
     border-radius: 55px;
-    // box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     transition: $animationProps;
   }
 
   &__title {
     position: absolute;
+    top: 30%;
+    left: 3%;
     text-align: center;
     font-size: xx-large;
     animation: appearance 2250ms ease-in-out 250ms;
     color: rgb(255 118 0 / 83%);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     transition: $animationProps;
-    top: 30%;
-    left: 3%;
+
     opacity: 1.2;
 
     &:hover {
