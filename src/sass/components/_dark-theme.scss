@@ -39,6 +39,7 @@ body.dark {
   .modal-close-btn {
     color: $DarkThemeColorWhite ;
 
+    &:focus,
     &:hover {
       color: $accentColor ;
     }
@@ -104,6 +105,8 @@ body.dark {
       border-color: rgba($color: $whiteColor, $alpha: 0.3);
     }
   }
+
+  // End films collection style
 
   // Pagination dark style
   .tui-pagination .tui-page-btn {
