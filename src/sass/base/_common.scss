@@ -3,6 +3,9 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
   transition: background .5s ease-in-out 0s;
 }
@@ -27,5 +30,9 @@ img {
 
 button {
   cursor: pointer;
+}
+
+main {
+  flex-grow: 1;
 }
 
