@@ -1,12 +1,13 @@
-// Custom checkbox for switch dark style
 .header-form__switch {
   position: absolute;
   top: 35px;
   right: 0;
-  margin-right: 32px;
+
   display: block;
   width: 60px;
   height: 34px;
+
+  margin-right: 32px;
 
   @include for-size(tablet-up) {
     margin-right: 20px;
@@ -18,30 +19,32 @@
 }
 
 .header-form__slider {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 
-  background-color: rgba(#393939, $alpha: 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  cursor: pointer;
+  background-color: rgba($bgThirdColor, $alpha: 0.85);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 .header-form__slider:before {
   position: absolute;
+  left: 4px;
+  bottom: 4px;
   font-size: 15px;
   content: '';
   height: 26px;
   width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #ffffff;
+
+  background-color: $bgMainColor;
   -webkit-transition: .4s;
   transition: .3s;
 }
@@ -60,15 +63,15 @@ input:checked+.header-form__slider {
 
 input:focus+.header-form__slider {
   box-shadow: 0 0 1px $accentColor;
-  background-color: #ffffff;
+  background-color: $bgMainColor;
 }
 
 input:checked+.header-form__slider:before {
+  content: '';
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
-  background-color: #393939;
-  content: '';
+  background-color: $bgThirdColor;
 }
 
 .header-form__slider.header-form__slider--round {
@@ -78,5 +81,3 @@ input:checked+.header-form__slider:before {
 .header-form__slider.header-form__slider--round:before {
   border-radius: 50%;
 }
-
-// End custom checkbox for switch dark style

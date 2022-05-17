@@ -1,23 +1,25 @@
 .header-library {
-  background: #0000008f;
   padding-top: 40px;
   padding-bottom: 62px;
-  // height: 216px;
 
   background-repeat: no-repeat;
 
   background-size: cover;
   background-position: center;
-  box-shadow: 0px 0px 1px 0px #000000;
+  box-shadow: 0px 0px 1px 0px $blackColor;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/Mobile/watched-mob-background.jpg);
 
-  @media screen and (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  @media screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/Mobile/watched-mob-background-x2.jpg);
   }
 
-  @media screen and (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+  @media screen and (min-device-pixel-ratio: 3),
+  (min-resolution: 288dpi),
+  (min-resolution: 3dppx) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/Mobile/watched-mob-background-x3.jpg);
   }
@@ -27,15 +29,15 @@
       url(../images/Tablet/watched-tablet-background.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Tablet/watched-tablet-background-x2.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
-      (min-resolution: 288dpi),
-      (min-resolution: 3dppx) {
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Tablet/watched-tablet-background-x3.jpg);
     }
@@ -46,15 +48,15 @@
       url(../images/Desktop/watched-background.jpg);
 
     @media screen and (min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Desktop/watched-background-x2.jpg);
     }
 
     @media screen and (min-device-pixel-ratio: 3),
-      (min-resolution: 288dpi),
-      (min-resolution: 3dppx) {
+    (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/Desktop/watched-background-x3.jpg);
     }
@@ -79,7 +81,7 @@
   font-weight: 500;
   font-size: 30px;
   line-height: 1.16;
-  color: #fff;
+  color: $textWhiteColor;
   margin-left: 8px;
 
   @include for-size(tablet-up) {
@@ -89,6 +91,7 @@
   @include for-size(tablet) {
     display: block;
   }
+
   @include for-size(desktop) {
     margin-left: 10px;
   }
@@ -103,13 +106,14 @@
   font-size: 12px;
   line-height: 1.16;
   position: relative;
+
   &:not(:last-child) {
     margin-right: 40px;
   }
 }
 
 .library-navigation__link {
-  color: #ffffff;
+  color: $textWhiteColor;
   text-transform: uppercase;
 }
 
@@ -136,8 +140,8 @@
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid $whiteColor;
+  color: $textWhiteColor;
   padding-top: 14px;
   padding-bottom: 14px;
   width: 129px;
@@ -154,7 +158,7 @@
 
   &:hover,
   &:focus {
-    background-color: #ff6b01;
+    background-color: $accentColor;
     box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
     border: 1px solid transparent;
   }
@@ -162,18 +166,19 @@
 
 .current::after {
   position: absolute;
-  display: block;
-  content: '';
-  width: 100%;
   left: 0;
   bottom: -5px;
+
+  display: block;
+  width: 100%;
   height: 4px;
-  background: #ff6b08;
+  content: '';
+  background-color: $accentColor;
   border-radius: 2px;
 }
 
 .is_active {
-  background-color: #ff6b01;
+  background-color: $accentColor;
   box-shadow: 0px 8px 43px rgb(255 107 1 / 60%);
   border: 1px solid transparent;
 }

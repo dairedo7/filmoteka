@@ -3,11 +3,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #272727;
+  background-color: $bgColorScrollBar;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: $accentColor;
   border-radius: 10px;
-  border: 5px solid #272727;
+  border: 5px solid $bgColorScrollBar;
 }

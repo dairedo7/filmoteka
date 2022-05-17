@@ -2,6 +2,7 @@
   border-radius: 4px;
   border: 1px solid $blackColor;
   border-radius: 5px;
+
   font-family: inherit;
   font-weight: 500;
   font-size: 12px;
@@ -9,5 +10,6 @@
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
+
   transition: $animationProps;
 }

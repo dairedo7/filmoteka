@@ -17,10 +17,9 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: $bgBackdropColor;
 
   &.is-hidden {
-    // visibility: hidden;
     opacity: 0;
     pointer-events: none;
   }
@@ -39,7 +38,6 @@
   filter: drop-shadow(0 8px 7px black);
 
   width: 280px;
-  // height: 940px;
   padding-top: 48px;
   padding-right: 20px;
   padding-bottom: 40px;
@@ -49,16 +47,15 @@
   background-color: $bgMainColor;
 
   @include for-size(tablet-up) {
-    max-height: 95%; //todo
+    max-height: 95%;
     overflow-y: auto;
   }
 
-  border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+  border: 0.5px solid rgba($color: $blackColor, $alpha: 0.3);
 
   @include for-size(tablet) {
     width: 704px;
-
-    height: 552px; //?505
+    height: 552px;
 
     padding-top: 40px;
     padding-right: 72px;
@@ -69,7 +66,7 @@
   @include for-size(desktop) {
     width: 814px;
 
-    height: 558px; //?
+    height: 558px;
 
     padding-top: 40px;
     padding-right: 16px;
@@ -86,8 +83,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // width: 30px;
-  // height: 30px;
 
   background-color: transparent;
   color: $blackColor;
@@ -116,7 +111,7 @@
   object-fit: contain;
   border-radius: 5px;
   margin: 0 auto;
-  border: 0.5px solid rgba($color: #000000, $alpha: 0.3);
+  border: 0.5px solid rgba($color: $blackColor, $alpha: 0.3);
 
   @include for-size(tablet) {
     width: 250px;
@@ -243,7 +238,7 @@
 }
 
 .modal-play-btn::before {
-  color: #ff0019;
+  color: $modalYouTubeBtnColor;
 }
 
 .modal-overview {
@@ -258,8 +253,6 @@
   margin-bottom: 20px;
 }
 
-
-
 .modal-text {
   font-weight: 500;
   font-size: 12px;
@@ -269,7 +262,7 @@
   color: $textBlackColor;
 
   margin-top: 8px;
-  max-height: 204px; //?236
+  max-height: 204px;
   overflow-y: auto;
 }
 
@@ -282,10 +275,13 @@
 }
 
 .modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-
 
   width: 110px;
   height: 44px;
@@ -294,11 +290,6 @@
   background-color: transparent;
 
   padding: 0 7px;
-
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   border: 1px solid $textBlackColor;
 
@@ -326,17 +317,14 @@
   }
 
   &__added {
-    border: transparent; //none
+    border: transparent;
     background-color: $accentColor;
 
     color: $textWhiteColor;
-
   }
 }
 
-
 //trailer
-
 .backdrop__trailer {
   position: fixed;
   top: 0;
@@ -349,10 +337,9 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: $bgColorBackdropTrailer;
 
   &.is-hidden {
-    // visibility: hidden;
     opacity: 0;
     pointer-events: none;
   }
@@ -372,7 +359,7 @@
 
   border-radius: 5px;
 
-  border: 0.5px solid rgba($color: #ffffff, $alpha: 0.3);
+  border: 0.5px solid rgba($color: $whiteColor, $alpha: 0.3);
 
   @include for-size(tablet) {
     width: 707px;
