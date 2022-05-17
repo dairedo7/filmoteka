@@ -61,7 +61,7 @@ async function getMovieDets(id) {
 //Collection of localStorage queued movies
 async function getMovieQueue(id) {
   const emptyLibraryNotification = (collectionEl.innerHTML =
-    '<li class="item__empty"><h2 class="empty__title">You have not added any films to your queue! </h2><a class="empty__link" href="/index.html">Сlick here to select films from the collection...</a></li>');
+    '<li class="item__empty"><h2 class="empty__title">You have not added any films to your queue! </h2><a class="empty__link" href="./index.html">Сlick here to select films from the collection...</a></li>');
 
   //Adding the orange color & shadow to the active class
   queuedBtn.classList.add('is_active');
@@ -91,22 +91,6 @@ async function getMovieQueue(id) {
 
   return renderWatched(movieQueueArr);
 }
-
-//Getting Trending Movies to display on the main page after visiting of the library-page
-// let pagination = new Pagination(container, options);
-// let page = pagination.getCurrentPage();
-
-// pagination.off('afterMove', searchMovie);
-// pagination.on('afterMove', getMovies);
-
-// export async function getMovies({ page }) {
-//   collectionEl.textContent = '';
-//   const response = await fetchPopularMovies(page);
-
-//   const loadGenres = await fetchGenres();
-
-//   return renderMarkup(response, loadGenres);
-// }
 
 // Add or remove movie-item from library
 const modalEl = document.querySelector('.modal-container');
