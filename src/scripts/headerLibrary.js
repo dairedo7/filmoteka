@@ -28,7 +28,7 @@ let queue;
 //Collection of localStorage watched movies
 async function getMovieDets(id) {
   const emptyLibraryNotification = (collectionEl.innerHTML =
-    '<li class="item__empty"><h2>You have not watched any movies yet!</h2></li>');
+    '<li class="item__empty"><h2 class="empty__title">You have not watched any movies yet!</h2><a class="empty__link" href="/index.html">Сlick here to select films from the collection...</a></li>');
 
   //Adding the orange color & shadow to the active class
   watchedBtn.classList.add('is_active');
@@ -61,7 +61,7 @@ async function getMovieDets(id) {
 //Collection of localStorage queued movies
 async function getMovieQueue(id) {
   const emptyLibraryNotification = (collectionEl.innerHTML =
-    '<li class="item__empty"><h2>You have not added any films to your queue!</h2></li>');
+    '<li class="item__empty"><h2 class="empty__title">You have not added any films to your queue! </h2><a class="empty__link" href="/index.html">Сlick here to select films from the collection...</a></li>');
 
   //Adding the orange color & shadow to the active class
   queuedBtn.classList.add('is_active');

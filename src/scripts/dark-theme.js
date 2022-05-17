@@ -22,7 +22,6 @@ darkModeMediaQuery.addListener(event => {
     document.body.classList.remove('dark');
     themeCheckboxEl.checked = false;
   }
-  console.log(`Тёмный режим ${darkModeOn ? '🌚 включен' : '🌞 выключен'}.`);
 });
 
 themeCheckboxEl.addEventListener('change', () => document.body.classList.toggle('dark'));

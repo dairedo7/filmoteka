@@ -22,105 +22,42 @@ export function warning() {
 
 // Объект визуальных настроек
 Notiflix.Notify.init({
-  width: '280px',
-  position: 'right-top', // 'right-top' - 'right-bottom' - 'left-top' - 'left-bottom' - 'center-top' - 'center-bottom' - 'center-center'
   distance: '20px',
-  opacity: 1,
-  borderRadius: '5px',
-  rtl: false,
-  timeout: 3000,
-  messageMaxLength: 110,
-  backOverlay: false,
-  backOverlayColor: 'rgba(0,0,0,0.5)',
-  plainText: true,
-  showOnlyTheLastOne: false,
   clickToClose: true,
-  pauseOnHover: true,
-
-  ID: 'NotiflixNotify',
-  className: 'notiflix-notify',
-  zindex: 4000,
   fontFamily: 'Roboto',
   fontSize: '14px',
-  cssAnimation: true,
-  cssAnimationDuration: 400,
   cssAnimationStyle: 'zoom', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
-  closeButton: false,
-  useIcon: true,
-  useFontAwesome: false,
-  fontAwesomeIconStyle: 'basic', // 'basic' - 'shadow'
-  fontAwesomeIconSize: '34px',
 
   success: {
     background: '#1c1c1cf5',
-    textColor: '#fff',
-    childClassName: 'notiflix-notify-success',
     notiflixIconColor: '#ff6b08',
-    fontAwesomeClassName: 'fas fa-check-circle',
-    fontAwesomeIconColor: '#ff6b08',
-    backOverlayColor: 'rgba(50,198,130,0.2)',
   },
 
   failure: {
     background: '#1c1c1cf5',
-    textColor: '#fff',
-    childClassName: 'notiflix-notify-failure',
     notiflixIconColor: '#ff6b08',
-    fontAwesomeClassName: 'fas fa-times-circle',
-    fontAwesomeIconColor: '#ff6b08',
-    backOverlayColor: 'rgba(255,85,73,0.2)',
   },
 
   warning: {
     background: '#1c1c1cf5',
-    textColor: '#fff',
-    childClassName: 'notiflix-notify-warning',
     notiflixIconColor: '#ff6b08',
-    fontAwesomeClassName: 'fas fa-exclamation-circle',
-    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
-    backOverlayColor: 'rgba(238,191,49,0.2)',
   },
 
   info: {
     background: '#1c1c1cf5',
-    textColor: '#fff',
-    childClassName: 'notiflix-notify-info',
     notiflixIconColor: '#ff6b08',
-    fontAwesomeClassName: 'fas fa-info-circle',
-    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
-    backOverlayColor: 'rgba(38,192,211,0.2)',
   },
 });
 
 Notiflix.Report.init({
-  className: 'notiflix-report',
-  width: '320px',
   backgroundColor: '#1c1c1cf5',
-  borderRadius: '25px',
-  rtl: false,
-  zindex: 4002,
-  backOverlay: true,
-  backOverlayColor: 'rgba(0,0,0,0.5)',
-  backOverlayClickToClose: false,
   fontFamily: 'Roboto',
-  svgSize: '110px',
-  plainText: true,
-  titleFontSize: '16px',
-  titleMaxLength: 34,
-  messageFontSize: '13px',
-  messageMaxLength: 400,
-  buttonFontSize: '14px',
-  buttonMaxLength: 34,
-  cssAnimation: true,
-  cssAnimationDuration: 360,
-  cssAnimationStyle: 'fade', // 'fade' - 'zoom'
 
   info: {
     svgColor: '#ff6b08',
     titleColor: '#ffffff',
     messageColor: '#ffffff',
     buttonBackground: '#ff6b08',
-    buttonColor: '#fff',
     backOverlayColor: 'rgba(0, 0, 0,0.5)',
   },
 });

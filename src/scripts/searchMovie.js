@@ -86,15 +86,6 @@ function onFormSubmitSearch(evt) {
     // fetchPopularMovies();
     return warning();
   }
-
-  // if (search.headerInput.value.indexOf(' ') > -1) {
-  //    console.log("Probel");
-  // }
-  // else {
-  //   onFormInput(evt);
-  //   evt.currentTarget.reset();
-  //   clearLocalStorage();
-  // }
 }
 // Очистка страницы
 export function clearPage() {
@@ -124,8 +115,6 @@ export async function searchMovieByQuery() {
   
 }
 
-// let page = pagination.getCurrentPage();
-// console.log(page);
 let page = 0;
 async function getTrends() {
   page += 1;
@@ -134,7 +123,7 @@ async function getTrends() {
 
   return renderMarkup(response, theGenres);
 }
-// getTrends();
+
 // Функция сохранения данных в локальное хранилище
 function onInputSaveData(evt) {
   formData[evt.target.name] = evt.target.value;

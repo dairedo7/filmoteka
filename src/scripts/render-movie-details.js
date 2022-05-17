@@ -6,7 +6,6 @@ import { getRefs } from '../scripts/refs';
 const { modalContainerEl } = getRefs();
 
 export function renderMovieDetails(movieDetails) {
-  // id
   const {
     genres,
 
@@ -30,7 +29,6 @@ export function renderMovieDetails(movieDetails) {
     genre = genres.map(({ name }) => `${name}`).join(', ');
   }
 
-  // src = 'https://image.tmdb.org/t/p/original${poster_path}';
   const defaultPoster = `https://i.pinimg.com/564x/e4/71/1e/e4711e46bea5264eaab661d643285ff6.jpg`;
   const poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const movieDetailsEl = `<img src="${

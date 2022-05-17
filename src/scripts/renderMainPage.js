@@ -35,7 +35,6 @@ export async function getMovies() {
   }
 
   const loadGenres = await fetchGenres();
-  // pagination.reset(response.total_results);
   return renderMarkup(response, loadGenres);
 }
 
