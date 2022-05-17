@@ -63,6 +63,9 @@ export async function onFormInput(evt) {
   if (evt.target.value === '') {
     return getMovies();
   }
+    if (inputValue === ' ') {
+      return;
+  }
   if (footer.classList.length >= 2) {
     footer.classList.remove('.top_movies__footer');
     footer.classList.remove('.upcoming_movies__footer');
