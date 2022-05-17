@@ -14,7 +14,7 @@ export function getData() {
 // 2 set movie
 export function setNewWatchedMovie(title, id) {
     watchedMovies[title] = id;
-  
+
   localStorage.setItem('watched-movies', JSON.stringify(watchedMovies));
 }
 
@@ -34,8 +34,8 @@ export function checkedWatchedMovie(title) {
 
 // 5 remove movie
 export function removeWatchedMovie(title) {
-  if (checkedWatchedMovie(title)) {    
-    delete watchedMovies.[title];   
+  if (checkedWatchedMovie(title)) {
+    delete watchedMovies.[title];
       }
 
   localStorage.setItem('watched-movies', JSON.stringify(watchedMovies));
@@ -59,7 +59,7 @@ export function getDataQ() {
 // 2 set movie
 export function setNewQueueMovie(title, id) {
     queueMovies[title] = id;
-  
+
   localStorage.setItem('queue-movies', JSON.stringify(queueMovies));
 }
 
@@ -79,11 +79,10 @@ export function checkedQueueMovie(title) {
 
 // 5 remove movie
 export function removeQueueMovie(title) {
-  if (checkedQueueMovie(title)) {    
-    delete queueMovies.[title];   
-    
+  if (checkedQueueMovie(title)) {
+    delete queueMovies.[title];
+
   }
 
   localStorage.setItem('queue-movies', JSON.stringify(queueMovies));
 }
-
