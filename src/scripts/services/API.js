@@ -18,6 +18,7 @@ export const fetchPopularMovies = async page => {
 export const fetchTrendingMovies = async time => {
   const response = await axios.get(`/trending/movie/${time}?api_key=${API_KEY}`);
   const trandingMoviesData = await response.data;
+
   return trandingMoviesData;
 };
 let page;
@@ -63,9 +64,9 @@ export const fetchGenres = async () => {
 export const fetchMovieTrailer = async id => {
   const response = await axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
   const videos = await response.data.results;
-
+  console.log(videos);
   const onlyTrailer = videos.filter(video => video.type === 'Trailer').pop();
-
+  console.log(onlyTrailer);
   return onlyTrailer;
 };
 
@@ -79,16 +80,26 @@ export const fetchGenresById = async (genreId, page) => {
 
 export const fetchTopRatedMovies = async page => {
   const response = await axios.get(
-    `movie/top_rated?api_key=8467b35301383f6844ef88f323a204bb&page=${page}&region=UA&language=en-US`,
+    `movie/top_rated?api_key=${API_KEY}&page=${page}&region=UA&language=en-US`,
   );
   const results = response.data;
   return results;
 };
 
 export const fetchUpcomingMovies = async page => {
-  const response = await axios.get(
-    `movie/upcoming?api_key=8467b35301383f6844ef88f323a204bb&page=${page}&language=en-US`,
-  );
+  const response = await axios.get(`movie/upcoming?api_key=${API_KEY}&page=${page}&language=en-US`);
   const results = response.data;
   return results;
 };
+
+export const fetchCountries = async () => {
+  const response = await axios.get(`/configuration/countries?api_key=${API_KEY}&language=en-US`);
+  const moviePoster = await response.data;
+  return moviePoster;
+};
+
+async function getCountries() {
+  const response = await fetchCountries();
+}
+
+getCountries();
