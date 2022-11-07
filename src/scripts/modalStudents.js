@@ -8,34 +8,28 @@ openModalBtn.addEventListener('click', onOpenModal);
 closeModalBtn.addEventListener('click', onCloseModal);
 backdrop.addEventListener('click', onBackdropClick);
 
-
 function onOpenModal() {
-    window.addEventListener('keydown', onEsc)
+  window.addEventListener('keydown', onEsc);
   document.body.classList.add('show-modal');
   const teamList = document.querySelector('.list-team');
   teamList.innerHTML = markupTeam(team);
   document.body.style.overflow = 'hidden';
-
-};
-
+}
 
 function onCloseModal() {
   document.body.classList.remove('show-modal');
-    window.removeEventListener('keydown', onEsc)
+  window.removeEventListener('keydown', onEsc);
   document.body.style.overflow = '';
-
-};
+}
 
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {
-      onCloseModal()
+    onCloseModal();
   }
-};
+}
 
 function onEsc(event) {
-if (event.code === 'Escape') {
-    onCloseModal()
+  if (event.code === 'Escape') {
+    onCloseModal();
+  }
 }
-};
-
-

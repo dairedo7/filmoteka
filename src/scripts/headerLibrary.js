@@ -1,14 +1,8 @@
-import { renderMarkup } from '../templates/cardTemplate';
 import { getWatchedMovies, getQueueMovies } from './localStorage';
 import { fetchMovieDetails } from './services/API';
 import { renderWatched } from '../templates/libraryTemplate.js';
-import { fetchPopularMovies, fetchGenres } from './services/API';
 import { startSpin, stopSpin } from './spinner';
 import { getRefs } from '../scripts/refs';
-import { searchMovie } from './pagination';
-import { options } from './pagination';
-const { container } = getRefs();
-import Pagination from 'tui-pagination';
 
 const PER_PAGE = 20;
 
