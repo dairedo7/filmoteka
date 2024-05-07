@@ -25,9 +25,12 @@ const { backdropEl, modalContainerEl, backdropTrailerContainerEl, modalEl, close
 let details;
 let modalButtonsEl;
 
+checkURLForMovieId();
+
 //  open modal
 export async function onMovieCardClick(id) {
   modalContainerEl.innerHTML = '';
+  window.history.pushState({}, '', `?movie=${id}`);
   backdropEl.classList.remove('is-hidden');
   window.addEventListener('keydown', onEscPress);
   document.body.style.overflow = 'hidden';
@@ -72,7 +75,7 @@ async function onTrailerBtnClick() {
 
   const { id } = details;
   const trailer = await fetchMovieTrailer(id);
-  console.log(trailer);
+
   if (!trailer) {
     stopSpin();
     missingTrailer();
@@ -107,12 +110,20 @@ function onQueueBtnClick() {
   renderWatchedQueueButtons(details, modalButtonsEl);
 }
 
+//check if movieId param is set in url
+function checkURLForMovieId() {
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get('movie');
+  if (movieId) onMovieCardClick(movieId);
+}
+
 // modal closing
 closeBtnEl.addEventListener('click', onCloseBtnClick);
 function onCloseBtnClick() {
   backdropEl.classList.add('is-hidden');
   window.removeEventListener('keydown', onEscPress);
   document.body.style.overflow = '';
+  window.history.pushState({}, '', window.location.pathname);
 }
 function trailerClosed() {
   backdropTrailerContainerEl.innerHTML = '';
